@@ -1,0 +1,204 @@
+c 
+c Mallob -- a parallel and distributed platform for job scheduling, load balancing, and SAT solving
+c Designed by P. Sanders and D. Schreiber 2018-2022
+c Developed by D. Schreiber 2019-2022
+c 
+c 0.000 0 Program options: -0o=0 -J=1 -T=0 -ajpc=0 -ans=0 -appmode=fork -ba=4 -bicg=4 -c=1 -cbbs=1500 -cbdf=0.9 -cfci=20 -cg=1 -ch=0 -chaf=5 -checksums=0 -chstms=10 -cmp=0 -colors=0 -dc=0 -ddd=0 -delaymonkey=0 -derandomize=1 -evu=0 -fapii=0 -g=0 -gclls=0 -h=0 -hbbfs=10 -hubfs=9999999 -huca=-1 -iff=0 -interface-fs=0 -interface-ipc=0 -isp=0 -jc=4 -jcl=0 -jcup=0 -jjp=0 -jwl=1000 -l=1 -latencymonkey=0 -ljpc=32 -mbfsd=4 -mbt=1000000 -mcips=10 -md=0 -mid=0 -mjps=0 -mlbdps=8 -mlpt=50000000 -mmpi=0 -mono=instances/ece585_instances/crafted_n11_d6_c4_num19.cnf.xz -nce=20 -os=0 -p=0.01 -phasediv=1 -pls=1 -pph=0 -q=0 -qcll=8 -qlbdl=2 -ril=0 -rpa=0 -rs=1 -rto=0 -s=1 -satsolver=l -scll=30 -seed=0 -sjd=0 -slbdl=30 -sleep=100 -t=4 -trace-dir=. -v=2 -w=-1 -wam=10000 -warmup=0 -watchdog=1 -wr=0 -y=1 -yield=0 
+c 0.006 1 [WARN] Num bounce alternatives must be at most half the number of workers!
+c 0.006 1 [WARN] Falling back to safe value r=1.
+c 0.006 0 [WARN] Num bounce alternatives must be at most half the number of workers!
+c 0.006 0 [WARN] Falling back to safe value r=1.
+c 0.006 0 Set up API at src/interface/api/api_connector.hpp
+c 0.006 1 Machine color 0 with 2 total workers (my rank: 1)
+c 0.006 0 Machine color 0 with 2 total workers (my rank: 0)
+c 1.200 0 sysstate busyratio=0.000 cmtdratio=0.000 jobs=0 globmem=0.00GB newreqs=0 hops=0
+c 1.200 0 sysstate entered=1 parsed=0 scheduled=0 processed=0
+c 1.248 0 Introducing job #1 rev. 0 : r.#1:0 rev. 0 <- [0] born=1.248 hops=0 epoch=-1 => [1]
+c 1.248 1 BLC insert (1,1,0.010)
+c 1.249 0 BLC insert (1,2,1.000)
+c 2.238 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=0.75GB newreqs=1 hops=2
+c 2.238 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 2.355 0 Communication: epoch 1 took 0.106100 seconds to complete.
+c 3.282 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.90GB newreqs=0 hops=0
+c 3.282 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 3.359 0 Communication: epoch 2 took 0.110094 seconds to complete.
+c 4.331 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.13GB newreqs=0 hops=0
+c 4.331 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 4.376 0 Communication: epoch 3 took 0.127116 seconds to complete.
+c 5.360 0 Communication: epoch 4 took 0.111101 seconds to complete.
+c 5.360 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=4.13GB newreqs=0 hops=0
+c 5.360 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 6.349 0 Communication: epoch 5 took 0.100111 seconds to complete.
+c 6.394 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.98GB newreqs=0 hops=0
+c 6.394 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 7.356 0 Communication: epoch 6 took 0.107097 seconds to complete.
+c 7.424 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.36GB newreqs=0 hops=0
+c 7.424 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 8.390 0 Communication: epoch 7 took 0.141064 seconds to complete.
+c 8.456 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 8.467 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.84GB newreqs=0 hops=0
+c 9.419 0 Communication: epoch 8 took 0.170091 seconds to complete.
+c 9.491 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 9.502 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.89GB newreqs=0 hops=0
+c 10.399 0 Communication: epoch 9 took 0.150065 seconds to complete.
+c 10.554 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 10.565 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.83GB newreqs=0 hops=0
+c 11.398 0 Communication: epoch 10 took 0.149070 seconds to complete.
+c 11.585 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 11.596 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.67GB newreqs=0 hops=0
+c 12.413 0 Communication: epoch 11 took 0.164070 seconds to complete.
+c 12.622 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 12.633 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.37GB newreqs=0 hops=0
+c 13.402 0 Communication: epoch 12 took 0.153058 seconds to complete.
+c 13.666 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 13.677 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.40GB newreqs=0 hops=0
+c 14.381 0 Communication: epoch 13 took 0.132064 seconds to complete.
+c 14.739 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 14.750 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.90GB newreqs=0 hops=0
+c 15.403 0 Communication: epoch 14 took 0.154021 seconds to complete.
+c 15.778 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 15.789 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.46GB newreqs=0 hops=0
+c 16.396 0 Communication: epoch 15 took 0.147015 seconds to complete.
+c 16.815 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 16.826 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.66GB newreqs=0 hops=0
+c 17.396 0 Communication: epoch 16 took 0.147003 seconds to complete.
+c 17.853 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 17.864 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.62GB newreqs=0 hops=0
+c 18.402 0 Communication: epoch 17 took 0.153002 seconds to complete.
+c 18.898 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 18.909 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.56GB newreqs=0 hops=0
+c 19.385 0 Communication: epoch 18 took 0.135948 seconds to complete.
+c 19.941 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 19.952 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.36GB newreqs=0 hops=0
+c 20.435 0 Communication: epoch 19 took 0.185968 seconds to complete.
+c 21.015 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.28GB newreqs=0 hops=0
+c 21.015 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 21.393 0 [WARN] Watchdog: No reset for 52 ms (activity=6 recvtag=0 sendtag=62)
+c 21.470 0 Communication: epoch 20 took 0.220963 seconds to complete.
+c 22.054 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.26GB newreqs=0 hops=0
+c 22.054 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 22.401 0 Communication: epoch 21 took 0.151968 seconds to complete.
+c 23.082 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.02GB newreqs=0 hops=0
+c 23.082 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 23.492 0 Communication: epoch 22 took 0.242939 seconds to complete.
+c 24.111 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 24.122 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.29GB newreqs=0 hops=0
+c 24.449 0 Communication: epoch 23 took 0.199909 seconds to complete.
+c 25.146 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 25.155 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=3.03GB newreqs=0 hops=0
+c 25.455 0 Communication: epoch 24 took 0.205904 seconds to complete.
+c 26.235 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 26.246 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.82GB newreqs=0 hops=0
+c 26.396 0 Communication: epoch 25 took 0.146910 seconds to complete.
+c 27.271 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 27.282 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.83GB newreqs=0 hops=0
+c 27.459 0 Communication: epoch 26 took 0.209894 seconds to complete.
+c 28.339 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.75GB newreqs=0 hops=0
+c 28.339 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 28.418 0 [WARN] Watchdog: No reset for 57 ms (activity=0 recvtag=0 sendtag=0)
+c 28.470 0 Communication: epoch 27 took 0.220860 seconds to complete.
+c 29.390 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 29.401 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.63GB newreqs=0 hops=0
+c 29.445 0 Communication: epoch 28 took 0.195887 seconds to complete.
+c 30.393 0 Communication: epoch 29 took 0.143869 seconds to complete.
+c 30.415 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 30.437 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.56GB newreqs=0 hops=0
+c 31.435 0 Communication: epoch 30 took 0.185862 seconds to complete.
+c 31.457 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 31.479 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.43GB newreqs=0 hops=0
+c 32.385 0 Communication: epoch 31 took 0.135826 seconds to complete.
+c 32.490 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 32.546 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.40GB newreqs=0 hops=0
+c 33.370 0 [WARN] Watchdog: No reset for 70 ms (activity=6 recvtag=0 sendtag=62)
+c 33.432 0 Communication: epoch 32 took 0.182800 seconds to complete.
+c 33.582 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 33.593 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.29GB newreqs=0 hops=0
+c 34.454 0 Communication: epoch 33 took 0.204823 seconds to complete.
+c 34.609 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 34.620 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.26GB newreqs=0 hops=0
+c 35.442 0 Communication: epoch 34 took 0.192772 seconds to complete.
+c 35.642 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 35.653 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.95GB newreqs=0 hops=0
+c 36.449 0 Communication: epoch 35 took 0.199749 seconds to complete.
+c 36.690 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 36.701 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.23GB newreqs=0 hops=0
+c 37.475 0 Communication: epoch 36 took 0.225758 seconds to complete.
+c 37.717 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 37.728 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.19GB newreqs=0 hops=0
+c 38.441 0 Communication: epoch 37 took 0.191746 seconds to complete.
+c 38.769 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 38.781 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.17GB newreqs=0 hops=0
+c 39.446 0 Communication: epoch 38 took 0.196777 seconds to complete.
+c 39.809 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 39.820 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.14GB newreqs=0 hops=0
+c 40.426 0 Communication: epoch 39 took 0.176765 seconds to complete.
+c 40.846 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 40.857 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.16GB newreqs=0 hops=0
+c 41.421 0 Communication: epoch 40 took 0.171738 seconds to complete.
+c 41.893 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.13GB newreqs=0 hops=0
+c 41.893 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 42.411 0 Communication: epoch 41 took 0.161724 seconds to complete.
+c 42.931 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.14GB newreqs=0 hops=0
+c 42.987 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 43.410 0 Communication: epoch 42 took 0.160721 seconds to complete.
+c 43.994 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.12GB newreqs=0 hops=0
+c 44.027 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 44.409 0 Communication: epoch 43 took 0.160702 seconds to complete.
+c 45.062 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.11GB newreqs=0 hops=0
+c 45.063 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 45.392 0 Communication: epoch 44 took 0.143700 seconds to complete.
+c 46.104 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.12GB newreqs=0 hops=0
+c 46.105 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 46.440 0 Communication: epoch 45 took 0.191704 seconds to complete.
+c 47.117 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=2.11GB newreqs=0 hops=0
+c 47.182 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 47.425 0 Communication: epoch 46 took 0.176655 seconds to complete.
+c 47.656 1 #1:1 rev. 0 : found result UNSAT => [0]
+c 47.665 0 BLC insert (1,0,0.000)
+c 47.667 1 <#1> END S4 pps:92955564 dcs:1400188 cfs:374804 rst:0 prod:181053 (flt:24209 adm:25197 drp:131647) recv:58217 (flt:4012 digd:17189 drp:37016) + intim:0/0
+c 47.667 1 <#1> END S4 clenhist prod total:181053 26254 1454 682 1189 2553 5096 8423 12386 15606 4829 6424 11493 16278 10927 8290 6856 6829 5640 4988 4569 3851 3226 2872 2466 1925 1606 1324 1079 1108 830
+c 47.667 1 <#1> END S4 clenhist digd total:17189 0 6728 2654 1577 1024 895 932 935 1076 714 572 82
+c 47.667 1 <#1> END S5 pps:116084760 dcs:494021 cfs:110011 rst:0 prod:44245 (flt:12715 adm:29074 drp:2456) recv:58217 (flt:2494 digd:18707 drp:37016) + intim:0/0
+c 47.667 1 <#1> END S5 clenhist prod total:44245 37113 625 216 158 195 408 733 925 964 148 104 102 124 130 114 125 138 107 139 130 116 128 95 133 104 113 122 122 345 269
+c 47.667 1 <#1> END S5 clenhist digd total:18707 0 7489 2914 2096 1560 1004 757 633 892 700 584 78
+c 47.667 1 <#1> END S6 pps:154215776 dcs:1609748 cfs:66005 rst:0 prod:40937 (flt:33935 adm:6431 drp:571) recv:58217 (flt:1711 digd:16444 drp:37016) + intim:0/0
+c 47.667 1 <#1> END S6 clenhist prod total:40937 37460 799 287 127 69 57 39 88 113 89 95 94 106 130 82 101 95 73 79 87 81 81 77 87 82 71 57 63 113 155
+c 47.668 1 <#1> END S6 clenhist digd total:16444 0 7110 2689 1603 964 745 730 811 869 665 202 56
+c 47.668 1 <#1> END S7 pps:110950874 dcs:916323 cfs:66940 rst:0 prod:40786 (flt:30625 adm:9339 drp:822) recv:58217 (flt:1810 digd:19391 drp:37016) + intim:0/0
+c 47.668 1 <#1> END S7 clenhist prod total:40786 36972 781 324 156 100 86 74 124 201 112 86 95 97 123 94 78 112 87 97 72 84 70 64 77 58 68 66 58 149 221
+c 47.668 1 <#1> END S7 clenhist digd total:19391 0 7353 2807 2089 1602 1167 1073 933 1058 683 554 72
+c 47.668 1 <#1> END pps:474206974 dcs:4420280 cfs:617760 rst:0 prod:307021 (flt:101484 adm:70041 drp:135496) recv:232868 (flt:10027 digd:71731 drp:148064) + intim:0/0
+c 47.668 1 <#1> END exp:50424/50424 drp:0(0.000000) pflt:0 sflt:0
+c 47.668 1 <#1> clenhist prod total:307021 137799 3659 1509 1630 2917 5647 9269 13523 16884 5178 6709 11784 16605 11310 8580 7160 7174 5907 5303 4858 4132 3505 3108 2763 2169 1858 1569 1322 1715 1475
+c 47.668 1 <#1> clenhist flfl total:101484 101341 58 7 1 0 0 1 4 1 1 7 17 12 19 3 0 6 0 5 0 0 0 0 0 0 0 0 0 1
+c 47.668 1 <#1> clenhist admt total:70041 36458 3601 1502 1629 2917 4794 4471 3825 3172 637 582 809 865 761 525 406 416 280 289 263 233 212 189 196 138 136 113 113 261 248
+c 47.668 1 <#1> clenhist drpd total:135496 0 0 0 0 0 853 4797 9694 13711 4540 6120 10958 15728 10530 8052 6754 6752 5627 5009 4595 3899 3293 2919 2567 2031 1722 1456 1209 1453 1227
+c 47.668 1 <#1> clenhist dltd total:17899 0 0 0 0 0 1222 3816 3246 2690 319 330 632 865 761 525 406 416 280 289 263 233 212 189 196 138 136 113 113 261 248
+c 47.668 1 <#1> clenhist retd total:3974 2539 23 70 316 78 201 78 141 164 104 166 94
+c 47.676 0 RESPONSE_TIME #1 46.428455 rev. 0
+c 47.676 0 SOLUTION #1 UNSAT rev. 0
+s UNSATISFIABLE
+c 47.676 0 <#1> END S0 pps:102895964 dcs:331723 cfs:64698 rst:0 prod:41025 (flt:18783 adm:21784 drp:458) recv:58217 (flt:1550 digd:19254 drp:37016) + intim:0/0
+c 47.676 0 <#1> END S0 clenhist prod total:41025 37369 548 224 140 89 116 156 175 241 102 69 54 89 98 75 70 122 51 61 69 94 74 77 84 66 60 61 87 249 255
+c 47.676 0 <#1> END S0 clenhist digd total:19254 0 7511 2815 1862 1611 1128 966 951 1043 701 573 93
+c 47.676 0 <#1> END S1 pps:197570754 dcs:1560764 cfs:107964 rst:0 prod:11731 (flt:4499 adm:7066 drp:166) recv:58217 (flt:3802 digd:17399 drp:37016) + intim:0/0
+c 47.676 0 <#1> END S1 clenhist prod total:11731 6426 1544 678 402 274 166 123 137 173 147 163 96 100 103 90 141 93 84 80 61 59 57 66 57 51 44 56 56 112 92
+c 47.677 0 <#1> END S1 clenhist digd total:17399 0 6567 2455 1841 1426 1080 1005 865 973 636 466 85
+c 47.677 0 <#1> END S2 pps:162888702 dcs:1963000 cfs:71145 rst:0 prod:12372 (flt:4040 adm:8160 drp:172) recv:58217 (flt:4346 digd:10405 drp:37016) + intim:0/0
+c 47.677 0 <#1> END S2 clenhist prod total:12372 6666 2090 765 458 268 162 119 124 139 140 87 110 113 107 78 99 81 62 73 63 72 63 47 39 44 39 30 39 74 121
+c 47.677 0 <#1> END S2 clenhist digd total:10405 0 5156 2041 1177 694 499 337 363 126 12
+c 47.677 0 <#1> END S3 pps:101047388 dcs:380718 cfs:78002 rst:0 prod:40369 (flt:24116 adm:15859 drp:394) recv:58217 (flt:1680 digd:17831 drp:37016) + intim:0/0
+c 47.677 0 <#1> END S3 clenhist prod total:40369 37256 553 189 152 86 75 76 114 252 105 73 63 66 94 72 100 83 54 72 67 70 55 72 66 71 46 56 52 163 116
+c 47.677 0 <#1> END S3 clenhist digd total:17831 0 7411 2799 1621 1110 1025 932 871 876 660 450 76
+c 47.677 0 <#1> END pps:564402808 dcs:4236205 cfs:321809 rst:0 prod:105497 (flt:51438 adm:52869 drp:1190) recv:232868 (flt:11378 digd:64889 drp:148064) + intim:0/0
+c 47.677 0 <#1> END exp:52125/52125 drp:0(0.000000) pflt:0 sflt:0
+c 47.677 0 <#1> clenhist prod total:105497 87717 4735 1856 1152 717 519 474 550 805 494 392 323 368 402 315 410 379 251 286 260 295 249 262 246 232 189 203 234 598 584
+c 47.677 0 <#1> clenhist flfl total:51438 51362 62 5 1 0 1 0 0 0 2 0 0 0 0 0 0 2 0 1 0 0 0 0 0 0 0 0 0 2
+c 47.677 0 <#1> clenhist admt total:52869 36355 4673 1851 1151 717 518 474 550 805 492 392 321 360 387 296 369 344 235 256 241 269 215 209 178 162 124 127 143 331 324
+c 47.677 0 <#1> clenhist drpd total:1190 0 0 0 0 0 0 0 0 0 0 0 2 8 15 19 41 33 16 29 19 26 34 53 68 70 65 76 91 265 260
+c 47.677 0 <#1> clenhist dltd total:3367 0 0 0 0 0 0 0 0 0 0 0 24 207 209 174 219 152 134 143 117 179 214 209 177 162 123 127 143 330 324
+c 47.677 0 <#1> clenhist retd total:4548 2126 0 216 363 553 65 10 149 245 353 340 128
+c 47.677 0 Terminating.
+[1670822769.306803] [della-i12n3:283573:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x148c764e4940 was not matched
+c 48.033 1 Exiting happily
+c 48.038 0 Exiting happily

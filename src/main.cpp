@@ -270,6 +270,7 @@ int main(int argc, char *argv[]) {
     // Exit properly
     MPI_Barrier(MPI_COMM_WORLD);
     MPI_Finalize();
-    LOG(V2_INFO, "Exiting happily\n");
+    //LOG(V2_INFO, "Exiting happily\n");
+    LOG(V0_CRIT, "Exiting happily\n");
     Process::doExit(0);
 }

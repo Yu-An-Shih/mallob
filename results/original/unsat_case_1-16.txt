@@ -1,0 +1,609 @@
+c 
+c Mallob -- a parallel and distributed platform for job scheduling, load balancing, and SAT solving
+c Designed by P. Sanders and D. Schreiber 2018-2022
+c Developed by D. Schreiber 2019-2022
+c 
+c 0.001 0 Program options: -0o=0 -J=1 -T=0 -ajpc=0 -ans=0 -appmode=fork -ba=4 -bicg=4 -c=1 -cbbs=1500 -cbdf=0.9 -cfci=20 -cg=1 -ch=0 -chaf=5 -checksums=0 -chstms=10 -cmp=0 -colors=0 -dc=0 -ddd=0 -delaymonkey=0 -derandomize=1 -evu=0 -fapii=0 -g=0 -gclls=0 -h=0 -hbbfs=10 -hubfs=9999999 -huca=-1 -iff=0 -interface-fs=0 -interface-ipc=0 -isp=0 -jc=4 -jcl=0 -jcup=0 -jjp=0 -jwl=1000 -l=1 -latencymonkey=0 -ljpc=32 -mbfsd=4 -mbt=1000000 -mcips=10 -md=0 -mid=0 -mjps=0 -mlbdps=8 -mlpt=50000000 -mmpi=0 -mono=instances/ece585_instances/crafted_n11_d6_c4_num19.cnf.xz -nce=20 -os=0 -p=0.01 -phasediv=1 -pls=1 -pph=0 -q=0 -qcll=8 -qlbdl=2 -ril=0 -rpa=0 -rs=1 -rto=0 -s=1 -satsolver=l -scll=30 -seed=0 -sjd=0 -slbdl=30 -sleep=100 -t=4 -trace-dir=. -v=2 -w=-1 -wam=10000 -warmup=0 -watchdog=1 -wr=0 -y=1 -yield=0 
+c 0.008 0 Set up API at src/interface/api/api_connector.hpp
+c 0.010 10 Machine color 0 with 16 total workers (my rank: 10)
+c 0.010 11 Machine color 0 with 16 total workers (my rank: 11)
+c 0.010 12 Machine color 0 with 16 total workers (my rank: 12)
+c 0.010 13 Machine color 0 with 16 total workers (my rank: 13)
+c 0.010 14 Machine color 0 with 16 total workers (my rank: 14)
+c 0.010 15 Machine color 0 with 16 total workers (my rank: 15)
+c 0.010 0 Machine color 0 with 16 total workers (my rank: 0)
+c 0.010 1 Machine color 0 with 16 total workers (my rank: 1)
+c 0.010 2 Machine color 0 with 16 total workers (my rank: 2)
+c 0.010 3 Machine color 0 with 16 total workers (my rank: 3)
+c 0.010 4 Machine color 0 with 16 total workers (my rank: 4)
+c 0.010 5 Machine color 0 with 16 total workers (my rank: 5)
+c 0.010 6 Machine color 0 with 16 total workers (my rank: 6)
+c 0.010 7 Machine color 0 with 16 total workers (my rank: 7)
+c 0.010 8 Machine color 0 with 16 total workers (my rank: 8)
+c 0.010 9 Machine color 0 with 16 total workers (my rank: 9)
+c 1.200 0 sysstate busyratio=0.000 cmtdratio=0.000 jobs=0 globmem=0.00GB newreqs=0 hops=0
+c 1.200 0 sysstate entered=1 parsed=0 scheduled=0 processed=0
+c 1.280 0 Introducing job #1 rev. 0 : r.#1:0 rev. 0 <- [0] born=1.280 hops=0 epoch=-1 => [1]
+c 1.280 1 BLC insert (1,1,0.010)
+c 1.404 5 BLC insert (1,16,1.000)
+c 2.201 0 sysstate busyratio=1.000 cmtdratio=0.688 jobs=1 globmem=1.22GB newreqs=15 hops=3
+c 2.201 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 2.646 5 Communication: epoch 1 took 0.241475 seconds to complete.
+c 3.235 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=7.41GB newreqs=0 hops=0
+c 3.246 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 3.666 5 Communication: epoch 2 took 0.261494 seconds to complete.
+c 4.256 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=19.35GB newreqs=0 hops=0
+c 4.267 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 4.637 5 Communication: epoch 3 took 0.232515 seconds to complete.
+c 5.292 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=32.13GB newreqs=0 hops=0
+c 5.303 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 5.620 5 Communication: epoch 4 took 0.215546 seconds to complete.
+c 6.330 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=30.56GB newreqs=0 hops=0
+c 6.341 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 6.615 5 [WARN] Watchdog: No reset for 90 ms (activity=0 recvtag=0 sendtag=0)
+c 6.673 14 [WARN] Watchdog: No reset for 101 ms (activity=0 recvtag=62 sendtag=62)
+c 6.690 8 [WARN] Watchdog: No reset for 64 ms (activity=0 recvtag=62 sendtag=62)
+c 6.864 5 Communication: epoch 5 took 0.459541 seconds to complete.
+c 7.375 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=33.98GB newreqs=0 hops=0
+c 7.397 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 7.653 8 [WARN] Watchdog: No reset for 101 ms (activity=0 recvtag=0 sendtag=0)
+c 7.759 5 Communication: epoch 6 took 0.354465 seconds to complete.
+c 8.417 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=26.20GB newreqs=0 hops=0
+c 8.428 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 8.701 5 Communication: epoch 7 took 0.296526 seconds to complete.
+c 9.443 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=29.00GB newreqs=0 hops=0
+c 9.477 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 9.517 11 [WARN] Watchdog: No reset for 52 ms (activity=0 recvtag=0 sendtag=0)
+c 9.608 15 [WARN] Watchdog: No reset for 57 ms (activity=0 recvtag=62 sendtag=62)
+c 9.716 5 Communication: epoch 8 took 0.311490 seconds to complete.
+c 10.484 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=31.38GB newreqs=0 hops=0
+c 10.517 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 10.687 5 Communication: epoch 9 took 0.282468 seconds to complete.
+c 11.521 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=28.61GB newreqs=0 hops=0
+c 11.542 11 [WARN] Watchdog: No reset for 62 ms (activity=6 recvtag=0 sendtag=61)
+c 11.554 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 11.728 5 Communication: epoch 10 took 0.323484 seconds to complete.
+c 12.552 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=29.29GB newreqs=0 hops=0
+c 12.583 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 12.770 5 Communication: epoch 11 took 0.365454 seconds to complete.
+c 13.553 15 [WARN] Watchdog: No reset for 55 ms (activity=6 recvtag=0 sendtag=61)
+c 13.592 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=30.86GB newreqs=0 hops=0
+c 13.625 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 13.737 5 Communication: epoch 12 took 0.332441 seconds to complete.
+c 14.620 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=28.98GB newreqs=0 hops=0
+c 14.666 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 14.825 5 Communication: epoch 13 took 0.420450 seconds to complete.
+c 15.647 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=31.58GB newreqs=0 hops=0
+c 15.691 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 15.752 5 Communication: epoch 14 took 0.347443 seconds to complete.
+c 16.526 3 [WARN] Watchdog: No reset for 73 ms (activity=0 recvtag=0 sendtag=0)
+c 16.729 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 16.741 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=28.31GB newreqs=0 hops=0
+c 16.816 5 Communication: epoch 15 took 0.411425 seconds to complete.
+c 17.512 9 [WARN] Watchdog: No reset for 60 ms (activity=6 recvtag=0 sendtag=61)
+c 17.639 10 [WARN] Watchdog: No reset for 81 ms (activity=0 recvtag=0 sendtag=0)
+c 17.749 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 17.761 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=29.17GB newreqs=0 hops=0
+c 17.790 5 Communication: epoch 16 took 0.385410 seconds to complete.
+c 18.486 6 [WARN] Watchdog: No reset for 59 ms (activity=0 recvtag=0 sendtag=0)
+c 18.746 5 Communication: epoch 17 took 0.341391 seconds to complete.
+c 18.781 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 18.803 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=27.53GB newreqs=0 hops=0
+c 19.539 0 [WARN] Watchdog: No reset for 78 ms (activity=6 recvtag=0 sendtag=61)
+c 19.581 1 [WARN] Watchdog: No reset for 104 ms (activity=0 recvtag=0 sendtag=0)
+c 19.817 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 19.837 5 Communication: epoch 18 took 0.432407 seconds to complete.
+c 19.850 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=25.40GB newreqs=0 hops=0
+c 20.517 12 [WARN] Watchdog: No reset for 66 ms (activity=6 recvtag=0 sendtag=61)
+c 20.532 1 [WARN] Watchdog: No reset for 89 ms (activity=6 recvtag=0 sendtag=61)
+c 20.544 9 [WARN] Watchdog: No reset for 91 ms (activity=6 recvtag=0 sendtag=61)
+c 20.853 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 20.863 5 Communication: epoch 19 took 0.458372 seconds to complete.
+c 20.930 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=26.00GB newreqs=0 hops=0
+c 21.517 9 [WARN] Watchdog: No reset for 58 ms (activity=6 recvtag=0 sendtag=61)
+c 21.669 5 [WARN] Watchdog: No reset for 56 ms (activity=6 recvtag=0 sendtag=62)
+c 21.775 5 [WARN] Watchdog: No reset for 162 ms (activity=6 recvtag=0 sendtag=62)
+c 21.934 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 21.946 5 Communication: epoch 20 took 0.541353 seconds to complete.
+c 21.967 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=26.37GB newreqs=0 hops=0
+c 22.502 12 [WARN] Watchdog: No reset for 51 ms (activity=6 recvtag=0 sendtag=61)
+c 22.525 0 [WARN] Watchdog: No reset for 61 ms (activity=6 recvtag=0 sendtag=61)
+c 22.532 1 [WARN] Watchdog: No reset for 80 ms (activity=6 recvtag=0 sendtag=61)
+c 22.755 5 [WARN] Watchdog: No reset for 140 ms (activity=6 recvtag=0 sendtag=62)
+c 22.942 5 Communication: epoch 21 took 0.537359 seconds to complete.
+c 22.972 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 23.016 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=25.55GB newreqs=0 hops=0
+c 23.518 1 [WARN] Watchdog: No reset for 56 ms (activity=6 recvtag=0 sendtag=61)
+c 23.528 3 [WARN] Watchdog: No reset for 62 ms (activity=6 recvtag=0 sendtag=61)
+c 23.577 12 [WARN] Watchdog: No reset for 99 ms (activity=0 recvtag=0 sendtag=0)
+c 23.667 10 [WARN] Watchdog: No reset for 101 ms (activity=6 recvtag=0 sendtag=61)
+c 23.709 14 [WARN] Watchdog: No reset for 102 ms (activity=6 recvtag=0 sendtag=61)
+c 23.812 5 [WARN] Watchdog: No reset for 78 ms (activity=6 recvtag=0 sendtag=62)
+c 23.911 14 [WARN] Watchdog: No reset for 103 ms (activity=0 recvtag=62 sendtag=62)
+c 24.011 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 24.041 5 Communication: epoch 22 took 0.636333 seconds to complete.
+c 24.257 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=25.05GB newreqs=0 hops=0
+c 24.547 2 [WARN] Watchdog: No reset for 95 ms (activity=6 recvtag=0 sendtag=61)
+c 24.562 9 [WARN] Watchdog: No reset for 103 ms (activity=6 recvtag=0 sendtag=61)
+c 24.857 14 [WARN] Watchdog: No reset for 134 ms (activity=0 recvtag=0 sendtag=0)
+c 24.874 15 [WARN] Watchdog: No reset for 96 ms (activity=0 recvtag=0 sendtag=0)
+c 24.967 10 [WARN] Watchdog: No reset for 90 ms (activity=0 recvtag=62 sendtag=62)
+c 25.039 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 25.097 5 Communication: epoch 23 took 0.692345 seconds to complete.
+c 25.325 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=23.77GB newreqs=0 hops=0
+c 25.510 9 [WARN] Watchdog: No reset for 55 ms (activity=6 recvtag=0 sendtag=61)
+c 25.525 0 [WARN] Watchdog: No reset for 69 ms (activity=0 recvtag=0 sendtag=0)
+c 25.530 2 [WARN] Watchdog: No reset for 55 ms (activity=6 recvtag=0 sendtag=61)
+c 25.539 3 [WARN] Watchdog: No reset for 70 ms (activity=6 recvtag=0 sendtag=61)
+c 25.564 6 [WARN] Watchdog: No reset for 94 ms (activity=6 recvtag=0 sendtag=61)
+c 25.583 7 [WARN] Watchdog: No reset for 113 ms (activity=0 recvtag=0 sendtag=0)
+c 25.666 13 [WARN] Watchdog: No reset for 88 ms (activity=6 recvtag=0 sendtag=61)
+c 25.690 10 [WARN] Watchdog: No reset for 85 ms (activity=6 recvtag=0 sendtag=61)
+c 25.790 10 [WARN] Watchdog: No reset for 185 ms (activity=0 recvtag=0 sendtag=0)
+c 25.882 5 [WARN] Watchdog: No reset for 64 ms (activity=6 recvtag=0 sendtag=62)
+c 25.966 11 [WARN] Watchdog: No reset for 65 ms (activity=0 recvtag=62 sendtag=62)
+c 25.992 10 [WARN] Watchdog: No reset for 98 ms (activity=0 recvtag=62 sendtag=62)
+c 26.010 14 [WARN] Watchdog: No reset for 115 ms (activity=0 recvtag=62 sendtag=62)
+c 26.147 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 26.158 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=23.28GB newreqs=0 hops=0
+c 26.282 5 Communication: epoch 24 took 0.877317 seconds to complete.
+c 26.537 7 [WARN] Watchdog: No reset for 79 ms (activity=0 recvtag=0 sendtag=0)
+c 26.543 0 [WARN] Watchdog: No reset for 101 ms (activity=6 recvtag=0 sendtag=61)
+c 26.558 9 [WARN] Watchdog: No reset for 90 ms (activity=6 recvtag=0 sendtag=61)
+c 26.637 10 [WARN] Watchdog: No reset for 78 ms (activity=6 recvtag=0 sendtag=61)
+c 26.738 10 [WARN] Watchdog: No reset for 179 ms (activity=6 recvtag=0 sendtag=61)
+c 26.911 5 [WARN] Watchdog: No reset for 101 ms (activity=6 recvtag=0 sendtag=62)
+c 27.060 10 [WARN] Watchdog: No reset for 74 ms (activity=0 recvtag=62 sendtag=62)
+c 27.102 4 [WARN] Watchdog: No reset for 85 ms (activity=0 recvtag=62 sendtag=62)
+c 27.151 13 [WARN] Watchdog: No reset for 134 ms (activity=0 recvtag=62 sendtag=62)
+c 27.175 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 27.263 5 Communication: epoch 25 took 0.858343 seconds to complete.
+c 27.404 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=22.08GB newreqs=0 hops=0
+c 27.556 0 [WARN] Watchdog: No reset for 111 ms (activity=6 recvtag=0 sendtag=61)
+c 27.561 2 [WARN] Watchdog: No reset for 100 ms (activity=0 recvtag=0 sendtag=0)
+c 27.745 5 [WARN] Watchdog: No reset for 72 ms (activity=6 recvtag=0 sendtag=62)
+c 27.807 14 [WARN] Watchdog: No reset for 62 ms (activity=0 recvtag=62 sendtag=62)
+c 27.864 11 [WARN] Watchdog: No reset for 68 ms (activity=0 recvtag=62 sendtag=62)
+c 27.888 13 [WARN] Watchdog: No reset for 68 ms (activity=0 recvtag=0 sendtag=0)
+c 27.902 10 [WARN] Watchdog: No reset for 101 ms (activity=0 recvtag=62 sendtag=62)
+c 28.063 5 Communication: epoch 26 took 0.658310 seconds to complete.
+c 28.218 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 28.438 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=21.15GB newreqs=0 hops=0
+c 28.525 1 [WARN] Watchdog: No reset for 54 ms (activity=6 recvtag=0 sendtag=61)
+c 28.596 11 [WARN] Watchdog: No reset for 77 ms (activity=6 recvtag=0 sendtag=61)
+c 28.703 11 [WARN] Watchdog: No reset for 184 ms (activity=6 recvtag=0 sendtag=61)
+c 28.879 5 [WARN] Watchdog: No reset for 121 ms (activity=6 recvtag=0 sendtag=62)
+c 28.970 14 [WARN] Watchdog: No reset for 106 ms (activity=0 recvtag=0 sendtag=0)
+c 29.004 4 [WARN] Watchdog: No reset for 77 ms (activity=0 recvtag=62 sendtag=62)
+c 29.008 11 [WARN] Watchdog: No reset for 92 ms (activity=0 recvtag=0 sendtag=0)
+c 29.190 5 Communication: epoch 27 took 0.785269 seconds to complete.
+c 29.254 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 29.460 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=20.14GB newreqs=0 hops=0
+c 29.505 7 [WARN] Watchdog: No reset for 52 ms (activity=6 recvtag=0 sendtag=61)
+c 29.505 9 [WARN] Watchdog: No reset for 55 ms (activity=0 recvtag=0 sendtag=0)
+c 29.519 2 [WARN] Watchdog: No reset for 63 ms (activity=6 recvtag=0 sendtag=61)
+c 29.533 6 [WARN] Watchdog: No reset for 88 ms (activity=6 recvtag=0 sendtag=61)
+c 29.643 10 [WARN] Watchdog: No reset for 107 ms (activity=6 recvtag=0 sendtag=61)
+c 29.699 8 [WARN] Watchdog: No reset for 121 ms (activity=6 recvtag=0 sendtag=61)
+c 29.816 14 [WARN] Watchdog: No reset for 55 ms (activity=6 recvtag=0 sendtag=61)
+c 29.911 5 [WARN] Watchdog: No reset for 58 ms (activity=6 recvtag=0 sendtag=62)
+c 30.012 5 [WARN] Watchdog: No reset for 159 ms (activity=6 recvtag=0 sendtag=62)
+c 30.127 14 [WARN] Watchdog: No reset for 99 ms (activity=0 recvtag=62 sendtag=62)
+c 30.171 11 [WARN] Watchdog: No reset for 89 ms (activity=0 recvtag=62 sendtag=62)
+c 30.183 10 [WARN] Watchdog: No reset for 93 ms (activity=0 recvtag=62 sendtag=62)
+c 30.271 4 [WARN] Watchdog: No reset for 119 ms (activity=0 recvtag=62 sendtag=62)
+c 30.291 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 30.402 5 Communication: epoch 28 took 0.997265 seconds to complete.
+c 30.425 10 [WARN] #1:5 : Session deleted before completing!
+c 30.436 7 [WARN] #1:11 : Session deleted before completing!
+c 30.429 2 [WARN] #1:12 : Session deleted before completing!
+c 30.439 13 [WARN] #1:4 : Session deleted before completing!
+c 30.442 9 [WARN] #1:9 : Session deleted before completing!
+c 30.445 6 [WARN] #1:10 : Session deleted before completing!
+c 30.519 0 [WARN] Watchdog: No reset for 58 ms (activity=6 recvtag=0 sendtag=61)
+c 30.548 1 [WARN] Watchdog: No reset for 79 ms (activity=0 recvtag=0 sendtag=0)
+c 30.560 9 [WARN] Watchdog: No reset for 107 ms (activity=6 recvtag=0 sendtag=61)
+c 30.719 13 [WARN] Watchdog: No reset for 136 ms (activity=0 recvtag=0 sendtag=0)
+c 30.749 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=18.93GB newreqs=0 hops=0
+c 30.828 5 [WARN] Watchdog: No reset for 75 ms (activity=6 recvtag=0 sendtag=62)
+c 30.864 14 [WARN] Watchdog: No reset for 64 ms (activity=0 recvtag=62 sendtag=62)
+c 30.954 8 [WARN] Watchdog: No reset for 67 ms (activity=0 recvtag=62 sendtag=62)
+c 30.979 11 [WARN] Watchdog: No reset for 81 ms (activity=0 recvtag=0 sendtag=0)
+c 30.991 10 [WARN] Watchdog: No reset for 91 ms (activity=0 recvtag=62 sendtag=62)
+c 31.028 13 [WARN] Watchdog: No reset for 97 ms (activity=0 recvtag=62 sendtag=62)
+c 31.181 5 Communication: epoch 29 took 0.776293 seconds to complete.
+c 31.362 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 31.569 6 [WARN] Watchdog: No reset for 111 ms (activity=6 recvtag=0 sendtag=61)
+c 31.663 4 [WARN] Watchdog: No reset for 109 ms (activity=6 recvtag=0 sendtag=61)
+c 31.775 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=18.18GB newreqs=0 hops=0
+c 32.036 14 [WARN] Watchdog: No reset for 92 ms (activity=0 recvtag=62 sendtag=62)
+c 32.045 10 [WARN] Watchdog: No reset for 89 ms (activity=0 recvtag=62 sendtag=62)
+c 32.105 8 [WARN] Watchdog: No reset for 75 ms (activity=0 recvtag=62 sendtag=62)
+c 32.186 4 [WARN] Watchdog: No reset for 60 ms (activity=0 recvtag=0 sendtag=0)
+c 32.194 13 [WARN] Watchdog: No reset for 129 ms (activity=0 recvtag=0 sendtag=0)
+c 32.302 5 Communication: epoch 30 took 0.898228 seconds to complete.
+c 32.397 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 32.810 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=17.90GB newreqs=0 hops=0
+c 32.872 5 [WARN] Watchdog: No reset for 150 ms (activity=6 recvtag=0 sendtag=62)
+c 32.884 14 [WARN] Watchdog: No reset for 79 ms (activity=0 recvtag=0 sendtag=0)
+c 33.047 13 [WARN] Watchdog: No reset for 146 ms (activity=0 recvtag=62 sendtag=62)
+c 33.152 5 Communication: epoch 31 took 0.748188 seconds to complete.
+c 33.416 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 33.516 6 [WARN] Watchdog: No reset for 59 ms (activity=6 recvtag=0 sendtag=61)
+c 33.582 13 [WARN] Watchdog: No reset for 52 ms (activity=6 recvtag=0 sendtag=61)
+c 33.592 11 [WARN] Watchdog: No reset for 123 ms (activity=6 recvtag=0 sendtag=61)
+c 33.678 15 [WARN] Watchdog: No reset for 55 ms (activity=6 recvtag=0 sendtag=61)
+c 33.782 15 [WARN] Watchdog: No reset for 159 ms (activity=6 recvtag=0 sendtag=61)
+c 33.845 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=17.29GB newreqs=0 hops=0
+c 33.882 5 [WARN] Watchdog: No reset for 75 ms (activity=6 recvtag=0 sendtag=62)
+c 34.056 4 [WARN] Watchdog: No reset for 69 ms (activity=0 recvtag=62 sendtag=62)
+c 34.065 10 [WARN] Watchdog: No reset for 51 ms (activity=0 recvtag=62 sendtag=62)
+c 34.115 11 [WARN] Watchdog: No reset for 61 ms (activity=0 recvtag=62 sendtag=62)
+c 34.235 5 Communication: epoch 32 took 0.831211 seconds to complete.
+c 34.503 3 [WARN] Watchdog: No reset for 54 ms (activity=0 recvtag=0 sendtag=0)
+c 34.503 7 [WARN] Watchdog: No reset for 57 ms (activity=6 recvtag=0 sendtag=61)
+c 34.507 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 34.508 2 [WARN] Watchdog: No reset for 55 ms (activity=6 recvtag=0 sendtag=61)
+c 34.582 1 [WARN] Watchdog: No reset for 120 ms (activity=0 recvtag=0 sendtag=0)
+c 34.766 8 [WARN] Watchdog: No reset for 111 ms (activity=6 recvtag=0 sendtag=61)
+c 34.869 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=16.39GB newreqs=0 hops=0
+c 35.064 11 #1:6 rev. 0 : found result UNSAT => [5]
+c 35.072 5 BLC insert (1,0,0.000)
+c 35.072 5 <#1> END S0 pps:84570941 dcs:1045173 cfs:54001 rst:0 prod:39856 (flt:36357 adm:3144 drp:355) recv:103795 (flt:1323 digd:66099 drp:36373) + intim:0/0
+c 35.072 5 <#1> END S0 clenhist prod total:39856 37074 269 169 82 50 52 92 110 177 72 98 59 74 86 70 90 96 80 70 82 98 95 92 89 95 82 58 93 102 100
+c 35.072 5 <#1> END S0 clenhist digd total:66099 0 12280 4972 3087 2543 2370 1953 1750 2714 2287 2090 1814 2277 3018 2553 2639 3128 2838 2868 2726 2485 1747 764 257 224 129 137 119 209 121
+c 35.072 5 <#1> END S1 pps:136310822 dcs:1102735 cfs:87036 rst:0 prod:11932 (flt:3642 adm:7840 drp:450) recv:103795 (flt:3901 digd:63521 drp:36373) + intim:0/0
+c 35.072 5 <#1> END S1 clenhist prod total:11932 5610 1351 534 276 152 95 102 177 238 221 166 143 182 193 151 155 151 196 156 154 148 175 184 160 131 127 137 109 186 172
+c 35.072 5 <#1> END S1 clenhist digd total:63521 0 11187 4609 2893 2443 2342 1949 1661 2635 2202 2070 1758 2218 2958 2496 2583 3096 2766 2819 2690 2450 1736 764 257 224 129 137 119 209 121
+c 35.072 5 <#1> END S2 pps:114781893 dcs:1172733 cfs:61153 rst:0 prod:10394 (flt:3323 adm:7022 drp:49) recv:103795 (flt:3743 digd:40302 drp:36373) + intim:0/0
+c 35.072 5 <#1> END S2 clenhist prod total:10394 5721 1549 638 378 207 119 92 98 105 105 92 81 78 119 86 75 80 72 74 71 76 63 55 53 40 42 32 34 65 94
+c 35.072 5 <#1> END S2 clenhist digd total:40302 0 8658 4032 2354 1484 1071 968 870 1172 1375 1332 1199 1383 1775 1574 1605 1698 1549 1586 1490 915 614 402 257 224 129 137 119 209 121
+c 35.072 5 <#1> END S3 pps:53543533 dcs:133905 cfs:47271 rst:0 prod:38826 (flt:5085 adm:33487 drp:254) recv:103795 (flt:1379 digd:66043 drp:36373) + intim:0/0
+c 35.072 5 <#1> END S3 clenhist prod total:38826 36288 234 54 45 21 21 26 15 46 82 76 65 86 118 89 89 125 89 89 82 87 90 94 88 92 68 72 82 186 227
+c 35.072 5 <#1> END S3 clenhist digd total:66043 0 12319 5085 3119 2571 2392 1981 1767 2730 2268 2096 1797 2263 2955 2515 2600 3089 2803 2835 2702 2467 1729 764 257 224 129 137 119 209 121
+c 35.072 5 <#1> END pps:389207189 dcs:3454546 cfs:249461 rst:0 prod:101008 (flt:48407 adm:51493 drp:1108) recv:415180 (flt:10346 digd:235965 drp:145492) + intim:0/0
+c 35.072 5 <#1> END exp:47663/47663 drp:0(0.000000) pflt:0 sflt:0
+c 35.072 5 <#1> clenhist prod total:101008 84693 3403 1395 781 430 287 312 400 566 480 432 348 420 516 396 409 452 437 389 389 409 423 425 390 358 319 299 318 539 593
+c 35.072 5 <#1> clenhist flfl total:48407 48341 55 4 0 0 0 1 0 0 1 1 0 0 1 0 0 1 0 0 0 1 1
+c 35.072 5 <#1> clenhist admt total:51493 36352 3348 1391 781 430 287 311 400 566 479 431 348 419 512 394 406 446 435 389 388 406 392 349 283 254 198 191 170 352 385
+c 35.072 5 <#1> clenhist drpd total:1108 0 0 0 0 0 0 0 0 0 0 0 0 1 3 2 3 5 2 0 1 2 30 76 107 104 121 108 148 187 208
+c 35.072 5 <#1> clenhist dltd total:4811 0 0 0 0 0 0 0 0 0 0 0 0 23 148 107 119 96 106 89 89 75 762 879 520 375 304 212 170 352 385
+c 35.072 5 <#1> clenhist retd total:2801 0 0 0 0 0 0 0 0 0 0 0 0 0 106 93 36 66 1 23 235 685 541 530 237 121 106 21
+c 35.085 14 [WARN] Job message from unknown job #1
+c 35.085 14 [WARN] Job message from unknown job #1
+c 35.091 0 RESPONSE_TIME #1 33.811790 rev. 0
+c 35.091 0 SOLUTION #1 UNSAT rev. 0
+s UNSATISFIABLE
+c 35.092 0 Terminating.
+c 35.092 14 <#1> END S4 pps:58989131 dcs:7323 cfs:1846 rst:0 prod:5833 (flt:4079 adm:1717 drp:37) recv:103795 (flt:974 digd:53189 drp:40243) + intim:0/0
+c 35.092 14 <#1> END S4 clenhist prod total:5833 4561 740 99 28 19 14 8 13 12 17 6 13 6 13 17 15 20 10 12 12 24 24 25 13 16 13 18 9 29 27
+c 35.092 14 <#1> END S4 clenhist digd total:53189 0 11841 5046 3138 2573 2399 1996 1767 2758 2326 2161 1842 2329 3051 2575 2667 3171 878 106 91 69 51 52 54 39 39 30 23 91 26
+c 35.092 14 <#1> END S5 pps:47705103 dcs:100099 cfs:42000 rst:0 prod:38843 (flt:23161 adm:15567 drp:115) recv:103795 (flt:1662 digd:51009 drp:36373) + intim:0/0
+c 35.092 14 <#1> END S5 clenhist prod total:38843 36267 192 84 47 34 21 16 26 58 66 78 73 80 130 85 96 103 85 95 81 119 95 94 108 102 72 79 72 175 210
+c 35.093 14 <#1> END S5 clenhist digd total:51009 0 10849 4753 2780 1730 1225 1127 995 1366 1721 1632 1420 1727 2225 1923 1990 2261 2030 2086 1992 1886 1344 751 257 224 129 137 119 209 121
+c 35.093 14 <#1> END S6 pps:54289713 dcs:67960 cfs:36349 rst:0 prod:37405 (flt:35327 adm:1996 drp:82) recv:103795 (flt:639 digd:66783 drp:36373) + intim:0/0
+c 35.093 14 <#1> END S6 clenhist prod total:37405 36122 49 32 12 7 11 20 30 106 17 21 18 33 48 40 45 46 59 47 62 51 45 68 78 64 56 58 37 63 60
+c 35.093 14 <#1> END S6 clenhist digd total:66783 0 12487 5106 3153 2584 2402 1985 1764 2707 2326 2149 1836 2302 3018 2551 2633 3148 2831 2873 2722 2507 1747 757 257 224 129 137 119 208 121
+c 35.093 14 <#1> END S7 pps:71965200 dcs:142718 cfs:54000 rst:0 prod:38709 (flt:14395 adm:24199 drp:115) recv:103795 (flt:1669 digd:51118 drp:36373) + intim:0/0
+c 35.093 14 <#1> END S7 clenhist prod total:38709 36280 196 113 59 31 27 41 60 130 63 55 50 69 95 62 66 112 91 97 83 92 93 82 106 81 61 76 72 118 148
+c 35.093 14 <#1> END S7 clenhist digd total:51118 0 10883 4716 2764 1734 1222 1113 990 1362 1724 1652 1442 1742 2251 1938 2018 2258 2031 2078 1991 1912 1343 759 256 224 129 137 119 209 121
+c 35.093 14 <#1> END pps:232949147 dcs:318100 cfs:134195 rst:0 prod:120790 (flt:76962 adm:43479 drp:349) recv:415180 (flt:4944 digd:222099 drp:149362) + intim:0/0
+c 35.093 14 <#1> END exp:42338/42338 drp:0(0.000000) pflt:0 sflt:0
+c 35.093 14 <#1> clenhist prod total:120790 113230 1177 328 146 91 73 85 129 306 163 160 154 188 286 204 222 281 245 251 238 286 257 269 305 263 202 231 190 385 445
+c 35.093 14 <#1> clenhist flfl total:76962 76936 20 1 0 0 0 0 0 0 1 0 0 0 1 0 1 0 1 0 0 0 0 0 1
+c 35.093 14 <#1> clenhist admt total:43479 36294 1157 327 146 91 73 85 129 306 162 160 154 188 285 204 221 281 244 251 238 286 257 269 304 255 179 190 150 278 315
+c 35.093 14 <#1> clenhist drpd total:349 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8 23 41 40 107 130
+c 35.093 14 <#1> clenhist dltd total:1661 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 126 161 327 254 459 334
+c 35.093 14 <#1> clenhist retd total:1747 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 66 137 41 32 186 62 0 224 175 223 159 137 104 182 19
+c 35.093 14 [WARN] Job message from unknown job #1
+c 35.092 8 [WARN] Job message from unknown job #1
+c 35.092 8 [WARN] Job message from unknown job #1
+c 35.092 8 <#1> END S12 pps:191024060 dcs:285946 cfs:50356 rst:0 prod:4738 (flt:907 adm:3816 drp:15) recv:103795 (flt:1655 digd:65767 drp:36373) + intim:0/0
+c 35.092 8 <#1> END S12 clenhist prod total:4738 2190 260 135 96 43 34 80 54 69 81 52 52 60 93 72 73 98 99 101 131 87 129 91 85 99 94 73 65 79 63
+c 35.092 8 <#1> END S12 clenhist digd total:65767 0 12286 5007 3069 2549 2385 1948 1743 2726 2282 2126 1811 2287 2982 2523 2612 3111 2797 2829 2670 2474 1688 744 245 210 120 130 108 196 109
+c 35.093 8 <#1> END S13 pps:63095455 dcs:72499 cfs:16455 rst:0 prod:36751 (flt:34519 adm:2221 drp:11) recv:103795 (flt:425 digd:63717 drp:36373) + intim:0/0
+c 35.093 8 <#1> END S13 clenhist prod total:36751 36140 49 37 14 6 5 11 9 30 21 8 11 17 33 17 32 37 22 32 23 19 15 17 23 24 20 18 17 19 25
+c 35.093 8 <#1> END S13 clenhist digd total:63717 0 12124 5053 3039 2270 2008 1922 1612 2383 2160 2006 1747 2189 2846 2441 2499 2984 2718 2770 2755 2524 1747 757 247 215 125 135 117 203 121
+c 35.093 8 <#1> END S14 pps:38198477 dcs:85013 cfs:35924 rst:0 prod:37472 (flt:3228 adm:34239 drp:5) recv:103795 (flt:770 digd:66652 drp:36373) + intim:0/0
+c 35.093 8 <#1> END S14 clenhist prod total:37472 35838 146 61 35 19 24 54 119 212 67 32 20 40 52 43 44 64 43 41 43 56 47 34 44 47 39 42 32 69 65
+c 35.093 8 <#1> END S14 clenhist digd total:66652 0 12423 5083 3130 2573 2398 1988 1748 2693 2299 2141 1837 2303 3021 2552 2643 3137 2856 2884 2756 2509 1747 755 254 219 125 134 117 207 120
+c 35.093 8 <#1> END S15 pps:56041018 dcs:7995 cfs:2122 rst:0 prod:6089 (flt:3992 adm:2083 drp:14) recv:103795 (flt:949 digd:53206 drp:40243) + intim:0/0
+c 35.093 8 <#1> END S15 clenhist prod total:6089 4885 687 92 40 21 24 23 6 19 14 13 13 11 12 12 14 13 10 8 11 15 14 14 14 16 18 9 15 14 32
+c 35.093 8 <#1> END S15 clenhist digd total:53206 0 11882 5050 3124 2571 2389 1983 1772 2754 2334 2157 1842 2327 3056 2579 2667 3180 868 106 91 69 51 52 54 39 39 30 23 91 26
+c 35.093 8 <#1> END pps:348359010 dcs:451453 cfs:104857 rst:0 prod:85050 (flt:42646 adm:42359 drp:45) recv:415180 (flt:3799 digd:249342 drp:149362) + intim:0/0
+c 35.093 8 <#1> END exp:41434/41434 drp:0(0.000000) pflt:0 sflt:0
+c 35.093 8 <#1> clenhist prod total:85050 79053 1142 325 185 89 87 168 188 330 183 105 96 128 190 144 163 212 174 182 208 177 205 156 166 186 171 142 129 181 185
+c 35.093 8 <#1> clenhist flfl total:42646 42623 19 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+c 35.093 8 <#1> clenhist admt total:42359 36430 1123 323 184 89 87 168 188 330 183 105 96 128 190 144 163 212 174 182 208 177 205 156 165 186 171 142 129 172 149
+c 35.093 8 <#1> clenhist drpd total:45 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 9 35
+c 35.093 8 <#1> clenhist dltd total:542 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 10 7 8 9 5 4 6 141 343
+c 35.093 8 <#1> clenhist retd total:932 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 46 46 62 14 66 89 6 82 41 88 46 41 96 209
+c 35.096 14 [WARN] Job message from unknown job #1
+c 35.096 13 [WARN] Job message from unknown job #1
+c 35.096 13 [WARN] Job message from unknown job #1
+c 35.096 13 <#1> END S16 pps:34771059 dcs:80602 cfs:40937 rst:0 prod:37870 (flt:25577 adm:12214 drp:79) recv:99645 (flt:708 digd:62575 drp:36362) + intim:0/0
+c 35.096 13 <#1> END S16 clenhist prod total:37870 35802 170 34 30 40 82 106 93 101 84 49 37 63 80 51 58 102 66 63 71 84 41 65 64 59 64 47 53 109 102
+c 35.096 13 <#1> END S16 clenhist digd total:62575 0 12095 5051 3110 2573 2385 1964 1759 2702 2133 2009 1708 2091 2701 2371 2424 2847 2570 2608 2412 2041 1343 482 257 224 129 137 119 209 121
+c 35.096 13 <#1> END S17 pps:94196868 dcs:87605 cfs:54002 rst:0 prod:38399 (flt:12994 adm:25393 drp:12) recv:99645 (flt:1419 digd:51658 drp:36362) + intim:0/0
+c 35.096 13 <#1> END S17 clenhist prod total:38399 36069 117 81 55 32 32 30 41 107 74 63 64 82 95 63 63 121 86 90 88 100 106 93 79 86 83 76 82 103 138
+c 35.096 13 <#1> END S17 clenhist digd total:51658 0 10986 4790 2778 1751 1268 1246 1279 1860 1709 1638 1441 1687 2192 1949 1997 2242 2063 2140 1931 1754 1280 481 257 224 129 137 119 209 121
+c 35.096 13 <#1> END S18 pps:75693242 dcs:115273 cfs:20592 rst:0 prod:36182 (flt:34601 adm:1575 drp:6) recv:99645 (flt:492 digd:59566 drp:36362) + intim:0/0
+c 35.096 13 <#1> END S18 clenhist prod total:36182 35476 39 26 26 10 14 14 2 5 29 38 21 36 45 31 39 48 35 22 28 29 17 18 20 13 11 11 5 24 50
+c 35.096 13 <#1> END S18 clenhist digd total:59566 0 11819 5011 2994 2253 1984 1888 1603 2357 1998 1860 1622 1977 2526 2245 2276 2699 2445 2507 2425 2057 1342 482 257 224 129 137 119 209 121
+c 35.096 13 <#1> END S19 pps:63988403 dcs:88255 cfs:24290 rst:0 prod:37113 (flt:33721 adm:3381 drp:11) recv:99645 (flt:791 digd:62492 drp:36362) + intim:0/0
+c 35.096 13 <#1> END S19 clenhist prod total:37113 35818 92 32 9 12 28 36 26 33 40 37 28 26 34 45 59 51 60 62 54 76 73 48 48 49 47 37 42 53 58
+c 35.096 13 <#1> END S19 clenhist digd total:62492 0 12137 5052 3119 2567 2381 1959 1754 2700 2147 2011 1710 2105 2723 2360 2405 2864 2563 2588 2393 2005 1288 482 257 224 129 137 119 197 116
+c 35.096 13 <#1> END pps:268649572 dcs:371735 cfs:139821 rst:0 prod:149564 (flt:106893 adm:42563 drp:108) recv:398580 (flt:3410 digd:236291 drp:145448) + intim:0/0
+c 35.096 13 <#1> END exp:41469/41469 drp:0(0.000000) pflt:0 sflt:0
+c 35.096 13 <#1> clenhist prod total:149564 143165 418 173 120 94 156 186 162 246 227 187 150 207 254 190 219 322 247 237 241 289 237 224 211 207 205 171 182 289 348
+c 35.096 13 <#1> clenhist flfl total:106893 106878 3 2 0 0 1 0 0 0 1 0 0 0 1 0 1 0 0 1 0 0 0 1 0 0 0 0 0 2 2
+c 35.096 13 <#1> clenhist admt total:42563 36287 415 171 120 94 155 186 162 246 226 187 150 207 253 190 218 322 247 236 241 289 237 223 211 207 203 164 167 255 294
+c 35.096 13 <#1> clenhist drpd total:108 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 7 15 32 52
+c 35.096 13 <#1> clenhist dltd total:912 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 43 170 167 243 289
+c 35.096 13 <#1> clenhist retd total:1142 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 49 146 215 194 232 203 90 13
+c 35.096 6 <#1> END S40 pps:70004489 dcs:283670 cfs:41408 rst:0 prod:34316 (flt:30989 adm:3326 drp:1) recv:99645 (flt:1171 digd:62112 drp:36362) + intim:0/0
+c 35.096 6 <#1> END S40 clenhist prod total:34316 32212 242 120 97 60 35 39 46 57 44 45 40 60 71 66 64 95 66 69 73 78 58 75 76 73 57 83 63 69 83
+c 35.096 6 <#1> END S40 clenhist digd total:62112 0 11989 4970 3031 2520 2367 1948 1737 2694 2156 2015 1718 2099 2710 2358 2418 2850 2574 2597 2400 2028 1327 475 245 216 121 124 111 199 115
+c 35.096 6 <#1> END S41 pps:101965509 dcs:82451 cfs:24313 rst:0 prod:37110 (flt:34729 adm:2380 drp:1) recv:99645 (flt:800 digd:55509 drp:36362) + intim:0/0
+c 35.096 6 <#1> END S41 clenhist prod total:37110 36051 60 71 27 29 14 15 14 19 33 25 25 30 39 26 41 35 41 38 40 46 66 49 45 55 35 36 28 43 34
+c 35.096 6 <#1> END S41 clenhist digd total:55509 0 11370 4881 2858 1840 1540 1821 1471 2053 1847 1752 1530 1848 2382 2116 2149 2505 2282 2329 2231 1811 1304 474 252 204 123 129 108 186 113
+c 35.096 6 <#1> END S42 pps:52833801 dcs:84343 cfs:22678 rst:0 prod:36974 (flt:7441 adm:29533 drp:0) recv:99645 (flt:637 digd:52102 drp:36362) + intim:0/0
+c 35.096 6 <#1> END S42 clenhist prod total:36974 35850 65 24 17 7 7 8 5 15 15 34 19 38 35 38 55 56 68 69 71 61 59 58 49 43 50 33 28 60 37
+c 35.096 6 <#1> END S42 clenhist digd total:52102 0 11030 4836 2813 1776 1294 1256 1279 1877 1735 1655 1464 1708 2225 1967 1989 2272 2074 2154 1945 1776 1330 480 254 223 124 133 115 202 116
+c 35.096 6 <#1> END S43 pps:62556012 dcs:100901 cfs:31417 rst:0 prod:36741 (flt:30359 adm:6382 drp:0) recv:99645 (flt:583 digd:62700 drp:36362) + intim:0/0
+c 35.096 6 <#1> END S43 clenhist prod total:36741 35690 109 34 25 11 17 24 22 44 45 21 17 32 43 25 33 55 45 31 50 45 41 29 36 33 32 28 38 44 42
+c 35.096 6 <#1> END S43 clenhist digd total:62700 0 12143 5052 3105 2569 2384 1957 1744 2682 2152 2029 1726 2104 2720 2379 2432 2871 2591 2619 2414 2051 1335 477 252 218 125 132 114 206 117
+c 35.096 6 <#1> END pps:287359811 dcs:551365 cfs:119816 rst:0 prod:145141 (flt:103518 adm:41621 drp:2) recv:398580 (flt:3191 digd:232423 drp:145448) + intim:0/0
+c 35.096 6 <#1> END exp:43439/43439 drp:0(0.000000) pflt:0 sflt:0
+c 35.096 6 <#1> clenhist prod total:145141 139803 476 249 166 107 73 86 87 135 137 125 101 160 188 155 193 241 220 207 234 230 224 211 206 204 174 180 157 216 196
+c 35.096 6 <#1> clenhist flfl total:103518 103500 10 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 3 0 0 1 1
+c 35.096 6 <#1> clenhist admt total:41621 36303 466 248 166 107 73 86 87 135 137 125 101 160 188 155 193 240 220 207 234 229 221 211 206 203 173 180 157 216 194
+c 35.096 6 <#1> clenhist drpd total:2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2
+c 35.096 6 <#1> clenhist dltd total:28 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 24
+c 35.096 6 <#1> clenhist retd total:2967 2595 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 32 0 0 4 56 55 40 167 13 0 0 4 1
+c 35.097 9 [WARN] Job message from unknown job #1
+c 35.097 9 <#1> END S36 pps:32182551 dcs:79516 cfs:28922 rst:0 prod:37287 (flt:32750 adm:4529 drp:8) recv:99645 (flt:730 digd:62553 drp:36362) + intim:0/0
+c 35.097 9 <#1> END S36 clenhist prod total:37287 35947 148 30 18 26 20 25 38 88 58 52 22 46 67 38 36 70 41 33 36 57 36 37 43 29 41 29 36 59 81
+c 35.097 9 <#1> END S36 clenhist digd total:62553 0 12107 5054 3111 2551 2378 1959 1754 2696 2140 1998 1717 2091 2699 2362 2423 2854 2584 2615 2419 2041 1328 476 257 224 129 137 119 209 121
+c 35.098 9 <#1> END S37 pps:71855771 dcs:74456 cfs:14001 rst:0 prod:2504 (flt:1281 adm:1222 drp:1) recv:99645 (flt:649 digd:23736 drp:36802) + intim:0/0
+c 35.098 9 <#1> END S37 clenhist prod total:2504 1682 239 80 35 24 24 24 13 37 17 12 16 11 24 19 20 22 15 15 22 18 11 13 15 14 11 16 14 23 18
+c 35.098 9 <#1> END S37 clenhist digd total:23736 0 8018 3811 2149 1331 853 688 681 774 562 384 306 337 374 358 350 296 264 262 246 208 203 193 204 169 129 137 119 209 121
+c 35.098 9 <#1> END S38 pps:40796180 dcs:83119 cfs:35482 rst:0 prod:38037 (flt:28348 adm:9664 drp:25) recv:99645 (flt:1041 digd:59114 drp:36362) + intim:0/0
+c 35.098 9 <#1> END S38 clenhist prod total:38037 36344 148 74 70 30 20 30 23 61 40 39 32 45 68 40 54 71 49 56 47 64 56 42 57 50 46 29 43 106 203
+c 35.098 9 <#1> END S38 clenhist digd total:59114 0 11733 4963 2952 2235 1979 1874 1597 2340 1984 1860 1610 1969 2507 2234 2263 2684 2432 2478 2410 2024 1313 477 257 224 129 137 119 209 121
+c 35.098 9 <#1> END S39 pps:92940149 dcs:97972 cfs:54003 rst:0 prod:38391 (flt:11270 adm:27115 drp:6) recv:99645 (flt:1465 digd:51515 drp:36362) + intim:0/0
+c 35.098 9 <#1> END S39 clenhist prod total:38391 36214 168 88 34 24 13 23 39 116 57 65 43 75 105 90 79 90 90 66 89 90 93 77 79 80 73 52 76 92 111
+c 35.098 9 <#1> END S39 clenhist digd total:51515 0 10954 4791 2798 1758 1287 1244 1272 1854 1707 1634 1442 1680 2160 1905 1970 2247 2044 2144 1931 1744 1279 474 257 224 129 137 119 209 121
+c 35.098 9 <#1> END pps:237774651 dcs:335063 cfs:132408 rst:0 prod:116219 (flt:73649 adm:42530 drp:40) recv:398580 (flt:3885 digd:196918 drp:145888) + intim:0/0
+c 35.098 9 <#1> END exp:42526/42526 drp:0(0.000000) pflt:0 sflt:0
+c 35.098 9 <#1> clenhist prod total:116219 110187 703 272 157 104 77 102 113 302 172 168 113 177 264 187 189 253 195 170 194 229 196 169 194 173 171 126 169 280 413
+c 35.098 9 <#1> clenhist flfl total:73649 73642 1 0 0 0 0 0 0 0 1 1 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 2
+c 35.098 9 <#1> clenhist admt total:42530 36545 702 272 157 104 77 102 113 302 171 167 113 177 264 187 188 253 195 170 193 229 196 169 194 173 171 126 169 276 375
+c 35.098 9 <#1> clenhist drpd total:40 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 36
+c 35.098 9 <#1> clenhist dltd total:273 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 54 219
+c 35.098 9 <#1> clenhist retd total:1120 531 0 0 92 18 0 0 0 0 0 0 0 0 0 39 0 56 9 23 0 36 44 36 40 66 54 76
+c 35.100 15 [WARN] Watchdog: No reset for 113 ms (activity=0 recvtag=62 sendtag=62)
+c 35.109 3 <#1> END S52 pps:69501666 dcs:86119 cfs:22435 rst:0 prod:36728 (flt:34619 adm:2100 drp:9) recv:103795 (flt:658 digd:56207 drp:36373) + intim:0/0
+c 35.109 3 <#1> END S52 clenhist prod total:36728 35805 96 59 41 23 20 18 9 17 29 18 21 20 34 20 23 46 36 37 35 31 30 25 38 27 39 28 17 34 52
+c 35.109 3 <#1> END S52 clenhist digd total:56207 0 11312 4858 2823 1774 1296 1278 1291 1922 1882 1790 1575 1927 2529 2160 2232 2546 2347 2440 2295 2241 1739 756 257 224 129 137 119 209 119
+c 35.109 3 <#1> END S53 pps:51043417 dcs:89005 cfs:25310 rst:0 prod:37517 (flt:7525 adm:29989 drp:3) recv:103795 (flt:815 digd:66607 drp:36373) + intim:0/0
+c 35.109 3 <#1> END S53 clenhist prod total:37517 36282 95 71 29 21 17 23 10 13 34 42 38 33 47 35 43 59 51 45 56 57 42 48 46 36 34 27 34 56 93
+c 35.109 3 <#1> END S53 clenhist digd total:66607 0 12447 5070 3135 2570 2396 1981 1768 2758 2312 2126 1817 2303 3020 2554 2637 3128 2836 2874 2723 2481 1724 751 257 224 129 137 119 209 121
+c 35.109 3 <#1> END S54 pps:75074223 dcs:102024 cfs:25438 rst:0 prod:36831 (flt:33556 adm:3270 drp:5) recv:103795 (flt:545 digd:66877 drp:36373) + intim:0/0
+c 35.109 3 <#1> END S54 clenhist prod total:36831 35949 73 29 20 17 9 22 8 12 34 18 19 27 43 31 27 46 39 41 28 47 35 33 30 30 35 16 30 37 46
+c 35.109 3 <#1> END S54 clenhist digd total:66877 0 12474 5109 3144 2574 2405 1985 1771 2758 2314 2150 1835 2312 3027 2561 2649 3142 2851 2880 2750 2498 1735 758 257 224 129 137 119 208 121
+c 35.109 3 <#1> END S55 pps:58674135 dcs:95271 cfs:24721 rst:0 prod:37256 (flt:31895 adm:5340 drp:21) recv:103795 (flt:745 digd:63406 drp:36373) + intim:0/0
+c 35.109 3 <#1> END S55 clenhist prod total:37256 36094 100 53 24 7 16 12 20 24 29 19 20 20 33 31 54 49 40 62 39 72 44 50 44 47 35 47 31 72 68
+c 35.109 3 <#1> END S55 clenhist digd total:63406 0 12069 5037 3030 2269 1997 1917 1601 2390 2152 1996 1735 2187 2844 2429 2478 2972 2697 2738 2736 2464 1725 748 257 224 129 137 119 208 121
+c 35.109 3 <#1> END pps:254293441 dcs:372419 cfs:97904 rst:0 prod:148332 (flt:107595 adm:40699 drp:38) recv:415180 (flt:2763 digd:253097 drp:145492) + intim:0/0
+c 35.109 3 <#1> END exp:41402/41402 drp:0(0.000000) pflt:0 sflt:0
+c 35.109 3 <#1> clenhist prod total:148332 144130 364 212 114 68 62 75 47 66 126 97 98 100 157 117 147 200 166 185 158 207 151 156 158 140 143 118 112 199 259
+c 35.109 3 <#1> clenhist flfl total:107595 107584 5 2 0 0 0 2 1 0 0 0 0 0 0 0 0 1
+c 35.109 3 <#1> clenhist admt total:40699 36546 359 210 114 68 62 73 46 66 126 97 98 100 157 117 147 199 166 185 158 207 151 156 158 136 139 114 108 191 245
+c 35.109 3 <#1> clenhist drpd total:38 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 4 4 8 14
+c 35.109 3 <#1> clenhist dltd total:218 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 23 23 27 24 56 65
+c 35.109 3 <#1> clenhist retd total:1015 660 0 0 0 0 32 38 0 0 0 0 0 0 0 0 0 22 11 0 0 53 0 17 26 16 9 25 28 37 41
+c 35.118 10 [WARN] Watchdog: No reset for 79 ms (activity=0 recvtag=0 sendtag=0)
+c 35.123 1 <#1> END S60 pps:36281971 dcs:66152 cfs:26277 rst:0 prod:36848 (flt:31791 adm:5057 drp:0) recv:103795 (flt:392 digd:67030 drp:36373) + intim:0/0
+c 35.123 1 <#1> END S60 clenhist prod total:36848 35895 71 29 20 19 14 26 45 90 37 23 14 23 44 32 31 41 22 20 23 36 20 25 29 34 38 20 25 44 58
+c 35.123 1 <#1> END S60 clenhist digd total:67030 0 12485 5112 3144 2573 2403 1990 1769 2763 2321 2150 1843 2321 3035 2564 2654 3155 2867 2899 2759 2516 1748 763 257 224 129 137 119 209 121
+c 35.123 1 <#1> END S61 pps:59067765 dcs:150232 cfs:32002 rst:0 prod:3554 (flt:1394 adm:2160 drp:0) recv:103795 (flt:1041 digd:63402 drp:36373) + intim:0/0
+c 35.123 1 <#1> END S61 clenhist prod total:3554 1938 131 61 41 39 27 42 75 153 69 60 41 37 30 38 41 54 49 37 51 52 64 60 44 54 54 54 53 59 46
+c 35.123 1 <#1> END S61 clenhist digd total:63402 0 12039 5031 3013 2238 1991 1912 1605 2378 2149 1984 1738 2182 2857 2430 2500 2973 2699 2767 2737 2501 1745 758 253 216 125 136 116 208 121
+c 35.123 1 <#1> END S62 pps:72484574 dcs:118556 cfs:23006 rst:0 prod:37038 (flt:6531 adm:30507 drp:0) recv:103795 (flt:830 digd:59657 drp:36373) + intim:0/0
+c 35.123 1 <#1> END S62 clenhist prod total:37038 35962 82 51 33 13 17 23 17 24 28 46 53 44 82 49 60 44 37 35 33 33 21 29 22 16 19 8 12 41 104
+c 35.123 1 <#1> END S62 clenhist digd total:59657 0 11662 4958 2888 1870 1554 1848 1482 2099 2013 1859 1620 2038 2649 2281 2352 2778 2556 2603 2572 2290 1740 755 256 219 129 137 119 209 121
+c 35.123 1 <#1> END S63 pps:54143645 dcs:76355 cfs:22651 rst:0 prod:37042 (flt:33662 adm:3380 drp:0) recv:103795 (flt:832 digd:56039 drp:36373) + intim:0/0
+c 35.123 1 <#1> END S63 clenhist prod total:37042 35860 70 36 10 6 11 11 10 13 24 21 24 15 48 46 51 48 64 72 74 69 85 49 57 65 44 30 32 52 45
+c 35.123 1 <#1> END S63 clenhist digd total:56039 0 11336 4882 2854 1790 1305 1282 1291 1927 1889 1788 1573 1929 2521 2136 2207 2548 2318 2401 2253 2208 1686 740 253 224 129 137 119 197 116
+c 35.123 1 <#1> END pps:221977955 dcs:411295 cfs:103936 rst:0 prod:114482 (flt:73378 adm:41104 drp:0) recv:415180 (flt:3095 digd:246128 drp:145492) + intim:0/0
+c 35.123 1 <#1> END exp:41520/41520 drp:0(0.000000) pflt:0 sflt:0
+c 35.123 1 <#1> clenhist prod total:114482 109655 354 177 104 77 69 102 147 280 158 150 132 119 204 165 183 187 172 164 181 190 190 163 152 169 155 112 122 196 253
+c 35.123 1 <#1> clenhist flfl total:73378 73360 10 1 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 2 0 0 0 0 0 1 1 1
+c 35.123 1 <#1> clenhist admt total:41104 36295 344 176 104 77 69 102 147 280 158 150 132 119 203 165 183 186 172 164 181 190 188 163 152 169 155 112 121 195 252
+c 35.123 1 <#1> clenhist drpd total:0 0
+c 35.123 1 <#1> clenhist dltd total:0 0
+c 35.123 1 <#1> clenhist retd total:967 531 0 0 0 0 29 36 4 0 0 0 0 0 0 0 9 12 21 30 13 10 3 4 50 34 17 0 1 49 114
+c 35.126 15 <#1> END S8 pps:60923470 dcs:125054 cfs:33478 rst:0 prod:37942 (flt:2155 adm:35781 drp:6) recv:103795 (flt:1323 digd:55593 drp:36373) + intim:0/0
+c 35.126 15 <#1> END S8 clenhist prod total:37942 36026 113 108 35 47 15 21 35 37 45 52 31 37 57 68 52 96 92 93 91 89 79 86 85 69 62 43 47 97 134
+c 35.126 15 <#1> END S8 clenhist digd total:55593 0 11301 4811 2829 1749 1300 1272 1266 1902 1871 1768 1567 1913 2510 2123 2205 2505 2295 2382 2238 2185 1699 706 257 224 129 137 119 209 121
+c 35.126 15 <#1> END S9 pps:83270277 dcs:647334 cfs:42002 rst:0 prod:4964 (flt:1400 adm:3468 drp:96) recv:103795 (flt:1796 digd:62533 drp:36373) + intim:0/0
+c 35.126 15 <#1> END S9 clenhist prod total:4964 2450 325 188 84 72 37 48 64 92 84 61 60 90 85 84 72 81 69 81 66 70 71 72 70 77 83 60 72 105 91
+c 35.126 15 <#1> END S9 clenhist digd total:62533 0 11849 4906 2969 2204 1979 1890 1574 2359 2112 1970 1709 2122 2803 2401 2473 2956 2689 2736 2723 2491 1754 743 249 219 123 129 115 166 120
+c 35.126 15 <#1> END S10 pps:51810123 dcs:238725 cfs:42002 rst:0 prod:38161 (flt:35039 adm:3048 drp:74) recv:103795 (flt:821 digd:66601 drp:36373) + intim:0/0
+c 35.126 15 <#1> END S10 clenhist prod total:38161 36599 103 40 36 23 22 27 24 58 45 67 48 61 62 58 52 64 72 79 67 58 66 59 51 57 42 47 45 60 69
+c 35.126 15 <#1> END S10 clenhist digd total:66601 0 12452 5102 3132 2570 2398 1983 1768 2747 2311 2126 1830 2288 3013 2542 2629 3127 2823 2859 2734 2502 1733 736 257 224 129 137 119 209 121
+c 35.126 15 <#1> END S11 pps:55742711 dcs:373290 cfs:16604 rst:0 prod:15832 (flt:0 adm:0 drp:0) recv:103795 (flt:0 digd:0 drp:103795) + intim:0/0
+c 35.126 15 <#1> END S11 clenhist prod total:0 0
+c 35.126 15 <#1> END S11 clenhist digd total:0 0
+c 35.126 15 <#1> END pps:251746581 dcs:1384403 cfs:134086 rst:0 prod:96899 (flt:38594 adm:42297 drp:176) recv:415180 (flt:3940 digd:184727 drp:212914) + intim:0/0
+c 35.126 15 <#1> END exp:41890/41890 drp:0(0.000000) pflt:0 sflt:0
+c 35.126 15 <#1> clenhist prod total:81067 75075 541 336 155 142 74 96 123 187 174 180 139 188 204 210 176 241 233 253 224 217 216 217 206 203 187 150 164 262 294
+c 35.126 15 <#1> clenhist flfl total:38594 38584 6 1 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 1
+c 35.126 15 <#1> clenhist admt total:42297 36491 535 335 155 142 74 96 123 187 173 180 139 188 204 209 176 241 233 252 224 217 216 217 206 203 176 125 139 223 218
+c 35.126 15 <#1> clenhist drpd total:176 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 11 25 25 39 76
+c 35.126 15 <#1> clenhist dltd total:1001 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 224 145 197 208 227
+c 35.126 15 <#1> clenhist retd total:1963 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 53 339 346 556 317 217 29 63 29 14
+c 35.127 7 <#1> END S44 pps:51760341 dcs:81861 cfs:16541 rst:0 prod:36442 (flt:2846 adm:33582 drp:14) recv:99645 (flt:322 digd:62961 drp:36362) + intim:0/0
+c 35.127 7 <#1> END S44 clenhist prod total:36442 35831 54 33 19 16 11 8 13 14 27 14 10 12 21 21 26 24 26 28 19 18 24 16 17 14 18 13 26 30 39
+c 35.127 7 <#1> END S44 clenhist digd total:62961 0 12183 5059 3114 2565 2389 1968 1753 2711 2170 2038 1728 2126 2741 2381 2433 2896 2600 2620 2431 2067 1340 478 253 222 124 134 117 202 118
+c 35.127 7 <#1> END S45 pps:190962719 dcs:259184 cfs:52813 rst:0 prod:3621 (flt:790 adm:2814 drp:17) recv:99645 (flt:1354 digd:61929 drp:36362) + intim:0/0
+c 35.127 7 <#1> END S45 clenhist prod total:3621 1353 215 114 65 45 55 44 45 66 54 54 38 60 71 46 91 79 89 89 83 93 103 91 95 74 83 86 98 69 73
+c 35.127 7 <#1> END S45 clenhist digd total:61929 0 12011 4976 3068 2535 2349 1941 1737 2680 2144 2000 1709 2086 2719 2360 2370 2837 2546 2564 2380 2031 1332 459 243 214 115 122 105 193 103
+c 35.127 7 <#1> END S46 pps:202215468 dcs:498737 cfs:71898 rst:0 prod:8405 (flt:2008 adm:6367 drp:30) recv:99645 (flt:3059 digd:60224 drp:36362) + intim:0/0
+c 35.127 7 <#1> END S46 clenhist prod total:8405 4347 869 375 209 137 84 79 72 97 74 59 82 75 107 106 90 104 130 115 121 120 120 96 130 110 93 109 93 99 103
+c 35.127 7 <#1> END S46 clenhist digd total:60224 0 11365 4716 2927 2442 2314 1900 1694 2630 2118 1996 1672 2077 2672 2304 2379 2817 2497 2545 2347 2013 1317 449 234 208 115 111 98 177 90
+c 35.127 7 <#1> END S47 pps:33343933 dcs:267507 cfs:16439 rst:0 prod:6800 (flt:0 adm:0 drp:0) recv:99645 (flt:0 digd:0 drp:99645) + intim:0/0
+c 35.127 7 <#1> END S47 clenhist prod total:0 0
+c 35.127 7 <#1> END S47 clenhist digd total:0 0
+c 35.127 7 <#1> END pps:478282461 dcs:1107289 cfs:157691 rst:0 prod:55268 (flt:5644 adm:42763 drp:61) recv:398580 (flt:4735 digd:185114 drp:208731) + intim:0/0
+c 35.127 7 <#1> END exp:44101/44101 drp:0(0.000000) pflt:0 sflt:0
+c 35.127 7 <#1> clenhist prod total:48468 41531 1138 522 293 198 150 131 130 177 155 127 130 147 199 173 207 207 245 232 223 231 247 203 242 198 194 208 217 198 215
+c 35.127 7 <#1> clenhist flfl total:5644 5633 4 1 0 0 0 0 0 0 1 0 0 1 1 1 0 0 0 0 0 0 1 0 0 1
+c 35.127 7 <#1> clenhist admt total:42763 35898 1134 521 293 198 150 131 130 177 154 127 130 146 198 172 207 207 245 232 223 229 242 203 238 194 191 202 212 191 188
+c 35.127 7 <#1> clenhist drpd total:61 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 4 0 4 3 3 6 5 7 27
+c 35.127 7 <#1> clenhist dltd total:222 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 17 14 12 2 3 5 3 7 37 122
+c 35.127 7 <#1> clenhist retd total:2806 2342 0 19 0 10 0 0 0 7 0 0 11 0 3 37 39 10 13 0 55 21 173 62 0 0 0 0 0 0 4
+c 35.133 4 <#1> END S28 pps:57799174 dcs:113181 cfs:32001 rst:0 prod:3249 (flt:784 adm:2465 drp:0) recv:103795 (flt:770 digd:66652 drp:36373) + intim:0/0
+c 35.133 4 <#1> END S28 clenhist prod total:3249 1033 99 81 35 18 31 73 125 211 111 56 47 41 52 49 67 66 74 69 87 61 88 96 93 82 81 79 65 90 89
+c 35.133 4 <#1> END S28 clenhist digd total:66652 0 12447 5060 3130 2575 2397 1974 1735 2687 2309 2145 1832 2313 3030 2555 2632 3140 2858 2897 2747 2514 1746 755 247 216 127 137 119 208 120
+c 35.133 4 <#1> END S29 pps:80450764 dcs:80144 cfs:14554 rst:0 prod:36614 (flt:34579 adm:2035 drp:0) recv:103795 (flt:380 digd:67042 drp:36373) + intim:0/0
+c 35.133 4 <#1> END S29 clenhist prod total:36614 36030 47 22 12 3 8 15 12 12 34 31 20 28 34 26 26 34 23 16 24 26 17 16 16 15 8 12 8 15 24
+c 35.133 4 <#1> END S29 clenhist digd total:67042 0 12498 5120 3152 2588 2406 1991 1767 2760 2315 2141 1838 2314 3036 2565 2652 3159 2866 2900 2756 2514 1747 763 257 222 129 137 119 209 121
+c 35.133 4 <#1> END S30 pps:63980533 dcs:89616 cfs:24665 rst:0 prod:37534 (flt:5487 adm:32047 drp:0) recv:103795 (flt:908 digd:66514 drp:36373) + intim:0/0
+c 35.133 4 <#1> END S30 clenhist prod total:37534 36236 88 51 36 32 18 16 22 32 38 18 28 39 36 51 44 52 49 62 65 54 68 53 51 52 32 46 28 55 82
+c 35.133 4 <#1> END S30 clenhist digd total:66514 0 12453 5091 3128 2560 2395 1987 1756 2740 2309 2149 1826 2299 3030 2537 2634 3134 2837 2853 2710 2486 1702 739 231 213 129 137 119 209 121
+c 35.133 4 <#1> END S31 pps:59710100 dcs:68081 cfs:16421 rst:0 prod:36221 (flt:31500 adm:4721 drp:0) recv:103795 (flt:380 digd:67042 drp:36373) + intim:0/0
+c 35.133 4 <#1> END S31 clenhist prod total:36221 35544 47 32 19 19 17 29 22 23 25 14 15 11 25 23 18 43 32 30 23 26 23 30 32 24 26 17 11 9 12
+c 35.133 4 <#1> END S31 clenhist digd total:67042 0 12501 5111 3149 2575 2405 1997 1768 2760 2330 2156 1842 2326 3043 2564 2658 3150 2863 2887 2753 2514 1738 761 255 221 129 137 119 209 121
+c 35.133 4 <#1> END pps:261940571 dcs:351022 cfs:87641 rst:0 prod:113618 (flt:72350 adm:41268 drp:0) recv:415180 (flt:2438 digd:267250 drp:145492) + intim:0/0
+c 35.133 4 <#1> END exp:40854/40854 drp:0(0.000000) pflt:0 sflt:0
+c 35.133 4 <#1> clenhist prod total:113618 108843 281 186 102 72 74 133 181 278 208 119 110 119 147 149 155 195 178 177 199 167 196 195 192 173 147 154 112 169 207
+c 35.133 4 <#1> clenhist flfl total:72350 72326 19 2 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1
+c 35.133 4 <#1> clenhist admt total:41268 36517 262 184 101 72 74 133 181 278 208 119 110 119 146 149 155 195 178 177 199 167 196 194 192 173 147 154 112 169 207
+c 35.133 4 <#1> clenhist drpd total:0 0
+c 35.133 4 <#1> clenhist dltd total:0 0
+c 35.133 4 <#1> clenhist retd total:1146 432 36 113 66 38 4 0 0 0 0 0 0 0 0 0 0 35 60 28 32 0 49 32 0 63 19 3 52 43 41
+c 35.150 11 <#1> END S24 pps:215261210 dcs:518090 cfs:74720 rst:0 prod:9197 (flt:2352 adm:6052 drp:793) recv:103795 (flt:2987 digd:64435 drp:36373) + intim:0/0
+c 35.150 11 <#1> END S24 clenhist prod total:9197 4916 924 421 232 147 104 65 64 105 83 83 81 80 119 94 113 108 106 120 117 112 113 99 110 132 100 107 97 124 121
+c 35.150 11 <#1> END S24 clenhist digd total:64435 0 11616 4729 2935 2444 2309 1942 1722 2682 2271 2108 1787 2276 2985 2509 2599 3118 2812 2835 2703 2493 1703 753 234 200 119 121 116 194 120
+c 35.150 11 <#1> END S25 pps:47680041 dcs:97172 cfs:43053 rst:0 prod:38885 (flt:6604 adm:31930 drp:351) recv:103795 (flt:1522 digd:65900 drp:36373) + intim:0/0
+c 35.150 11 <#1> END S25 clenhist prod total:38885 36207 211 105 41 27 31 27 24 42 79 111 66 117 131 124 81 123 100 102 109 109 87 84 101 86 76 65 75 134 210
+c 35.150 11 <#1> END S25 clenhist digd total:65900 0 12330 5037 3123 2565 2382 1979 1754 2736 2280 2083 1798 2235 2957 2485 2611 3098 2803 2836 2689 2459 1701 764 256 224 129 137 119 209 121
+c 35.150 11 <#1> END S26 pps:39791352 dcs:360545 cfs:257733 rst:0 prod:162877 (flt:31414 adm:31561 drp:99902) recv:103795 (flt:5365 digd:62057 drp:36373) + intim:0/0
+c 35.150 11 <#1> END S26 clenhist prod total:162877 32163 1297 633 1498 3317 5813 7901 9581 10942 4627 5604 10410 15552 8015 6718 5544 4960 4454 3492 3146 2803 2521 2159 2056 1681 1418 1259 1107 1161 1045
+c 35.150 11 <#1> END S26 clenhist digd total:62057 0 11385 4939 2908 1825 1314 1327 1394 2334 2316 2135 1835 2298 3018 2558 2633 3135 2847 2872 2748 2525 1751 764 257 224 129 137 119 209 121
+c 35.150 11 <#1> END S27 pps:34126443 dcs:54082 cfs:26496 rst:0 prod:37119 (flt:32583 adm:4045 drp:491) recv:103795 (flt:418 digd:67004 drp:36373) + intim:0/0
+c 35.150 11 <#1> END S27 clenhist prod total:37119 36045 109 45 16 17 24 38 49 111 56 35 20 28 32 29 29 48 27 24 32 25 34 28 31 20 28 25 22 51 41
+c 35.150 11 <#1> END S27 clenhist digd total:67004 0 12448 5100 3148 2576 2402 1991 1773 2760 2318 2145 1848 2316 3044 2564 2657 3156 2867 2899 2763 2527 1743 764 257 224 128 137 119 209 121
+c 35.150 11 <#1> END pps:336859046 dcs:1029889 cfs:402002 rst:0 prod:248078 (flt:72953 adm:73588 drp:101537) recv:415180 (flt:10292 digd:259396 drp:145492) + intim:0/0
+c 35.150 11 <#1> END exp:47841/47841 drp:0(0.000000) pflt:0 sflt:0
+c 35.150 11 <#1> clenhist prod total:248078 109331 2541 1204 1787 3508 5972 8031 9718 11200 4845 5833 10577 15777 8297 6965 5767 5239 4687 3738 3404 3049 2755 2370 2298 1919 1622 1456 1301 1470 1417
+c 35.150 11 <#1> clenhist flfl total:72953 72651 6 1 0 0 0 0 1 9 1 2 118 147 10 1 3 1 1 1
+c 35.150 11 <#1> clenhist admt total:73588 36680 2535 1203 1787 3508 4940 4348 3338 2946 1014 918 1309 1887 1199 726 553 660 543 433 427 421 351 270 266 262 196 169 135 271 293
+c 35.150 11 <#1> clenhist drpd total:101537 0 0 0 0 0 1032 3683 6379 8245 3830 4913 9150 13743 7088 6238 5211 4578 4143 3304 2977 2628 2404 2100 2032 1657 1426 1287 1166 1199 1124
+c 35.150 11 <#1> clenhist dltd total:20180 0 0 0 0 0 1481 3575 2869 2378 827 721 1165 1676 946 496 353 432 335 215 238 289 213 332 331 286 201 150 119 256 296
+c 35.150 11 <#1> clenhist retd total:592 0 0 0 0 0 0 0 0 0 0 0 0 0 0 62 45 49 0 51 63 33 50 73 89 48 16 0 1 8 4
+c 35.158 2 <#1> END S48 pps:45073678 dcs:13372 cfs:4140 rst:0 prod:5419 (flt:3135 adm:2284 drp:0) recv:99645 (flt:831 digd:54899 drp:37374) + intim:0/0
+c 35.158 2 <#1> END S48 clenhist prod total:5419 4292 568 79 27 12 14 8 10 13 13 8 3 5 15 11 13 20 15 29 26 21 19 31 26 26 29 23 16 23 24
+c 35.158 2 <#1> END S48 clenhist digd total:54899 0 11310 4955 2993 2251 1984 1894 1597 2353 2007 1885 1635 1999 2561 2266 2304 2734 2469 2514 2439 344 51 52 54 39 39 30 23 91 26
+c 35.158 2 <#1> END S49 pps:31424012 dcs:46383 cfs:18511 rst:0 prod:36993 (flt:30659 adm:6327 drp:7) recv:99645 (flt:442 digd:62841 drp:36362) + intim:0/0
+c 35.158 2 <#1> END S49 clenhist prod total:36993 36039 67 45 21 19 9 18 32 68 28 21 15 13 39 33 32 28 29 26 34 35 37 33 41 29 33 28 26 54 61
+c 35.158 2 <#1> END S49 clenhist digd total:62841 0 12166 5038 3107 2558 2390 1963 1753 2695 2163 2027 1727 2124 2727 2379 2435 2894 2599 2623 2420 2068 1347 477 246 219 122 134 116 207 117
+c 35.158 2 <#1> END S50 pps:64537603 dcs:81319 cfs:43952 rst:0 prod:38141 (flt:34745 adm:3383 drp:13) recv:99645 (flt:615 digd:62668 drp:36362) + intim:0/0
+c 35.158 2 <#1> END S50 clenhist prod total:38141 35947 69 20 19 29 78 161 224 238 53 55 54 62 99 63 78 77 64 68 85 67 69 60 57 48 63 42 51 59 82
+c 35.158 2 <#1> END S50 clenhist digd total:62668 0 12164 5064 3111 2570 2386 1962 1751 2704 2148 2006 1708 2096 2704 2371 2429 2870 2579 2593 2381 2059 1350 480 252 223 128 135 117 207 120
+c 35.158 2 <#1> END S51 pps:78036353 dcs:123474 cfs:21589 rst:0 prod:36373 (flt:6885 adm:29488 drp:0) recv:99645 (flt:420 digd:62863 drp:36362) + intim:0/0
+c 35.158 2 <#1> END S51 clenhist prod total:36373 35624 50 24 17 6 7 15 9 17 36 30 23 37 56 26 38 61 20 27 38 25 15 19 14 12 19 12 16 22 58
+c 35.158 2 <#1> END S51 clenhist digd total:62863 0 12179 5060 3112 2571 2391 1961 1755 2706 2161 2018 1719 2111 2720 2386 2439 2882 2601 2621 2412 2057 1348 478 254 221 124 134 116 209 117
+c 35.158 2 <#1> END pps:219071646 dcs:264548 cfs:88192 rst:0 prod:116926 (flt:75424 adm:41482 drp:20) recv:398580 (flt:2308 digd:243271 drp:146460) + intim:0/0
+c 35.158 2 <#1> END exp:42915/42915 drp:0(0.000000) pflt:0 sflt:0
+c 35.158 2 <#1> clenhist prod total:116926 111902 754 168 84 66 108 202 275 336 130 114 95 117 209 133 161 186 128 150 183 148 140 143 138 115 144 105 109 158 225
+c 35.158 2 <#1> clenhist flfl total:75424 75398 19 3 1 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 1
+c 35.158 2 <#1> clenhist admt total:41482 36504 735 165 83 66 108 202 275 336 130 114 95 117 209 133 161 184 128 150 183 147 138 141 137 113 142 105 109 158 214
+c 35.158 2 <#1> clenhist drpd total:20 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 1 1 2 2 0 0 0 11
+c 35.158 2 <#1> clenhist dltd total:222 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 7 5 7 3 4 3 1 2 175
+c 35.158 2 <#1> clenhist retd total:3130 2771 0 0 0 0 0 0 0 0 0 0 19 28 7 0 0 0 23 37 0 29 45 74 71 26
+c 35.162 10 <#1> END S20 pps:49708632 dcs:78449 cfs:22022 rst:0 prod:37096 (flt:33323 adm:3747 drp:26) recv:99645 (flt:564 digd:62719 drp:36362) + intim:0/0
+c 35.162 10 <#1> END S20 clenhist prod total:37096 35794 72 48 28 46 63 88 75 65 44 33 22 24 36 37 44 51 48 60 54 46 41 42 35 26 24 32 26 48 44
+c 35.162 10 <#1> END S20 clenhist digd total:62719 0 12167 5036 3109 2557 2385 1958 1752 2706 2155 2018 1720 2116 2728 2375 2424 2868 2585 2597 2409 2049 1336 473 257 224 129 137 119 209 121
+c 35.163 10 <#1> END S21 pps:110867319 dcs:176761 cfs:61717 rst:0 prod:40102 (flt:10161 adm:29911 drp:30) recv:99645 (flt:1812 digd:61471 drp:36362) + intim:0/0
+c 35.163 10 <#1> END S21 clenhist prod total:40102 36239 222 90 46 54 68 147 274 377 124 92 85 126 139 154 112 138 108 122 117 139 137 129 133 103 113 107 96 152 159
+c 35.163 10 <#1> END S21 clenhist digd total:61471 0 12007 4994 3082 2530 2361 1931 1697 2627 2102 1980 1666 2044 2657 2287 2368 2807 2532 2542 2359 1973 1297 432 257 224 129 137 119 209 121
+c 35.163 10 <#1> END S22 pps:53143423 dcs:89817 cfs:32000 rst:0 prod:36873 (flt:28133 adm:8740 drp:0) recv:99645 (flt:663 digd:52158 drp:36362) + intim:0/0
+c 35.163 10 <#1> END S22 clenhist prod total:36873 35838 87 18 19 9 8 11 8 11 34 32 32 22 38 36 37 56 34 39 45 51 48 37 46 27 42 29 30 53 96
+c 35.163 10 <#1> END S22 clenhist digd total:52158 0 11038 4844 2814 1774 1291 1258 1277 1880 1725 1654 1450 1722 2218 1965 2015 2272 2088 2167 1955 1768 1319 468 257 224 129 137 119 209 121
+c 35.163 10 <#1> END S23 pps:149589457 dcs:786102 cfs:47151 rst:0 prod:11877 (flt:0 adm:0 drp:0) recv:99645 (flt:0 digd:0 drp:99645) + intim:0/0
+c 35.163 10 <#1> END S23 clenhist prod total:0 0
+c 35.163 10 <#1> END S23 clenhist digd total:0 0
+c 35.163 10 <#1> END pps:363308831 dcs:1131129 cfs:162890 rst:0 prod:125948 (flt:71617 adm:42398 drp:56) recv:398580 (flt:3039 digd:176348 drp:208731) + intim:0/0
+c 35.163 10 <#1> END exp:40930/40930 drp:0(0.000000) pflt:0 sflt:0
+c 35.163 10 <#1> clenhist prod total:114071 107871 381 156 93 109 139 246 357 453 202 157 139 172 213 227 193 245 190 221 216 236 226 208 214 156 179 168 152 253 299
+c 35.163 10 <#1> clenhist flfl total:71617 71605 9 1 0 0 0 0 0 0 1 0 1
+c 35.163 10 <#1> clenhist admt total:42398 36266 372 155 93 109 139 246 357 453 201 157 138 172 213 227 193 245 190 221 216 236 226 208 214 156 179 168 148 232 268
+c 35.163 10 <#1> clenhist drpd total:56 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 21 31
+c 35.163 10 <#1> clenhist dltd total:577 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 65 239 273
+c 35.163 10 <#1> clenhist retd total:920 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 92 392 159 26 124 100 12 8 5
+c 35.171 12 <#1> END S56 pps:160419504 dcs:250208 cfs:40644 rst:0 prod:3244 (flt:702 adm:2527 drp:15) recv:103795 (flt:1225 digd:66197 drp:36373) + intim:0/0
+c 35.171 12 <#1> END S56 clenhist prod total:3244 1496 174 91 76 38 20 30 17 23 28 40 33 39 55 58 64 72 79 84 70 71 83 69 91 81 70 46 62 34 50
+c 35.171 12 <#1> END S56 clenhist digd total:66197 0 12362 5054 3090 2553 2393 1977 1761 2748 2315 2128 1821 2299 3013 2539 2614 3115 2811 2839 2709 2481 1740 747 239 206 110 126 102 198 107
+c 35.171 12 <#1> END S57 pps:36739491 dcs:66120 cfs:14615 rst:0 prod:36737 (flt:3057 adm:33680 drp:0) recv:103795 (flt:437 digd:66985 drp:36373) + intim:0/0
+c 35.171 12 <#1> END S57 clenhist prod total:36737 35982 60 14 23 12 4 7 14 6 21 14 16 15 20 24 30 37 37 35 49 43 40 33 37 37 28 23 25 30 21
+c 35.171 12 <#1> END S57 clenhist digd total:66985 0 12476 5128 3143 2580 2410 1997 1765 2766 2328 2153 1840 2321 3049 2565 2648 3153 2852 2886 2729 2496 1752 764 257 220 129 135 118 204 121
+c 35.171 12 <#1> END S58 pps:50573959 dcs:99184 cfs:42003 rst:0 prod:37501 (flt:33189 adm:4312 drp:0) recv:103795 (flt:942 digd:66480 drp:36373) + intim:0/0
+c 35.171 12 <#1> END S58 clenhist prod total:37501 35819 122 34 19 14 14 22 15 34 62 43 49 96 96 73 59 73 58 58 65 71 65 69 66 54 45 50 54 84 118
+c 35.171 12 <#1> END S58 clenhist digd total:66480 0 12440 5105 3145 2579 2400 1985 1763 2738 2287 2127 1810 2251 2977 2524 2619 3127 2833 2864 2731 2484 1746 762 255 223 129 132 119 206 119
+c 35.171 12 <#1> END S59 pps:27122040 dcs:10434 cfs:563 rst:0 prod:4477 (flt:0 adm:0 drp:0) recv:103795 (flt:0 digd:0 drp:103795) + intim:0/0
+c 35.171 12 <#1> END S59 clenhist prod total:0 0
+c 35.171 12 <#1> END S59 clenhist digd total:0 0
+c 35.171 12 <#1> END pps:274854994 dcs:425946 cfs:97825 rst:0 prod:81959 (flt:36948 adm:40519 drp:15) recv:415180 (flt:2604 digd:199662 drp:212914) + intim:0/0
+c 35.171 12 <#1> END exp:42274/42274 drp:0(0.000000) pflt:0 sflt:0
+c 35.171 12 <#1> clenhist prod total:77482 73297 356 139 118 64 38 59 46 63 111 97 98 150 171 155 153 182 174 177 184 185 188 171 194 172 143 119 141 148 189
+c 35.171 12 <#1> clenhist flfl total:36948 36941 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 3 0 0 0 1 1
+c 35.171 12 <#1> clenhist admt total:40519 36356 355 139 118 64 38 59 46 63 110 97 98 150 171 155 153 179 174 177 184 184 187 171 193 171 141 116 137 147 186
+c 35.171 12 <#1> clenhist drpd total:15 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 2 3 4 1 3
+c 35.171 12 <#1> clenhist dltd total:66 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 5 0 2 1 1 52
+c 35.171 12 <#1> clenhist retd total:3090 2705 0 0 0 0 0 0 0 0 0 0 0 0 9 34 0 0 38 0 0 66 110 117 11
+c 35.192 0 <#1> END S32 pps:53122551 dcs:99765 cfs:39873 rst:0 prod:37772 (flt:31819 adm:5953 drp:0) recv:103795 (flt:864 digd:66558 drp:36373) + intim:0/0
+c 35.192 0 <#1> END S32 clenhist prod total:37772 36086 89 37 29 21 22 20 25 28 35 34 25 44 73 76 52 77 82 87 87 89 90 80 67 51 68 53 67 78 100
+c 35.192 0 <#1> END S32 clenhist digd total:66558 0 12460 5105 3136 2570 2392 1986 1759 2754 2318 2143 1836 2304 3008 2521 2635 3135 2821 2844 2703 2484 1710 756 250 213 129 137 119 209 121
+c 35.192 0 <#1> END S33 pps:50296336 dcs:91824 cfs:25310 rst:0 prod:37266 (flt:4651 adm:32615 drp:0) recv:103795 (flt:720 digd:63422 drp:36373) + intim:0/0
+c 35.192 0 <#1> END S33 clenhist prod total:37266 36112 78 30 28 10 13 21 14 11 27 37 33 33 39 44 51 52 41 59 50 43 54 48 61 31 28 28 30 59 101
+c 35.192 0 <#1> END S33 clenhist digd total:63422 0 12103 5059 3025 2267 2003 1911 1608 2404 2154 1983 1725 2177 2842 2416 2482 2968 2696 2739 2725 2494 1713 754 240 219 129 137 119 209 121
+c 35.192 0 <#1> END S34 pps:169144308 dcs:208119 cfs:44520 rst:0 prod:3200 (flt:835 adm:2365 drp:0) recv:103795 (flt:1243 digd:66179 drp:36373) + intim:0/0
+c 35.192 0 <#1> END S34 clenhist prod total:3200 1428 218 81 72 43 30 28 23 44 44 33 40 54 58 66 70 88 71 76 91 61 65 70 62 56 64 48 36 43 37
+c 35.192 0 <#1> END S34 clenhist digd total:66179 0 12321 5059 3094 2551 2385 1980 1757 2737 2307 2138 1821 2284 3015 2525 2614 3108 2825 2849 2694 2487 1721 749 241 206 128 137 118 208 120
+c 35.192 0 <#1> END S35 pps:55516271 dcs:404585 cfs:17171 rst:0 prod:14992 (flt:0 adm:0 drp:0) recv:103795 (flt:0 digd:0 drp:103795) + intim:0/0
+c 35.192 0 <#1> END S35 clenhist prod total:0 0
+c 35.192 0 <#1> END S35 clenhist digd total:0 0
+c 35.192 0 <#1> END pps:328079466 dcs:804293 cfs:126874 rst:0 prod:93230 (flt:37305 adm:40933 drp:0) recv:415180 (flt:2827 digd:196159 drp:212914) + intim:0/0
+c 35.192 0 <#1> END exp:41236/41236 drp:0(0.000000) pflt:0 sflt:0
+c 35.192 0 <#1> clenhist prod total:78238 73626 385 148 129 74 65 69 62 83 106 104 98 131 170 186 173 217 194 222 228 193 209 198 190 138 160 129 133 180 238
+c 35.192 0 <#1> clenhist flfl total:37305 37302 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2
+c 35.192 0 <#1> clenhist admt total:40933 36324 384 148 129 74 65 69 62 83 106 104 98 131 170 186 173 215 194 222 228 193 209 198 190 138 160 129 133 180 238
+c 35.192 0 <#1> clenhist drpd total:0 0
+c 35.192 0 <#1> clenhist dltd total:0 0
+c 35.192 0 <#1> clenhist retd total:898 531 0 0 0 0 0 0 0 0 0 0 16 20 4 2 0 1 1 0 29 0 0 48 17 2 6 17 54 79 71
+[1670821027.035551] [della-i12n3:279427:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14c2bd338380 was not matched
+[1670821027.035564] [della-i12n3:279427:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14c2bd3382c0 was not matched
+[1670821027.035624] [della-i12n3:279451:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14be33f86d00 was not matched
+[1670821027.035848] [della-i12n3:279429:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152c7d5807c0 was not matched
+[1670821027.036150] [della-i12n3:279432:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14c011d2e3c0 was not matched
+[1670821027.038532] [della-i12n3:279439:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1481360fea00 was not matched
+[1670821027.038546] [della-i12n3:279439:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1481360fe880 was not matched
+c 35.718 15 Exiting happily
+c 35.723 4 Exiting happily
+c 35.725 5 Exiting happily
+c 35.728 10 Exiting happily
+c 35.729 14 Exiting happily
+c 35.749 12 Exiting happily
+c 35.752 13 Exiting happily
+c 35.753 2 Exiting happily
+c 35.753 11 Exiting happily
+c 35.755 9 Exiting happily
+c 35.756 8 Exiting happily
+c 35.757 3 Exiting happily
+c 35.757 0 Exiting happily
+c 35.757 6 Exiting happily
+c 35.757 7 Exiting happily
+c 35.757 1 Exiting happily

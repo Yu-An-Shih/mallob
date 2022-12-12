@@ -57,9 +57,9 @@ void AnytimeSatClauseCommunicator::communicate() {
         // can be deleted
 
         // NOTE: warn when a session is deleted before completing
-        if (session.isValid()) {
-            LOG(V1_WARN, "[WARN] %s : Session deleted before completing!\n", _job->toStr());
-        }
+        //if (session.isValid()) {
+        //    LOG(V1_WARN, "[WARN] %s : Session deleted before completing!\n", _job->toStr());
+        //}
         
         _sessions.pop_front();
     }
@@ -176,7 +176,7 @@ void AnytimeSatClauseCommunicator::communicate() {
 
         // NOTE: measure communication time
         if (_job->getJobTree().isRoot()) {
-            LOG(V2_INFO, "Communication: epoch %i took %f seconds to complete.\n", session._epoch, _time_of_last_epoch_conclusion - _time_of_last_epoch_initiation);
+            LOG(V0_CRIT, "Communication: epoch %i took %f seconds to complete.\n", session._epoch, _time_of_last_epoch_conclusion - _time_of_last_epoch_initiation);
         }
         
     }
