@@ -15,8 +15,8 @@ public:
 	Parameters() = default;
 	Parameters(const Parameters& other);
 
-	void init(int argc, char** argv);
-	void expand();
+	void init(int argc, char** argv);    // set command line options
+	void expand();                       // set additional options if -mono=<instanceFileName> is indicated; called by init()
 
 	void printBanner() const;
 	void printUsage() const;

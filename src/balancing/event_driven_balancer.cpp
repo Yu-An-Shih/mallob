@@ -67,7 +67,7 @@ void EventDrivenBalancer::onProbe(int jobId) {
     }), /*recordLatency=*/false);
 }
 
-void EventDrivenBalancer::onActivate(const Job& job, int demand) {
+void EventDrivenBalancer::onActivate(const Job& job, int demand) { // job, p
     
     if (_active_job_id == job.getId()) {
         if (job.getJobTree().isRoot()) onDemandChange(job, demand);
@@ -241,7 +241,7 @@ void EventDrivenBalancer::computeBalancingResult() {
     std::string msg = "";
     for (const auto& entry : calc.getEntries()) {
         if (rank == 0)
-            msg += std::to_string(entry.jobId) + ":" + std::to_string(entry.volume) + " ";
+            msg += std::to_string(entry.jobId) + ":" + std::to_string(entry.volume) + " ";  // "1:1 "
         
         _job_volumes[entry.jobId] = entry.volume;
         float elapsed = 0;

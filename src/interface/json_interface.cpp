@@ -18,10 +18,10 @@ JsonInterface::Result JsonInterface::handle(nlohmann::json& inputJson,
 
     if (Terminator::isTerminating()) return DISCARD;
 
-    std::string userFile, jobName;
+    std::string userFile, jobName;       // MONO: jobName = admin.mono-job.json
     int id;
-    float userPrio, arrival, priority;
-    JobDescription::Application appl;
+    float userPrio, arrival, priority;   // MONO: priority = 1, arrival = current elapsed time
+    JobDescription::Application appl;    // MONO: ONESHOT_SAT
     JobImage* img = nullptr;
 
     {
@@ -42,7 +42,7 @@ JsonInterface::Result JsonInterface::handle(nlohmann::json& inputJson,
             // Jitter job priority
             priority *= 0.99 + 0.01 * Random::rand();
         }
-        appl = JobDescription::Application::DUMMY;
+        appl = JobDescription::Application::DUMMY;  // MONO: ONESHOT_SAT
         if (inputJson.contains("application")) {
             auto appStr = inputJson["application"].get<std::string>();
             appl = appStr == "SAT" ? 
@@ -104,7 +104,7 @@ JsonInterface::Result JsonInterface::handle(nlohmann::json& inputJson,
                 // Job is not done -- add increment to job
                 _job_id_to_latest_rev[id] = rev+1;
                 _job_name_to_id_rev[jobName] = std::pair<int, int>(id, rev+1);
-                img = new JobImage(id, jobName, arrival, feedback);
+                img = new JobImage(id, jobName, arrival, feedback); 
                 img->incremental = true;
                 img->baseJson = std::move(inputJson);
                 _job_id_rev_to_image[std::pair<int, int>(id, rev+1)] = img;
@@ -125,7 +125,7 @@ JsonInterface::Result JsonInterface::handle(nlohmann::json& inputJson,
                 return DISCARD;
             }
 
-            img = new JobImage(id, jobName, arrival, feedback);
+            img = new JobImage(id, jobName, arrival, feedback);    // MONO: id = 1, jobName = admin.mono-job.json, arrival = current elapsed time, feedback = func(monoJobDone = true)
             img->incremental = incremental;
             img->baseJson = std::move(inputJson);
             _job_id_rev_to_image[std::pair<int, int>(id, 0)] = std::move(img);
@@ -163,7 +163,7 @@ JsonInterface::Result JsonInterface::handle(nlohmann::json& inputJson,
     }
     job->setArrival(arrival);
     std::vector<std::string> files = json.contains("files") ? 
-        json["files"].get<std::vector<std::string>>() : std::vector<std::string>();
+        json["files"].get<std::vector<std::string>>() : std::vector<std::string>();  // MONO: {monoFilename}
 
     // Application-specific configuration
     AppConfiguration config;

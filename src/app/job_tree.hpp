@@ -184,7 +184,7 @@ public:
         _send_handles_right.clear();
         _job_node_ranks.clear(getRightChildIndex());
     }
-    void update(int index, int rootRank, int parentRank) {    
+    void update(int index, int rootRank, int parentRank) {
         _index = index;
         if (index == 0 || rootRank < 0) rootRank = _rank; // this is the root node
         updateJobNode(0, rootRank);

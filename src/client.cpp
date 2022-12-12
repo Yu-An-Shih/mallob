@@ -49,7 +49,7 @@ void Client::readIncomingJobs() {
 
         // Find a single job eligible for parsing
         bool foundAJob = false;
-        for (auto& data : _incoming_job_queue) {
+        for (auto& data : _incoming_job_queue) {    // NOTE: job introduced by introdcueMonoJob() in main()
             
             // Jobs are sorted by arrival:
             // If this job has not arrived yet, then none have arrived yet
@@ -82,19 +82,22 @@ void Client::readIncomingJobs() {
             LOGGER(log, V4_VVER, "ENQUEUE #%i\n", data.description->getId());
             auto node = _incoming_job_queue.extract(data);
             auto future = ProcessWideThreadPool::get().addTask(
+                // NOTE: This function will be pushed to ProcessWideThreadPool->pool->_job_queue.
+                //       It will then be executed by one of its _threads.
+                
                 [this, &log, foundJobPtr = new JobMetadata(std::move(node.value()))]() mutable {
                 
-                auto& foundJob = *foundJobPtr;
+                auto& foundJob = *foundJobPtr;             // NOTE: JobMetadata
                 if (!_instance_reader.continueRunning()) return;
                 
                 // Read job
-                int id = foundJob.description->getId();
+                int id = foundJob.description->getId();    // MONO: 1
                 float time = Timer::elapsedSeconds();
                 bool success = true;
-                auto filesList = foundJob.getFilesList();
+                auto filesList = foundJob.getFilesList();  // MONO: "{str(params.monoFilename())}"
                 if (foundJob.hasFiles()) {
                     LOGGER(log, V3_VERB, "[T] Reading job #%i rev. %i %s ...\n", id, foundJob.description->getRevision(), filesList.c_str());
-                    success = JobReader::read(foundJob.files, foundJob.contentMode, *foundJob.description);
+                    success = JobReader::read(foundJob.files, foundJob.contentMode, *foundJob.description);   // NOTE: write input file information to _data_per_revision[0]
                 } else {
                     foundJob.description->beginInitialization(foundJob.description->getRevision());
                     foundJob.description->endInitialization();
@@ -179,7 +182,7 @@ void Client::init() {
     );
 
     // Set up various interfaces as bridges between the outside and the JSON interface
-    if (_params.useFilesystemInterface()) {
+    if (_params.useFilesystemInterface()) {    // MONO: false
         std::string path = getFilesystemInterfacePath();
         LOG(V2_INFO, "Set up filesystem interface at %s\n", path.c_str());
         auto logger = Logger::getMainInstance().copy("I-FS", ".i-fs");
@@ -187,7 +190,7 @@ void Client::init() {
             std::move(logger), path);
         _interface_connectors.push_back(conn);
     }
-    if (_params.useIPCSocketInterface()) {
+    if (_params.useIPCSocketInterface()) {    // MONO: false
         std::string path = getSocketPath();
         LOG(V2_INFO, "Set up IPC socket interface at %s\n", path.c_str());
         _interface_connectors.push_back(new SocketConnector(_params, *_json_interface, path));
@@ -305,7 +308,7 @@ void Client::advance() {
         }
     }
 
-    int jobLimit = _params.numJobs();
+    int jobLimit = _params.numJobs();  // MONO: 1
     if (jobLimit > 0 && (int)_sys_state.getGlobal()[SYSSTATE_PROCESSED_JOBS] >= jobLimit) {
         LOG(V2_INFO, "Job limit reached.\n");
         // Job limit reached - exit
@@ -330,7 +333,7 @@ void Client::introduceNextJob() {
     if (_num_ready_jobs.load(std::memory_order_relaxed) == 0) return;
     
     // To check if there is space for another active job in this client's "bucket"
-    size_t lbc = getMaxNumParallelJobs();
+    size_t lbc = getMaxNumParallelJobs();    // default: 0
 
     // Remove first eligible job from ready queue
     std::unique_ptr<JobDescription> jobPtr;
@@ -354,7 +357,7 @@ void Client::introduceNextJob() {
 
     // Store as an active job
     JobDescription& job = *jobPtr;
-    int jobId = job.getId();
+    int jobId = job.getId();    // MONO: 1
     _active_jobs[jobId] = std::move(jobPtr);
     _sys_state.addLocal(SYSSTATE_SCHEDULED_JOBS, 1);
 
@@ -368,7 +371,7 @@ void Client::introduceNextJob() {
         nodeRank = _root_nodes[jobId];
     } else {
         // Find the job's canonical initial node
-        int n = _params.numWorkers() >= 0 ? _params.numWorkers() : MyMpi::size(MPI_COMM_WORLD);
+        int n = _params.numWorkers() >= 0 ? _params.numWorkers() : MyMpi::size(MPI_COMM_WORLD);    // MONO: # of PEs
         LOG(V5_DEBG, "Creating permutation of size %i ...\n", n);
         AdjustablePermutation p(n, jobId);
         nodeRank = p.get(0);

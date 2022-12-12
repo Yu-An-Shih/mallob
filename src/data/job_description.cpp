@@ -5,7 +5,7 @@
 #include "util/logger.hpp"
 
 
-void JobDescription::beginInitialization(int revision) {
+void JobDescription::beginInitialization(int revision) { // MONO: revision = 0
     _revision = revision;
     while (_revision >= _data_per_revision.size()) _data_per_revision.emplace_back();
     _data_per_revision[_revision].reset(new std::vector<uint8_t>(

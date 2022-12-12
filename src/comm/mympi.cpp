@@ -36,8 +36,8 @@ size_t MyMpi::getBinaryTreeBufferLimit(int numWorkers, int baseSize, float disco
 }
 
 void MyMpi::setOptions(const Parameters& params) {
-    int verb = MyMpi::rank(MPI_COMM_WORLD) == 0 ? V2_INFO : V4_VVER;
-    _msg_queue = new MessageQueue(params.messageBatchingThreshold());
+    int verb = MyMpi::rank(MPI_COMM_WORLD) == 0 ? V2_INFO : V4_VVER;    // NOTE: not used
+    _msg_queue = new MessageQueue(params.messageBatchingThreshold());   // Q: What is this for?
 }
 
 int MyMpi::isend(int recvRank, int tag, const Serializable& object) {

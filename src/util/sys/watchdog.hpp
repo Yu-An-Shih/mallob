@@ -37,7 +37,7 @@ public:
     Watchdog(bool enabled, int checkIntervalMillis, float time = Timer::elapsedSeconds());
     void setWarningPeriod(int periodMillis);
     void setAbortPeriod(int periodMillis);
-    void reset(float time = Timer::elapsedSeconds());
+    void reset(float time = Timer::elapsedSeconds());    // reset _last_reset_millis to current elapsed time
     inline void setActivity(Activity a) {
         _activity = a;
     }

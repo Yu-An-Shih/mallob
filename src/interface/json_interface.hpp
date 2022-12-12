@@ -44,9 +44,9 @@ private:
 
     std::function<void(JobMetadata&&)> _job_callback;
     
-    robin_hood::unordered_node_map<std::string, std::pair<int, int>> _job_name_to_id_rev;
-    robin_hood::unordered_node_map<int, int> _job_id_to_latest_rev;
-    robin_hood::unordered_node_map<std::pair<int, int>, JobImage*, IntPairHasher> _job_id_rev_to_image;
+    robin_hood::unordered_node_map<std::string, std::pair<int, int>> _job_name_to_id_rev;                  // MONO: "admin.mono-job.json"->(1, 0)
+    robin_hood::unordered_node_map<int, int> _job_id_to_latest_rev;                                        // MONO: 1->0
+    robin_hood::unordered_node_map<std::pair<int, int>, JobImage*, IntPairHasher> _job_id_rev_to_image;    // MONO: (1, 0)->img (see .cpp file)
 
 public:
     JsonInterface(int clientRank, const Parameters& params, Logger&& logger, 

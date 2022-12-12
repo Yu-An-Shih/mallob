@@ -51,7 +51,7 @@ private:
         int _num_broadcast_clauses;
         int _num_admitted_clauses;
 
-        JobTreeAllReduction _allreduce_clauses;
+        JobTreeAllReduction _allreduce_clauses;  // Q: what are these for?
         JobTreeAllReduction _allreduce_filter;
         bool _filtering = false;
 
@@ -148,8 +148,8 @@ public:
         _sessions.clear();
     }
 
-    void communicate();
-    void handle(int source, int mpiTag, JobMessage& msg);
+    void communicate();                                    // NOTE: executes for each worker->advance()
+    void handle(int source, int mpiTag, JobMessage& msg);  // NOTE: executes when received application messages
     void feedHistoryIntoSolver();
     bool isDestructible() {
         for (auto& session : _sessions) if (!session.isDestructible()) return false;

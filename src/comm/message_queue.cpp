@@ -21,9 +21,9 @@ MessageQueue::MessageQueue(int maxMsgSize) : _max_msg_size(maxMsgSize) {
     _current_recv_tag = &_default_tag_var;
     _current_send_tag = &_default_tag_var;
 
-    resetReceiveHandle();
+    resetReceiveHandle();           // Q: What message is this process waiting for?
 
-    _batch_assembler.run([&]() {
+    _batch_assembler.run([&]() {    // Q: what are these threads for?
         Proc::nameThisThread("MsgAssembler");
         runFragmentedMessageAssembler();
     });
@@ -110,7 +110,7 @@ void MessageQueue::advance() {
     _iteration++;
     processReceived();
     processSelfReceived();
-    processAssembledReceived();
+    processAssembledReceived();  // only executes when _num_fused > 0
     processSent();
     //log(V5_DEBG, "ENDADV\n");
 }

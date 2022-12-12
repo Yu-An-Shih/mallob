@@ -27,7 +27,7 @@ JobDatabase::JobDatabase(Parameters& params, MPI_Comm& comm, WorkerSysState& sys
     _current_job = NULL;
     _load_factor = params.loadFactor();
     assert(0 < _load_factor && _load_factor <= 1.0);
-    _balance_period = params.balancingPeriod();       
+    _balance_period = params.balancingPeriod();
 
     // Initialize balancer
     _balancer = std::unique_ptr<EventDrivenBalancer>(new EventDrivenBalancer(_comm, _params));

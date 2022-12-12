@@ -36,8 +36,8 @@ private:
     JobDatabase _job_db;
     WorkerSysState _sys_state;
 
-    std::vector<int> _hop_destinations;
-    CollectiveAssignment _coll_assign;
+    std::vector<int> _hop_destinations; // points to -pa=4 other PEs
+    CollectiveAssignment _coll_assign;  // MONO: not initialized - no collective assignments
 
     long long _iteration = 0;
     PeriodicEvent<1000> _periodic_stats_check;

@@ -40,7 +40,7 @@ void introduceMonoJob(Parameters& params, Client& client) {
         json["cpu-limit"] = std::to_string(params.jobCpuLimit()) + "s";
     }
 
-    auto result = client.getAPI().submit(json, [&](nlohmann::json& response) {
+    auto result = client.getAPI().submit(json, [&](nlohmann::json& response) { // NOTE: function pushed into client->(_api_connector->)_interface->_job_id_rev_to_image[(1, 0)]
         // Job done? => Terminate all processes
         monoJobDone = true;
     });
@@ -113,7 +113,7 @@ void doMainProgram(MPI_Comm& commWorkers, MPI_Comm& commClients, Parameters& par
 
     // If mono solving mode is enabled, introduce the singular job to solve
     if (params.monoFilename.isSet() && isClient && MyMpi::rank(commClients) == 0)
-        introduceMonoJob(params, *client);
+        introduceMonoJob(params, *client);          // NOTE: job pushed to client->_ready_job_queue
 
     // If job streaming is enabled, initialize a corresponding job streamer
     JobStreamer* streamer = nullptr;
@@ -125,11 +125,11 @@ void doMainProgram(MPI_Comm& commWorkers, MPI_Comm& commClients, Parameters& par
     while (!Terminator::isTerminating(/*fromMainthread*/true)) {
 
         // Advance worker and client logic
-        if (isWorker) worker->advance();
+        if (isWorker) worker->advance();       // NOTE: communication happens here!!!
         if (isClient) client->advance();
 
         // Advance message queue and run callbacks for done messages
-        MyMpi::getMessageQueue().advance();
+        MyMpi::getMessageQueue().advance();    // process received data from other nodes
 
         // Check termination, sleep, and/or yield thread
         if (doTerminate(params, myRank)) 
@@ -171,7 +171,7 @@ int main(int argc, char *argv[]) {
     longStartupWarnMsg(rank, "Init'd params");
 
     // Initialize bookkeeping of child processes and signals
-    Process::init(rank, params.traceDirectory());
+    Process::init(rank, params.traceDirectory());    // Q: What is this for? Exception handling?
 
     longStartupWarnMsg(rank, "Init'd process");
 
@@ -183,7 +183,7 @@ int main(int argc, char *argv[]) {
     logConfig.quiet = params.quiet();
     if (params.zeroOnlyLogging() && rank > 0) logConfig.quiet = true;
     logConfig.cPrefix = params.monoFilename.isSet();
-    std::string logDirectory = params.logDirectory();
+    std::string logDirectory = params.logDirectory();    // default to ""
     std::string logFilename = "log." + std::to_string(rank);
     logConfig.logDirOrNull = logDirectory.empty() ? nullptr : &logDirectory;
     logConfig.logFilenameOrNull = &logFilename;
@@ -191,7 +191,7 @@ int main(int argc, char *argv[]) {
 
     longStartupWarnMsg(rank, "Init'd logger");
 
-    MyMpi::setOptions(params);
+    MyMpi::setOptions(params);    // NOTE: initialize MyMpi::_msg_queue; Q: What is this for?
 
     longStartupWarnMsg(rank, "Init'd message queue");
 
@@ -214,19 +214,19 @@ int main(int argc, char *argv[]) {
     // as well as to an individual randomness that differs among nodes
     Random::init(numNodes+params.seed(), rank+params.seed());
 
-    auto isWorker = [&](int rank) {
-        if (params.numWorkers() == -1) return true; 
+    auto isWorker = [&](int rank) {    // MONO: all PEs are workers
+        if (params.numWorkers() == -1) return true;
         return rank < params.numWorkers();
     };
-    auto isClient = [&](int rank) {
+    auto isClient = [&](int rank) {    // MONO: only the 0th PE is a client
         if (params.monoFilename.isSet()) return rank == 0;
         if (params.numClients() == -1) return true;
         return rank >= numNodes - params.numClients();
     };
 
     // Create communicators for clients and for workers
-    std::vector<int> clientRanks;
-    std::vector<int> workerRanks;
+    std::vector<int> clientRanks;      // MONO: {0}
+    std::vector<int> workerRanks;      // MONO: {0, 1, ..., p-1}
     for (int i = 0; i < numNodes; i++) {
         if (isWorker(i)) workerRanks.push_back(i);
         if (isClient(i)) clientRanks.push_back(i);
@@ -234,9 +234,9 @@ int main(int argc, char *argv[]) {
     if (rank == 0) LOG(V3_VERB, "%i workers, %i clients\n", workerRanks.size(), clientRanks.size());
 
     // Initialize thread pool
-    int threadPoolSize = std::max(4, 2*params.numThreadsPerProcess());
+    int threadPoolSize = std::max(4, 2*params.numThreadsPerProcess()); // Q: Why multiply by 2?
     if (isClient(rank) && isWorker(rank)) threadPoolSize *= 2;
-    ProcessWideThreadPool::init(threadPoolSize);
+    ProcessWideThreadPool::init(threadPoolSize);                       // NOTE: initialize worker threads to wait for jobs (ProcessWideThreadPool->pool->_threads)
     
     MPI_Comm clientComm, workerComm;
     {
@@ -244,7 +244,7 @@ int main(int argc, char *argv[]) {
         MPI_Comm_group(MPI_COMM_WORLD, &worldGroup);
         MPI_Group clientGroup;
         MPI_Group_incl(worldGroup, clientRanks.size(), clientRanks.data(), &clientGroup);
-        MPI_Comm_create(MPI_COMM_WORLD, clientGroup, &clientComm);
+        MPI_Comm_create(MPI_COMM_WORLD, clientGroup, &clientComm);    // MONO: clientComm == MPI_COMM_NULL except for the 0th PE
     }
     if (rank == 0) LOG(V3_VERB, "Created client communicator\n");
     {
@@ -252,7 +252,7 @@ int main(int argc, char *argv[]) {
         MPI_Comm_group(MPI_COMM_WORLD, &worldGroup);
         MPI_Group workerGroup;
         MPI_Group_incl(worldGroup, workerRanks.size(), workerRanks.data(), &workerGroup);
-        MPI_Comm_create(MPI_COMM_WORLD, workerGroup, &workerComm);
+        MPI_Comm_create(MPI_COMM_WORLD, workerGroup, &workerComm);    // MONO: contains all PEs
     }
     if (rank == 0) LOG(V3_VERB, "Created worker communicator\n");
     

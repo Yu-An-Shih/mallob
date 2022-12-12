@@ -12,6 +12,7 @@
 #include "util/sys/terminator.hpp"
 
 bool SatReader::read(JobDescription& desc) {
+	// MONO: _filename = params.monoFilename(), _contentMode = ASCII
 
 	FILE* pipe = nullptr;
 	int namedpipe = -1;
@@ -28,7 +29,7 @@ bool SatReader::read(JobDescription& desc) {
 	
 	desc.beginInitialization(desc.getRevision());
 	
-	if (pipe == nullptr && namedpipe == -1) {
+	if (pipe == nullptr && namedpipe == -1) {  // MONO and .cnf file
 		// Read file with mmap
 		int fd = open(_filename.c_str(), O_RDONLY);
 		if (fd == -1) return false;
@@ -98,7 +99,7 @@ bool SatReader::read(JobDescription& desc) {
 				}
 				iteration++;
 			}
-		} else {
+		} else {  // MONO and .xz file
 			char buffer[4096] = {'\0'};
 			while (!Terminator::isTerminating() && fgets(buffer, sizeof(buffer), pipe) != nullptr) {
 				size_t pos = 0;

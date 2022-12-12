@@ -64,7 +64,7 @@ private:
     std::function<void(int, int, float)> _volume_update_callback;
     std::function<void()> _balancing_done_callback;
 
-    int _root_rank;
+    int _root_rank;                             // 0
     int _parent_rank;
     std::vector<int> _child_ranks;
 
@@ -78,10 +78,10 @@ private:
 
     void computeBalancingResult();
 
-    int getRootRank();
+    int getRootRank();                          // returns 0
     int getParentRank();
     const std::vector<int>& getChildRanks();
-    bool isRoot(int rank);
+    bool isRoot(int rank);                      // rank == 0
     bool isLeaf(int rank);
 
     int getNewDemand(int jobId);

@@ -8,5 +8,6 @@ build/
 instances/*.cnf
 instances/*.cnf.xz
 instances/*.uri
+instances/sat-2020-instances/*
 upload.sh
 download.sh

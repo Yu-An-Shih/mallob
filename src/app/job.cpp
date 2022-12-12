@@ -150,7 +150,7 @@ int Job::getDemand() const {
     } 
     
     int commSize = _job_tree.getCommSize();
-    int demand; 
+    int demand;
     if (_growth_period <= 0) {
         // Immediate growth
         demand = _job_tree.getCommSize();
@@ -216,7 +216,7 @@ JobResult& Job::getResult() {
 
 void Job::communicate() {
     if (_state != ACTIVE) return;
-    if (_comm.wantsToAggregate() && _comm.isAggregating()) _comm.beginAggregation();
+    if (_comm.wantsToAggregate() && _comm.isAggregating()) _comm.beginAggregation();  // Q What is this for? Is this related to clause sharing?
     appl_communicate();
 }
 

@@ -25,7 +25,7 @@ private:
     MPI_Comm& _comm;
     std::unique_ptr<EventDrivenBalancer> _balancer;
     robin_hood::unordered_map<int, int> _current_volumes;
-    CollectiveAssignment* _coll_assign = nullptr;
+    CollectiveAssignment* _coll_assign = nullptr; // MONO: nullptr - no collective assignments
 
     std::atomic_int _num_stored_jobs = 0;
     robin_hood::unordered_map<int, Job*> _jobs;
@@ -33,9 +33,9 @@ private:
     robin_hood::unordered_map<std::pair<int, int>, LocalScheduler, IntPairHasher> _schedulers;
     robin_hood::unordered_map<int, int> _num_schedulers_per_job;
 
-    int _load;
+    int _load;                           // initialized to 0
     Job* _current_job;
-    float _last_balancing_initiation;
+    float _last_balancing_initiation;    // initialized to 0
 
     // Requests which lay dormant (e.g., due to too many hops / too busy system)
     // and will be re-introduced to continue hopping after some time
@@ -72,7 +72,7 @@ public:
     void setCollectiveAssignment(CollectiveAssignment& collAssign) {_coll_assign = &collAssign;}
 
     Job& createJob(int commSize, int worldRank, int jobId, JobDescription::Application application);
-    bool appendRevision(int jobId, const std::shared_ptr<std::vector<uint8_t>>& description, int source);
+    bool appendRevision(int jobId, const std::shared_ptr<std::vector<uint8_t>>& description, int source);  // call job.pushRivision() to push job description into the corresponding job
     void execute(int jobId, int source);
 
     bool checkComputationLimits(int jobId);

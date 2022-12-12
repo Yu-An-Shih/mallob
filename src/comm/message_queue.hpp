@@ -309,7 +309,7 @@ private:
     void processAssembledReceived();
     void processSent();
 
-    void resetReceiveHandle();
+    void resetReceiveHandle();    // non-blocking receive (_recv_data, _recv_request); called upon construction
     void signalCompletion(int tag, int id);
 };
 

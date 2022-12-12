@@ -50,8 +50,8 @@ private:
     Mutex _incoming_job_lock;
     ConditionVariable _incoming_job_cond_var;
     
-    std::atomic_long _next_arrival_time_millis = -1;
-    std::set<float> _arrival_times;
+    std::atomic_long _next_arrival_time_millis = -1;  // MONO: job (json file) arrival time * 1000; set to -1 in advance()
+    std::set<float> _arrival_times;                   // MONO: job (json file) arrival time
     Mutex _arrival_times_lock;
 
     // For jobs which have been fully read and initialized
@@ -82,7 +82,7 @@ private:
     SysState<4> _sys_state;
 
     std::unique_ptr<JsonInterface> _json_interface;
-    std::vector<Connector*> _interface_connectors;
+    std::vector<Connector*> _interface_connectors;    // MONO: contains only _api_connector
     APIConnector* _api_connector;
     BackgroundWorker _instance_reader;
 
@@ -104,7 +104,7 @@ public:
     // Callback from JobFileAdapter when a new job's meta data were read
     void handleNewJob(JobMetadata&& data);
 
-    int getInternalRank();
+    int getInternalRank(); // MONO: return 0
     std::string getFilesystemInterfacePath();
     std::string getSocketPath();
     APIConnector& getAPI();
@@ -119,8 +119,8 @@ private:
     void handleClientFinished(MessageHandle& handle);
     void handleExit(MessageHandle& handle);
 
-    int getMaxNumParallelJobs();
-    void introduceNextJob();
+    int getMaxNumParallelJobs();  // default: 0
+    void introduceNextJob();      // Extract a job from _ready_job_queue, insert into _active_jobs, and request a node to begin this job
     void finishJob(int jobId, bool hasIncrementalSuccessors);
     
 };

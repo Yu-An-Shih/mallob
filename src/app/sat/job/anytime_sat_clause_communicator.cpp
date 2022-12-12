@@ -13,7 +13,7 @@ void advanceCollective(BaseSatJob* job, JobMessage& msg, int broadcastTag) {
         msg.tag = broadcastTag;
         MyMpi::isend(job->getJobTree().getRank(), MSG_SEND_APPLICATION_MESSAGE, msg);
         msg.tag = oldTag;
-    } else if (msg.tag == broadcastTag) {
+    } else if (msg.tag == broadcastTag) {  // NOTE: MSG_INITIATE_CLAUSE_SHARING
         // Broadcast to children
         if (job->getJobTree().hasLeftChild())
             MyMpi::isend(job->getJobTree().getLeftChildNodeRank(), MSG_SEND_APPLICATION_MESSAGE, msg);
@@ -55,6 +55,12 @@ void AnytimeSatClauseCommunicator::communicate() {
         auto& session = _sessions.front();
         if (!session.isDestructible()) break;
         // can be deleted
+
+        // NOTE: warn when a session is deleted before completing
+        if (session.isValid()) {
+            LOG(V1_WARN, "[WARN] %s : Session deleted before completing!\n", _job->toStr());
+        }
+        
         _sessions.pop_front();
     }
 
@@ -97,7 +103,7 @@ void AnytimeSatClauseCommunicator::communicate() {
         LOG(V4_VVER, "%s CS produce cls\n", _job->toStr());
         session._allreduce_clauses.produce([&]() {
             Checksum checksum;
-            auto clauses = _job->getPreparedClauses(checksum);
+            auto clauses = _job->getPreparedClauses(checksum);  // vector<int>
             clauses.push_back(1); // # aggregated workers
             return clauses;
         });
@@ -113,7 +119,7 @@ void AnytimeSatClauseCommunicator::communicate() {
         _job->setSharingCompensationFactor(_compensation_factor);
         if (_job->getJobTree().isRoot()) {
             LOG(V3_VERB, "%s CS last sharing: %i/%i globally passed ~> c=%.3f\n", _job->toStr(), 
-                nbAdmitted, nbBroadcast, _compensation_factor);       
+                nbAdmitted, nbBroadcast, _compensation_factor);
         }
     
     } else if (!session._allreduce_clauses.hasProducer()) {
@@ -167,6 +173,12 @@ void AnytimeSatClauseCommunicator::communicate() {
 
         // Conclude this sharing epoch
         _time_of_last_epoch_conclusion = Timer::elapsedSeconds();
+
+        // NOTE: measure communication time
+        if (_job->getJobTree().isRoot()) {
+            LOG(V2_INFO, "Communication: epoch %i took %f seconds to complete.\n", session._epoch, _time_of_last_epoch_conclusion - _time_of_last_epoch_initiation);
+        }
+        
     }
 }
 

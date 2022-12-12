@@ -24,9 +24,9 @@ public:
     }
 
     struct Statistics {
-        float timeOfScheduling;
-        float parseTime;
-        float schedulingTime;
+        float timeOfScheduling;            // MONO: elasped time until a job got started on a node
+        float parseTime;                   // MONO: read monoFilename into _data_per_revision
+        float schedulingTime;              // MONO: time for a requesed job to get started on a node (timeOfScheduling - time of job arrival)
         float processingTime;
         float usedWallclockSeconds;
         float usedCpuSeconds;

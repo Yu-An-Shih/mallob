@@ -31,11 +31,11 @@ Worker::Worker(MPI_Comm comm, Parameters& params) :
     _watchdog.setAbortPeriod(_params.watchdogAbortMillis()); // abort after X ms without a reset
 
     // Set callback which is called whenever a job's volume is updated
-    _job_db.setBalancerVolumeUpdateCallback([&](int jobId, int volume, float eventLatency) {
+    _job_db.setBalancerVolumeUpdateCallback([&](int jobId, int volume, float eventLatency) { // _job_db->_balancer->_volume_update_callback
         updateVolume(jobId, volume, _job_db.getGlobalBalancingEpoch(), eventLatency);
     });
     // Set callback for whenever a new balancing has been concluded
-    _job_db.setBalancingDoneCallback([&]() {
+    _job_db.setBalancingDoneCallback([&]() {                                                 // _job_db->_balancer->_balancing_done_callback
         // apply any job requests which have arrived from a "future epoch"
         // which has now become the present (or a past) epoch
         for (auto& h : _job_db.getArrivedFutureRequests()) {
@@ -51,7 +51,7 @@ void Worker::init() {
     
     // Initialize pseudo-random order of nodes
     if (_params.derandomize()) {
-        createExpanderGraph();
+        createExpanderGraph(); // initialize _hop_destinations
     }
 
     auto& q = MyMpi::getMessageQueue();
@@ -75,9 +75,9 @@ void Worker::init() {
         [&](auto& h) {handleAnswerAdoptionOffer(h);});
     q.registerCallback(MSG_NOTIFY_JOB_ABORTING, 
         [&](auto& h) {handleNotifyJobAborting(h);});
-    q.registerCallback(MSG_NOTIFY_JOB_TERMINATING, 
+    q.registerCallback(MSG_NOTIFY_JOB_TERMINATING,          // NOTE: related to mono?
         [&](auto& h) {handleNotifyJobTerminating(h);});
-    q.registerCallback(MSG_NOTIFY_RESULT_FOUND, 
+    q.registerCallback(MSG_NOTIFY_RESULT_FOUND,             // NOTE: related to mono?
         [&](auto& h) {handleNotifyResultFound(h);});
     q.registerCallback(MSG_INCREMENTAL_JOB_FINISHED,
         [&](auto& h) {handleIncrementalJobFinished(h);});
@@ -85,7 +85,7 @@ void Worker::init() {
         [&](auto& h) {handleInterrupt(h);});
     q.registerCallback(MSG_NOTIFY_NODE_LEAVING_JOB, 
         [&](auto& h) {handleNotifyNodeLeavingJob(h);});
-    q.registerCallback(MSG_NOTIFY_RESULT_OBSOLETE, 
+    q.registerCallback(MSG_NOTIFY_RESULT_OBSOLETE,          // NOTE: related to mono?
         [&](auto& h) {handleNotifyResultObsolete(h);});
     q.registerCallback(MSG_NOTIFY_VOLUME_UPDATE, 
         [&](auto& h) {handleNotifyVolumeUpdate(h);});
@@ -93,7 +93,7 @@ void Worker::init() {
         [&](auto& h) {handleOfferAdoption(h);});
     q.registerCallback(MSG_QUERY_JOB_DESCRIPTION,
         [&](auto& h) {handleQueryJobDescription(h);});
-    q.registerCallback(MSG_QUERY_JOB_RESULT, 
+    q.registerCallback(MSG_QUERY_JOB_RESULT,                // NOTE: related to mono?
         [&](auto& h) {handleQueryJobResult(h);});
     q.registerCallback(MSG_QUERY_VOLUME, 
         [&](auto& h) {handleQueryVolume(h);});
@@ -103,11 +103,11 @@ void Worker::init() {
         [&](auto& h) {handleRequestNode(h, JobDatabase::JobRequestMode::NORMAL);});
     q.registerCallback(MSG_REQUEST_NODE_ONESHOT, 
         [&](auto& h) {handleRequestNode(h, JobDatabase::JobRequestMode::TARGETED_REJOIN);});
-    q.registerCallback(MSG_SEND_APPLICATION_MESSAGE, 
+    q.registerCallback(MSG_SEND_APPLICATION_MESSAGE,        // MONO: 1. initiate clause sharing
         [&](auto& h) {handleSendApplicationMessage(h);});
-    q.registerCallback(MSG_JOB_TREE_REDUCTION, 
+    q.registerCallback(MSG_JOB_TREE_REDUCTION,              // NOTE: related to mono?
         [&](auto& h) {handleSendApplicationMessage(h);});
-    q.registerCallback(MSG_JOB_TREE_BROADCAST, 
+    q.registerCallback(MSG_JOB_TREE_BROADCAST,              // NOTE: related to mono?
         [&](auto& h) {handleSendApplicationMessage(h);});
     q.registerCallback(MSG_SEND_JOB_DESCRIPTION, 
         [&](auto& h) {handleSendJobDescription(h);});
@@ -159,8 +159,8 @@ void Worker::init() {
 void Worker::createExpanderGraph() {
 
     // Pick fixed number k of bounce destinations
-    int numBounceAlternatives = _params.numBounceAlternatives();
-    int numWorkers = MyMpi::size(_comm);
+    int numBounceAlternatives = _params.numBounceAlternatives();    // min(4, max(1, p/2))
+    int numWorkers = MyMpi::size(_comm);                            // p
     
     // Check validity of num bounce alternatives
     if (2*numBounceAlternatives > numWorkers) {
@@ -173,8 +173,8 @@ void Worker::createExpanderGraph() {
     if (_params.maxIdleDistance() > 0) {
         _hop_destinations = AdjustablePermutation::createUndirectedExpanderGraph(numWorkers, numBounceAlternatives, _world_rank);        
     } else {
-        auto permutations = AdjustablePermutation::getPermutations(numWorkers, numBounceAlternatives);
-        _hop_destinations = AdjustablePermutation::createExpanderGraph(permutations, _world_rank);
+        auto permutations = AdjustablePermutation::getPermutations(numWorkers, numBounceAlternatives); // vector<vector<int>> -- {{permutation of 0 ~ numWorkers-1} * numBounceAlternatives}
+        _hop_destinations = AdjustablePermutation::createExpanderGraph(permutations, _world_rank);     // vector<int> -- {{permutation of 0 ~ numWorkers-1}[rank] * numBounceAlternatives}
         if (_params.hopsUntilCollectiveAssignment() >= 0) {
             
             // Create collective assignment structure
@@ -246,7 +246,7 @@ void Worker::advance(float time) {
     // Check jobs
     if (_periodic_job_check.ready(time)) {
         _watchdog.setActivity(Watchdog::CHECK_JOBS);
-        checkJobs();
+        checkJobs();                       // NOTE: solve and communicate
     }
 
     // Advance an all-reduction of the current system state
@@ -621,7 +621,7 @@ void Worker::handleRequestNode(MessageHandle& handle, JobDatabase::JobRequestMod
     }
 
     // Root request for the first revision of a new job?
-    if (req.requestedNodeIndex == 0 && req.numHops == 0 && req.revision == 0) {
+    if (req.requestedNodeIndex == 0 && req.numHops == 0 && req.revision == 0) {  // MONO: execute this when the node is requested to start the job (for the first time)
         // Probe balancer for a free spot.
         _job_db.addRootRequest(std::move(req));
         return;
@@ -641,10 +641,10 @@ void Worker::handleRequestNode(MessageHandle& handle, JobDatabase::JobRequestMod
         if (_params.hopsUntilCollectiveAssignment() >= 0) _coll_assign.setStatusDirty();
     }
 
-    tryAdoptRequest(req, handle.source, mode);
+    tryAdoptRequest(req, handle.source, mode);  // adopt (create) the job
 }
 
-void Worker::tryAdoptRequest(JobRequest& req, int source, JobDatabase::JobRequestMode mode) {
+void Worker::tryAdoptRequest(JobRequest& req, int source, JobDatabase::JobRequestMode mode) {  // NOTE: req, 22, NORMAL
 
     // Decide whether to adopt the job.
     JobDatabase::AdoptionResult adoptionResult = JobDatabase::ADOPT_FROM_IDLE;
@@ -680,7 +680,7 @@ void Worker::tryAdoptRequest(JobRequest& req, int source, JobDatabase::JobReques
             Job& job = _job_db.createJob(MyMpi::size(_comm), _world_rank, req.jobId, req.application);
         }
         _job_db.commit(req);
-        if (_params.reactivationScheduling()) {
+        if (_params.reactivationScheduling()) { // default: true
             _job_db.initScheduler(req, [this](const JobRequest& req, int tag, bool left, int dest) {
                 sendJobRequest(req, tag, left, dest);
             });
@@ -1034,7 +1034,7 @@ void Worker::bounceJobRequest(JobRequest& request, int senderRank) {
     }
 
     int nextRank;
-    if (_params.derandomize()) {
+    if (_params.derandomize()) {  // default: true
         // Get random choice from bounce alternatives
         nextRank = getWeightedRandomNeighbor();
         if (_hop_destinations.size() > 2) {

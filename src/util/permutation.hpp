@@ -29,7 +29,7 @@ public:
     static std::vector<int> getBestOutgoingEdgeForEachNode(const std::vector<std::vector<int>>& permutations, int myRank);
 
     AdjustablePermutation() = default;
-    AdjustablePermutation(int n, int seed);
+    AdjustablePermutation(int n, int seed);    // _feistels = {{permutation of 0 ~ sqrt(n)-1} * 3}
 
     int get(int x) const;
     void adjust(int x, int new_x);

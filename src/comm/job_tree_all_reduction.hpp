@@ -17,7 +17,7 @@ private:
     JobMessage _base_msg;
     AllReduceElement _neutral_elem;
     
-    std::optional<AllReduceElement> _local_elem;
+    std::optional<AllReduceElement> _local_elem;  // clauses:{{local collected clauses}, # aggregated workers (1)}; filter: {filter?}
     std::list<AllReduceElement> _child_elems;
     int _num_expected_child_elems;
     IntPair _expected_child_ranks;
@@ -72,7 +72,7 @@ public:
                     && msg.tag == _base_msg.tag;
         if (!accept) return false;
 
-        if (tag == MSG_JOB_TREE_REDUCTION) {
+        if (tag == MSG_JOB_TREE_REDUCTION) {                                               // NOTE: store incoming clauses/filters and call advance()
 
             if (_aggregating || _future_aggregate.valid() || _reduction_locally_done) 
                 return false; // already internally aggregating elements (or already done)!
@@ -90,7 +90,7 @@ public:
             LOG_ADD_SRC(V5_DEBG, "CS got %i/%i elems", source, _child_elems.size(), _num_expected_child_elems);
             advance();
         }
-        if (tag == MSG_JOB_TREE_BROADCAST) {
+        if (tag == MSG_JOB_TREE_BROADCAST) {                                                // NOTE: continue broadcasting clauses/filters
             receiveAndForwardFinalElem(std::move(msg.payload));
         }
         return true;
@@ -102,8 +102,9 @@ public:
 
         if (_finished) return;
 
-        if (_child_elems.size() == _num_expected_child_elems && _local_elem.has_value()) {
-             
+        if (_child_elems.size() == _num_expected_child_elems && _local_elem.has_value()) {  // NOTE: Advances the all-reduction if 1. is leaf or 2. received clauses from children.
+                                                                                            // TODO: Modify this for local sharing!!!
+            
             _child_elems.push_front(std::move(_local_elem.value()));
             _local_elem.reset();
 
@@ -120,14 +121,14 @@ public:
             _future_aggregate.get();
             _reduction_locally_done = true;
             
-            if (_tree.isRoot()) {
+            if (_tree.isRoot()) {                                                            // NOTE: start broadcasting clauses
                 // Transform reduced element at root
-                if (_has_transformation_at_root) {
+                if (_has_transformation_at_root) {  // Q: what is this for?
                     _aggregated_elem.emplace(_transformation_at_root(_aggregated_elem.value()));
                 }
                 // Begin broadcast
                 receiveAndForwardFinalElem(std::move(_aggregated_elem.value()));
-            } else {
+            } else {                                                                          // NOTE: pass clauses to parent
                 // Send to parent
                 _base_msg.payload = std::move(_aggregated_elem.value());
                 MyMpi::isend(_tree.getParentNodeRank(), MSG_JOB_TREE_REDUCTION, _base_msg);
