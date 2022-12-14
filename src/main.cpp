@@ -139,6 +139,8 @@ void doMainProgram(MPI_Comm& commWorkers, MPI_Comm& commClients, Parameters& par
         if (monoJobDone) {
             // Terminate all processes
             MyMpi::isend(0, MSG_DO_EXIT, IntVec({0}));
+
+            LOG(V0_CRIT, "Mono job done.\n");
         }
     }
 
@@ -271,6 +273,6 @@ int main(int argc, char *argv[]) {
     MPI_Barrier(MPI_COMM_WORLD);
     MPI_Finalize();
     //LOG(V2_INFO, "Exiting happily\n");
-    LOG(V0_CRIT, "Exiting happily\n");
+    if (rank == 0) LOG(V0_CRIT, "Exiting happily\n");
     Process::doExit(0);
 }
