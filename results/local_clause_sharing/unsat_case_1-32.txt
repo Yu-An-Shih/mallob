@@ -1,0 +1,43 @@
+c 
+c Mallob -- a parallel and distributed platform for job scheduling, load balancing, and SAT solving
+c Designed by P. Sanders and D. Schreiber 2018-2022
+c Developed by D. Schreiber 2019-2022
+c 
+c 2.507 9 Communication: epoch 1 took 0.085989 seconds to complete.
+c 3.528 9 Communication: epoch 2 took 0.106979 seconds to complete.
+c 4.511 9 Communication: epoch 3 took 0.090051 seconds to complete.
+c 5.503 9 Communication: epoch 4 took 0.081994 seconds to complete.
+c 6.511 9 Communication: epoch 5 took 0.089976 seconds to complete.
+c 7.512 9 Communication: epoch 6 took 0.090972 seconds to complete.
+c 8.507 9 Communication: epoch 7 took 0.085971 seconds to complete.
+c 9.503 9 Communication: epoch 8 took 0.081942 seconds to complete.
+c 10.607 9 Communication: epoch 9 took 0.185954 seconds to complete.
+c 11.569 9 Communication: epoch 10 took 0.147943 seconds to complete.
+c 12.650 9 Communication: epoch 11 took 0.228958 seconds to complete.
+c 13.556 9 Communication: epoch 12 took 0.134957 seconds to complete.
+c 14.591 9 Communication: epoch 13 took 0.169921 seconds to complete.
+c 15.702 9 Communication: epoch 14 took 0.280902 seconds to complete.
+c 16.618 9 Communication: epoch 15 took 0.196859 seconds to complete.
+c 17.617 9 Communication: epoch 16 took 0.195896 seconds to complete.
+c 18.716 9 Communication: epoch 17 took 0.294903 seconds to complete.
+c 19.568 9 Communication: epoch 18 took 0.146854 seconds to complete.
+c 20.655 9 Communication: epoch 19 took 0.233885 seconds to complete.
+c 21.698 9 Communication: epoch 20 took 0.276846 seconds to complete.
+c 22.744 9 Communication: epoch 21 took 0.322855 seconds to complete.
+c 23.546 9 Communication: epoch 22 took 0.124840 seconds to complete.
+c 24.701 9 Communication: epoch 23 took 0.279835 seconds to complete.
+c 25.709 9 Communication: epoch 24 took 0.287842 seconds to complete.
+c 26.565 9 Communication: epoch 25 took 0.143778 seconds to complete.
+c 27.545 9 Communication: epoch 26 took 0.123978 seconds to complete.
+c 28.653 9 Communication: epoch 27 took 0.231804 seconds to complete.
+c 29.549 9 Communication: epoch 28 took 0.127752 seconds to complete.
+c 30.636 9 Communication: epoch 29 took 0.214743 seconds to complete.
+c 31.579 9 Communication: epoch 30 took 0.157728 seconds to complete.
+c 32.606 9 Communication: epoch 31 took 0.184750 seconds to complete.
+c 33.723 9 Communication: epoch 32 took 0.301720 seconds to complete.
+c 34.749 9 Communication: epoch 33 took 0.327690 seconds to complete.
+c 35.717 9 Communication: epoch 34 took 0.296680 seconds to complete.
+c 36.774 9 Communication: epoch 35 took 0.353683 seconds to complete.
+c 37.625 9 Communication: epoch 36 took 0.204655 seconds to complete.
+s UNSATISFIABLE
+c 38.370 0 Mono job done.

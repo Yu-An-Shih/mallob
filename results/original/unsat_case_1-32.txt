@@ -1,0 +1,152 @@
+c 
+c Mallob -- a parallel and distributed platform for job scheduling, load balancing, and SAT solving
+c Designed by P. Sanders and D. Schreiber 2018-2022
+c Developed by D. Schreiber 2019-2022
+c 
+s UNSATISFIABLE
+c 2.688 9 Communication: epoch 1 took 0.280253 seconds to complete.
+c 3.723 9 Communication: epoch 2 took 0.315260 seconds to complete.
+c 4.716 9 Communication: epoch 3 took 0.308301 seconds to complete.
+c 5.896 9 Communication: epoch 4 took 0.488880 seconds to complete.
+c 6.892 9 Communication: epoch 5 took 0.484009 seconds to complete.
+c 8.001 9 Communication: epoch 6 took 0.593357 seconds to complete.
+c 9.018 9 Communication: epoch 7 took 0.610340 seconds to complete.
+c 10.033 9 Communication: epoch 8 took 0.625491 seconds to complete.
+c 11.187 9 Communication: epoch 9 took 0.779194 seconds to complete.
+c 12.411 9 Communication: epoch 10 took 1.003223 seconds to complete.
+c 13.297 9 Communication: epoch 11 took 0.889194 seconds to complete.
+c 14.347 9 Communication: epoch 12 took 0.939206 seconds to complete.
+c 15.426 9 Communication: epoch 13 took 1.018191 seconds to complete.
+c 16.550 9 Communication: epoch 14 took 1.142175 seconds to complete.
+c 17.851 9 Communication: epoch 15 took 1.443161 seconds to complete.
+c 18.886 9 Communication: epoch 16 took 1.478130 seconds to complete.
+c 20.070 9 Communication: epoch 17 took 1.662117 seconds to complete.
+c 21.146 9 Communication: epoch 18 took 1.738100 seconds to complete.
+c 22.511 9 Communication: epoch 19 took 2.103069 seconds to complete.
+c 24.009 9 Communication: epoch 20 took 1.487007 seconds to complete.
+c 25.313 9 Communication: epoch 21 took 1.791039 seconds to complete.
+c 26.305 9 Communication: epoch 22 took 1.782997 seconds to complete.
+c 27.745 9 Communication: epoch 23 took 2.223001 seconds to complete.
+c 29.281 9 Communication: epoch 24 took 1.525011 seconds to complete.
+c 30.938 9 Communication: epoch 25 took 2.182014 seconds to complete.
+c 32.636 9 Communication: epoch 26 took 1.687029 seconds to complete.
+c 34.403 9 Communication: epoch 27 took 2.453978 seconds to complete.
+c 35.822 9 Communication: epoch 28 took 1.408039 seconds to complete.
+c 37.048 9 Communication: epoch 29 took 1.634060 seconds to complete.
+c 38.080 9 Communication: epoch 30 took 1.666027 seconds to complete.
+c 39.003 9 Communication: epoch 31 took 1.589012 seconds to complete.
+c 40.291 9 Communication: epoch 32 took 1.876984 seconds to complete.
+[1670906334.061883] [della-i12n1:375591:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1518aa3a0ac0 was not matched
+[1670906334.061890] [della-i12n1:375591:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1518aa3a0880 was not matched
+[1670906334.061892] [della-i12n1:375591:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1518aa3a04c0 was not matched
+[1670906334.061893] [della-i12n1:375591:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1518aa3a0580 was not matched
+[1670906334.061893] [della-i12n1:375591:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1518aa3a0b80 was not matched
+[1670906334.061894] [della-i12n1:375591:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1518aa3a0700 was not matched
+[1670906334.061895] [della-i12n1:375591:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1518aa3a07c0 was not matched
+[1670906334.061896] [della-i12n1:375591:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1518aa3a0d00 was not matched
+[1670906334.061897] [della-i12n1:375591:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1518aa3a0e80 was not matched
+[1670906334.061898] [della-i12n1:375591:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1518aa3a0640 was not matched
+[1670906334.062146] [della-i12n2:370477:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1514fc112a00 was not matched
+[1670906334.062156] [della-i12n2:370477:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1514fc112700 was not matched
+[1670906334.062157] [della-i12n2:370477:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1514fc112b80 was not matched
+[1670906334.062158] [della-i12n2:370477:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1514fc112880 was not matched
+[1670906334.062159] [della-i12n2:370477:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1514fc112c40 was not matched
+[1670906334.062160] [della-i12n2:370477:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1514fc112ac0 was not matched
+[1670906334.062161] [della-i12n2:370477:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1514fc1127c0 was not matched
+[1670906334.062162] [della-i12n2:370477:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1514fc112dc0 was not matched
+[1670906334.062163] [della-i12n2:370477:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1514fc112580 was not matched
+[1670906334.062164] [della-i12n2:370477:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1514fc112d00 was not matched
+[1670906334.062164] [della-i12n2:370477:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1514fc112940 was not matched
+[1670906334.062165] [della-i12n2:370477:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1514fc112f40 was not matched
+[1670906334.061419] [della-i12n1:375576:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x15523502aac0 was not matched
+c 42.011 0 Exiting happily
+[1670906334.061860] [della-i12n2:370476:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1487c88ff180 was not matched
+[1670906334.061866] [della-i12n2:370476:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1487c88fedc0 was not matched
+[1670906334.061868] [della-i12n2:370476:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1487c88ff240 was not matched
+[1670906334.061869] [della-i12n2:370476:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1487c88fee80 was not matched
+[1670906334.061869] [della-i12n2:370476:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1487c88ff480 was not matched
+[1670906334.061870] [della-i12n2:370476:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1487c88ff600 was not matched
+[1670906334.061871] [della-i12n2:370476:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1487c88ff540 was not matched
+[1670906334.061872] [della-i12n2:370476:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1487c88ff3c0 was not matched
+[1670906334.061873] [della-i12n2:370476:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1487c88fef40 was not matched
+[1670906334.061874] [della-i12n2:370476:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1487c88ff0c0 was not matched
+[1670906334.061875] [della-i12n2:370476:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1487c88ff300 was not matched
+[1670906334.061876] [della-i12n2:370476:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1487c88ff000 was not matched
+[1670906334.062446] [della-i12n2:370464:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152a7f7ae000 was not matched
+[1670906334.062454] [della-i12n2:370464:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152a7f7addc0 was not matched
+[1670906334.062455] [della-i12n2:370464:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152a7f7ae6c0 was not matched
+[1670906334.062456] [della-i12n2:370464:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152a7f7ae0c0 was not matched
+[1670906334.062457] [della-i12n2:370464:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152a7f7ae180 was not matched
+[1670906334.062459] [della-i12n2:370464:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152a7f7ae9c0 was not matched
+[1670906334.062460] [della-i12n2:370464:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152a7f7ae3c0 was not matched
+[1670906334.062461] [della-i12n2:370464:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152a7f7ae600 was not matched
+[1670906334.062462] [della-i12n2:370464:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152a7f7ae240 was not matched
+[1670906334.062463] [della-i12n2:370464:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152a7f7adf40 was not matched
+[1670906334.062464] [della-i12n2:370464:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152a7f7ade80 was not matched
+[1670906334.062465] [della-i12n2:370464:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152a7f7aea80 was not matched
+[1670906334.063609] [della-i12n1:375582:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x155313912640 was not matched
+[1670906334.063616] [della-i12n1:375582:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x155313912400 was not matched
+[1670906334.063618] [della-i12n1:375582:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x155313912940 was not matched
+[1670906334.063619] [della-i12n1:375582:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1553139127c0 was not matched
+[1670906334.063620] [della-i12n1:375582:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1553139124c0 was not matched
+[1670906334.063621] [della-i12n1:375582:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x155313912700 was not matched
+[1670906334.063621] [della-i12n1:375582:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x155313912a00 was not matched
+[1670906334.063622] [della-i12n1:375582:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x155313912880 was not matched
+[1670906334.063623] [della-i12n1:375582:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x155313912580 was not matched
+[1670906334.063624] [della-i12n1:375582:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x155313912340 was not matched
+[1670906334.063625] [della-i12n1:375582:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x155313912280 was not matched
+[1670906334.061844] [della-i12n2:370471:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149a81b773c0 was not matched
+[1670906334.062181] [della-i12n2:370470:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1496ef18f380 was not matched
+[1670906334.062188] [della-i12n2:370470:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1496ef18f140 was not matched
+[1670906334.062190] [della-i12n2:370470:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1496ef18ed80 was not matched
+[1670906334.062191] [della-i12n2:370470:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1496ef18f800 was not matched
+[1670906334.062192] [della-i12n2:370470:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1496ef18f440 was not matched
+[1670906334.062193] [della-i12n2:370470:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1496ef18f080 was not matched
+[1670906334.062193] [della-i12n2:370470:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1496ef18f680 was not matched
+[1670906334.062194] [della-i12n2:370470:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1496ef18f200 was not matched
+[1670906334.062195] [della-i12n2:370470:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1496ef18efc0 was not matched
+[1670906334.062196] [della-i12n2:370470:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1496ef18f5c0 was not matched
+[1670906334.062197] [della-i12n2:370470:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1496ef18ef00 was not matched
+[1670906334.062198] [della-i12n2:370470:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1496ef18ee40 was not matched
+[1670906334.062311] [della-i12n1:375590:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1481ed5f0480 was not matched
+[1670906334.062319] [della-i12n1:375590:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1481ed5f06c0 was not matched
+[1670906334.062320] [della-i12n1:375590:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1481ed5f0600 was not matched
+[1670906334.062321] [della-i12n1:375590:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1481ed5f0e40 was not matched
+[1670906334.062322] [della-i12n1:375590:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1481ed5f09c0 was not matched
+[1670906334.062323] [della-i12n1:375590:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1481ed5f0a80 was not matched
+[1670906334.062324] [della-i12n1:375590:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1481ed5f0c00 was not matched
+[1670906334.062325] [della-i12n1:375590:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1481ed5f0d80 was not matched
+[1670906334.062326] [della-i12n1:375590:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1481ed5f0b40 was not matched
+[1670906334.062326] [della-i12n1:375590:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1481ed5f0780 was not matched
+[1670906334.062081] [della-i12n1:375589:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14cfeb86c5c0 was not matched
+[1670906334.062087] [della-i12n1:375589:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14cfeb86c500 was not matched
+[1670906334.062089] [della-i12n1:375589:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14cfeb86bfc0 was not matched
+[1670906334.062090] [della-i12n1:375589:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14cfeb86c200 was not matched
+[1670906334.062091] [della-i12n1:375589:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14cfeb86c380 was not matched
+[1670906334.062092] [della-i12n1:375589:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14cfeb86c2c0 was not matched
+[1670906334.062093] [della-i12n1:375589:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14cfeb86c140 was not matched
+[1670906334.062094] [della-i12n1:375589:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14cfeb86bcc0 was not matched
+[1670906334.062095] [della-i12n1:375589:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14cfeb86be40 was not matched
+[1670906334.062096] [della-i12n1:375589:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14cfeb86c080 was not matched
+[1670906334.062295] [della-i12n1:375586:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x15202c9967c0 was not matched
+[1670906334.062304] [della-i12n1:375586:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x15202c996400 was not matched
+[1670906334.062306] [della-i12n1:375586:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x15202c996580 was not matched
+[1670906334.062307] [della-i12n1:375586:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x15202c9964c0 was not matched
+[1670906334.062308] [della-i12n1:375586:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x15202c996340 was not matched
+[1670906334.062309] [della-i12n1:375586:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x15202c995d40 was not matched
+[1670906334.062310] [della-i12n1:375586:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x15202c996100 was not matched
+[1670906334.062311] [della-i12n1:375586:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x15202c9961c0 was not matched
+[1670906334.062312] [della-i12n1:375586:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x15202c996280 was not matched
+[1670906334.062313] [della-i12n1:375586:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x15202c996640 was not matched
+[1670906334.062137] [della-i12n1:375584:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14f383035c80 was not matched
+[1670906334.062148] [della-i12n1:375584:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14f3830355c0 was not matched
+[1670906334.062150] [della-i12n1:375584:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14f383035440 was not matched
+[1670906334.062151] [della-i12n1:375584:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14f383035f80 was not matched
+[1670906334.062151] [della-i12n1:375584:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14f383035b00 was not matched
+[1670906334.062152] [della-i12n1:375584:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14f383035bc0 was not matched
+[1670906334.062153] [della-i12n1:375584:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14f383035a40 was not matched
+[1670906334.062154] [della-i12n1:375584:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14f383035980 was not matched
+[1670906334.062155] [della-i12n1:375584:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14f383035740 was not matched
+[1670906334.062156] [della-i12n1:375584:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14f383035500 was not matched
+[1670906334.061430] [della-i12n1:375588:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152608c56b00 was not matched
+[1670906334.061438] [della-i12n1:375588:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x152608c56800 was not matched
