@@ -7,6 +7,7 @@ def fetch_values(directory, cases, num_pe, total_times, comm_mum_epochs, comm_av
 
     for i in range(len(num_pe)):
         for case in cases:
+            found_result = False
             comm_num_epochs_debug[i] = comm_mum_epochs[i]
             
             f = open(directory + case + "-" + str(num_pe[i]) + ".txt", "r")
@@ -14,10 +15,12 @@ def fetch_values(directory, cases, num_pe, total_times, comm_mum_epochs, comm_av
             while True:
                 line = f.readline()
 
-                if re.search("TIMEOUT", line):
-                    print("WARN: " + directory + case + " timed out with " + str(num_pe[i]) + " PEs!!!")
+                #if re.search("TIMEOUT", line):
+                #    print("WARN: " + directory + case + " timed out with " + str(num_pe[i]) + " PEs!!!")
                 
                 if not line:
+                    if found_result == False:
+                        print("WARN: " + directory + case + " timed out with " + str(num_pe[i]) + " PEs!!!")
                     break
                 
                 if re.search("Communication", line) != None:
@@ -32,6 +35,7 @@ def fetch_values(directory, cases, num_pe, total_times, comm_mum_epochs, comm_av
 
                 
                 if re.fullmatch("c\s\d+\.\d+\s0\sMono\sjob\sdone\.\n", line) != None:
+                    found_result = True
                     digits = re.findall("\d+\.\d+", line)
                     assert len(digits) == 1
                     total_times[i] += float(digits[0])
