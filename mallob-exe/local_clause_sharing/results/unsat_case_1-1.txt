@@ -1,0 +1,265 @@
+c 
+c Mallob -- a parallel and distributed platform for job scheduling, load balancing, and SAT solving
+c Designed by P. Sanders and D. Schreiber 2018-2022
+c Developed by D. Schreiber 2019-2022
+c 
+c 0.001 0 Program options: -0o=0 -J=1 -T=0 -ajpc=0 -ans=0 -appmode=fork -ba=4 -bicg=4 -c=1 -cbbs=1500 -cbdf=0.9 -cfci=20 -cg=1 -ch=0 -chaf=5 -checksums=0 -chstms=10 -cmp=0 -colors=0 -dc=0 -ddd=0 -delaymonkey=0 -derandomize=1 -evu=0 -fapii=0 -g=0 -gclls=0 -h=0 -hbbfs=10 -hubfs=9999999 -huca=-1 -iff=0 -interface-fs=0 -interface-ipc=0 -isp=0 -jc=4 -jcl=0 -jcup=0 -jjp=0 -jwl=0 -l=1 -latencymonkey=0 -ljpc=32 -mbfsd=4 -mbt=1000000 -mcips=10 -md=0 -mid=0 -mjps=0 -mlbdps=8 -mlpt=50000000 -mmpi=0 -mono=instances/ece585_instances/crafted_n11_d6_c4_num19.cnf.xz -nce=20 -os=0 -p=0.01 -phasediv=1 -pls=1 -pph=0 -q=0 -qcll=8 -qlbdl=2 -ril=0 -rpa=0 -rs=1 -rto=0 -s=1 -satsolver=l -scll=30 -seed=0 -sjd=0 -slbdl=30 -sleep=100 -t=4 -trace-dir=. -v=2 -w=-1 -wam=10000 -warmup=0 -watchdog=1 -wr=0 -y=1 -yield=0 
+c 0.006 0 [WARN] Num bounce alternatives must be at most half the number of workers!
+c 0.006 0 [WARN] Falling back to safe value r=1.
+c 0.006 0 Set up API at src/interface/api/api_connector.hpp
+c 0.007 0 Machine color 0 with 1 total workers (my rank: 0)
+c 1.201 0 sysstate busyratio=0.000 cmtdratio=0.000 jobs=0 globmem=0.00GB newreqs=0 hops=0
+c 1.201 0 sysstate entered=1 parsed=0 scheduled=0 processed=0
+c 1.304 0 Introducing job #1 rev. 0 : r.#1:0 rev. 0 <- [0] born=1.304 hops=0 epoch=-1 => [0]
+c 1.304 0 BLC insert (1,1,0.010)
+c 1.304 0 BLC insert (1,1,1.000)
+c 2.224 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 2.235 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=0.32GB newreqs=0 hops=1
+c 2.357 0 Communication: epoch 1 took 0.052999 seconds to complete.
+c 3.248 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=0.86GB newreqs=0 hops=0
+c 3.249 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 3.336 0 Communication: epoch 2 took 0.031991 seconds to complete.
+c 4.286 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.63GB newreqs=0 hops=0
+c 4.287 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 4.341 0 Communication: epoch 3 took 0.037032 seconds to complete.
+c 5.322 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 5.333 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.64GB newreqs=0 hops=0
+c 5.366 0 Communication: epoch 4 took 0.061992 seconds to complete.
+c 6.345 0 Communication: epoch 5 took 0.040989 seconds to complete.
+c 6.378 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.45GB newreqs=0 hops=0
+c 6.378 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 7.342 0 Communication: epoch 6 took 0.037983 seconds to complete.
+c 7.398 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 7.420 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.63GB newreqs=0 hops=0
+c 8.329 0 Communication: epoch 7 took 0.024976 seconds to complete.
+c 8.429 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 8.440 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.95GB newreqs=0 hops=0
+c 9.343 0 Communication: epoch 8 took 0.038960 seconds to complete.
+c 9.476 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 9.498 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.42GB newreqs=0 hops=0
+c 10.339 0 Communication: epoch 9 took 0.034954 seconds to complete.
+c 10.527 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 10.538 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.65GB newreqs=0 hops=0
+c 11.333 0 Communication: epoch 10 took 0.028953 seconds to complete.
+c 11.555 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 11.577 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.63GB newreqs=0 hops=0
+c 12.336 0 Communication: epoch 11 took 0.031926 seconds to complete.
+c 12.603 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 12.615 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.64GB newreqs=0 hops=0
+c 13.328 0 Communication: epoch 12 took 0.023934 seconds to complete.
+c 13.644 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 13.655 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.72GB newreqs=0 hops=0
+c 14.334 0 Communication: epoch 13 took 0.029900 seconds to complete.
+c 14.683 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 14.698 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.48GB newreqs=0 hops=0
+c 15.345 0 Communication: epoch 14 took 0.040916 seconds to complete.
+c 15.720 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 15.731 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.41GB newreqs=0 hops=0
+c 16.337 0 Communication: epoch 15 took 0.032906 seconds to complete.
+c 16.770 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.53GB newreqs=0 hops=0
+c 16.770 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 17.343 0 Communication: epoch 16 took 0.038910 seconds to complete.
+c 17.790 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.43GB newreqs=0 hops=0
+c 17.790 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 18.330 0 Communication: epoch 17 took 0.025869 seconds to complete.
+c 18.835 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.42GB newreqs=0 hops=0
+c 18.835 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 19.332 0 Communication: epoch 18 took 0.027876 seconds to complete.
+c 19.885 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.35GB newreqs=0 hops=0
+c 19.885 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 20.336 0 Communication: epoch 19 took 0.031841 seconds to complete.
+c 20.914 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 20.925 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.39GB newreqs=0 hops=0
+c 21.328 0 Communication: epoch 20 took 0.023823 seconds to complete.
+c 21.932 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 21.943 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.33GB newreqs=0 hops=0
+c 22.331 0 Communication: epoch 21 took 0.026827 seconds to complete.
+c 22.973 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 22.984 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.33GB newreqs=0 hops=0
+c 23.334 0 Communication: epoch 22 took 0.029810 seconds to complete.
+c 23.998 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 24.010 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.31GB newreqs=0 hops=0
+c 24.357 0 Communication: epoch 23 took 0.052807 seconds to complete.
+c 25.034 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 25.045 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.31GB newreqs=0 hops=0
+c 25.338 0 Communication: epoch 24 took 0.033791 seconds to complete.
+c 26.059 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 26.081 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.32GB newreqs=0 hops=0
+c 26.331 0 Communication: epoch 25 took 0.026810 seconds to complete.
+c 27.094 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 27.127 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.33GB newreqs=0 hops=0
+c 27.358 0 Communication: epoch 26 took 0.053778 seconds to complete.
+c 28.146 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 28.157 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.31GB newreqs=0 hops=0
+c 28.349 0 Communication: epoch 27 took 0.044765 seconds to complete.
+c 29.166 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 29.177 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.25GB newreqs=0 hops=0
+c 29.327 0 Communication: epoch 28 took 0.022762 seconds to complete.
+c 30.215 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 30.226 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.12GB newreqs=0 hops=0
+c 30.370 0 Communication: epoch 29 took 0.065737 seconds to complete.
+c 31.254 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 31.265 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.19GB newreqs=0 hops=0
+c 31.331 0 Communication: epoch 30 took 0.026754 seconds to complete.
+c 32.288 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 32.299 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.18GB newreqs=0 hops=0
+c 32.344 0 Communication: epoch 31 took 0.039776 seconds to complete.
+c 33.335 0 Communication: epoch 32 took 0.030754 seconds to complete.
+c 33.335 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 33.346 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.16GB newreqs=0 hops=0
+c 34.330 0 Communication: epoch 33 took 0.025715 seconds to complete.
+c 34.375 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 34.386 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.14GB newreqs=0 hops=0
+c 35.328 0 Communication: epoch 34 took 0.023716 seconds to complete.
+c 35.405 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 35.417 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.14GB newreqs=0 hops=0
+c 36.332 0 Communication: epoch 35 took 0.027672 seconds to complete.
+c 36.443 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 36.454 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.17GB newreqs=0 hops=0
+c 37.329 0 Communication: epoch 36 took 0.024719 seconds to complete.
+c 37.484 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 37.495 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.10GB newreqs=0 hops=0
+c 38.329 0 Communication: epoch 37 took 0.024685 seconds to complete.
+c 38.526 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 38.543 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.11GB newreqs=0 hops=0
+c 39.353 0 Communication: epoch 38 took 0.048656 seconds to complete.
+c 39.562 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 39.573 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.10GB newreqs=0 hops=0
+c 40.336 0 Communication: epoch 39 took 0.031685 seconds to complete.
+c 40.586 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 40.608 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.07GB newreqs=0 hops=0
+c 41.337 0 Communication: epoch 40 took 0.032654 seconds to complete.
+c 41.602 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 41.624 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.08GB newreqs=0 hops=0
+c 42.330 0 Communication: epoch 41 took 0.025658 seconds to complete.
+c 42.634 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 42.667 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.07GB newreqs=0 hops=0
+c 43.330 0 Communication: epoch 42 took 0.025620 seconds to complete.
+c 43.687 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 43.698 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.05GB newreqs=0 hops=0
+c 44.334 0 Communication: epoch 43 took 0.029602 seconds to complete.
+c 44.732 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.05GB newreqs=0 hops=0
+c 44.732 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 45.337 0 Communication: epoch 44 took 0.032585 seconds to complete.
+c 45.760 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 45.771 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.04GB newreqs=0 hops=0
+c 46.328 0 Communication: epoch 45 took 0.023594 seconds to complete.
+c 46.775 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 46.786 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.04GB newreqs=0 hops=0
+c 47.337 0 Communication: epoch 46 took 0.032570 seconds to complete.
+c 47.808 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 47.819 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.04GB newreqs=0 hops=0
+c 48.329 0 Communication: epoch 47 took 0.024590 seconds to complete.
+c 48.849 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 48.871 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.05GB newreqs=0 hops=0
+c 49.341 0 Communication: epoch 48 took 0.036541 seconds to complete.
+c 49.886 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 49.897 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.13GB newreqs=0 hops=0
+c 50.339 0 Communication: epoch 49 took 0.034534 seconds to complete.
+c 50.919 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 50.920 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.23GB newreqs=0 hops=0
+c 51.342 0 Communication: epoch 50 took 0.037521 seconds to complete.
+c 51.943 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.23GB newreqs=0 hops=0
+c 51.943 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 52.336 0 Communication: epoch 51 took 0.031509 seconds to complete.
+c 53.010 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.22GB newreqs=0 hops=0
+c 53.010 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 53.341 0 Communication: epoch 52 took 0.036507 seconds to complete.
+c 54.039 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.27GB newreqs=0 hops=0
+c 54.050 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 54.340 0 Communication: epoch 53 took 0.035500 seconds to complete.
+c 55.080 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.22GB newreqs=0 hops=0
+c 55.080 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 55.339 0 Communication: epoch 54 took 0.034519 seconds to complete.
+c 56.120 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.26GB newreqs=0 hops=0
+c 56.120 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 56.344 0 Communication: epoch 55 took 0.039513 seconds to complete.
+c 57.153 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 57.164 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.22GB newreqs=0 hops=0
+c 57.362 0 Communication: epoch 56 took 0.057484 seconds to complete.
+c 58.190 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 58.201 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.21GB newreqs=0 hops=0
+c 58.334 0 Communication: epoch 57 took 0.029453 seconds to complete.
+c 59.228 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 59.239 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.21GB newreqs=0 hops=0
+c 59.327 0 Communication: epoch 58 took 0.022442 seconds to complete.
+c 60.250 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 60.272 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.22GB newreqs=0 hops=0
+c 60.328 0 Communication: epoch 59 took 0.023438 seconds to complete.
+c 61.313 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 61.324 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.22GB newreqs=0 hops=0
+c 61.335 0 Communication: epoch 60 took 0.030426 seconds to complete.
+c 62.356 0 Communication: epoch 61 took 0.051483 seconds to complete.
+c 62.356 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 62.367 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.21GB newreqs=0 hops=0
+c 63.327 0 Communication: epoch 62 took 0.022457 seconds to complete.
+c 63.394 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 63.405 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.21GB newreqs=0 hops=0
+c 64.329 0 Communication: epoch 63 took 0.024406 seconds to complete.
+c 64.446 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 64.457 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.22GB newreqs=0 hops=0
+c 65.333 0 Communication: epoch 64 took 0.028427 seconds to complete.
+c 65.493 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 65.504 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.22GB newreqs=0 hops=0
+c 66.336 0 Communication: epoch 65 took 0.031418 seconds to complete.
+c 66.534 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 66.545 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.22GB newreqs=0 hops=0
+c 67.358 0 Communication: epoch 66 took 0.053383 seconds to complete.
+c 67.564 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 67.575 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.21GB newreqs=0 hops=0
+c 68.336 0 Communication: epoch 67 took 0.031387 seconds to complete.
+c 68.604 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.20GB newreqs=0 hops=0
+c 68.604 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 69.331 0 Communication: epoch 68 took 0.026352 seconds to complete.
+c 69.645 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.21GB newreqs=0 hops=0
+c 69.645 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 70.327 0 Communication: epoch 69 took 0.022339 seconds to complete.
+c 70.682 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.20GB newreqs=0 hops=0
+c 70.682 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 71.336 0 Communication: epoch 70 took 0.031334 seconds to complete.
+c 71.708 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.21GB newreqs=0 hops=0
+c 71.708 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 72.330 0 Communication: epoch 71 took 0.025322 seconds to complete.
+c 72.731 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.21GB newreqs=0 hops=0
+c 72.731 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 73.334 0 Communication: epoch 72 took 0.029312 seconds to complete.
+c 73.771 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 73.782 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.20GB newreqs=0 hops=0
+c 74.336 0 Communication: epoch 73 took 0.031303 seconds to complete.
+c 74.797 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 74.808 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.20GB newreqs=0 hops=0
+c 75.343 0 Communication: epoch 74 took 0.038345 seconds to complete.
+c 75.841 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 75.852 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.19GB newreqs=0 hops=0
+c 76.328 0 Communication: epoch 75 took 0.023331 seconds to complete.
+c 76.875 0 sysstate entered=1 parsed=1 scheduled=1 processed=0
+c 76.886 0 sysstate busyratio=1.000 cmtdratio=0.000 jobs=1 globmem=1.27GB newreqs=0 hops=0
+c 77.332 0 Communication: epoch 76 took 0.027306 seconds to complete.
+c 77.782 0 #1:0 rev. 0 : found result UNSAT => [0]
+c 77.783 0 <#1> END S0 pps:177712427 dcs:948178 cfs:135907 rst:0 prod:46445 (flt:19064 adm:25911 drp:1470) recv:54425 (flt:4175 digd:13440 drp:36336) + intim:0/0
+c 77.783 0 <#1> END S0 clenhist prod total:46445 38390 1528 550 350 283 342 442 554 613 278 192 158 178 189 126 197 216 94 103 94 102 115 108 119 85 105 95 97 416 326
+c 77.783 0 <#1> END S0 clenhist digd total:13440 0 5483 2321 1357 867 767 1089 984 507 65
+c 77.783 0 <#1> END S1 pps:277676873 dcs:1870049 cfs:166574 rst:0 prod:13722 (flt:5142 adm:7948 drp:632) recv:54425 (flt:3954 digd:14135 drp:36336) + intim:0/0
+c 77.783 0 <#1> END S1 clenhist prod total:13722 6913 1992 801 487 278 149 146 133 222 202 177 168 138 177 147 159 123 105 127 113 91 85 101 109 69 60 64 55 169 162
+c 77.783 0 <#1> END S1 clenhist digd total:14135 0 5034 2082 1237 936 1162 1480 1254 842 108
+c 77.783 0 <#1> END S2 pps:205747057 dcs:2523773 cfs:95272 rst:0 prod:12874 (flt:4279 adm:8103 drp:492) recv:54425 (flt:4373 digd:7356 drp:36336) + intim:0/0
+c 77.783 0 <#1> END S2 clenhist prod total:12874 6283 2231 915 536 310 152 169 169 207 170 134 137 132 155 120 163 110 79 70 70 70 60 45 46 45 32 37 32 81 114
+c 77.783 0 <#1> END S2 clenhist digd total:7356 0 4170 1826 1064 296
+c 77.783 0 <#1> END S3 pps:155213366 dcs:1134140 cfs:172759 rst:0 prod:63772 (flt:25026 adm:27045 drp:11701) recv:54425 (flt:5766 digd:12323 drp:36336) + intim:0/0
+c 77.783 0 <#1> END S3 clenhist prod total:63772 38069 1449 622 351 344 671 1311 2043 2859 738 518 1034 2291 1360 912 760 801 701 631 611 598 546 550 521 514 483 446 458 876 704
+c 77.783 0 <#1> END S3 clenhist digd total:12323 0 5575 2261 1371 866 643 675 424 419 89
+c 77.783 0 <#1> END pps:816349723 dcs:6476140 cfs:570512 rst:0 prod:136813 (flt:53511 adm:69007 drp:14295) recv:217700 (flt:18268 digd:47254 drp:145344) + intim:0/0
+c 77.783 0 <#1> END exp:54425/54425 drp:0(0.000000) pflt:0 sflt:0
+c 77.783 0 <#1> clenhist prod total:136813 89655 7200 2888 1724 1215 1314 2068 2899 3901 1388 1021 1497 2739 1881 1305 1279 1250 979 931 888 861 806 804 795 713 680 642 642 1542 1306
+c 77.783 0 <#1> clenhist flfl total:53511 53319 174 5 0 1 0 0 2 1 1 0 5 1 0 0 1 1
+c 77.783 0 <#1> clenhist admt total:69007 36336 7026 2883 1724 1214 1314 2068 2892 3582 1182 817 851 812 781 575 624 620 426 395 334 324 282 266 241 198 155 153 142 412 378
+c 77.783 0 <#1> clenhist drpd total:14295 0 0 0 0 0 0 0 5 318 205 204 641 1926 1100 730 654 629 553 536 554 537 524 538 554 515 525 489 500 1130 928
+c 77.783 0 <#1> clenhist dltd total:11039 0 0 0 0 0 0 0 365 836 1052 817 851 812 781 575 624 620 426 395 334 324 282 266 241 198 155 153 142 412 378
+c 77.783 0 <#1> clenhist retd total:0 0
+c 77.783 0 BLC insert (1,0,0.000)
+c 77.784 0 RESPONSE_TIME #1 76.480415 rev. 0
+c 77.784 0 SOLUTION #1 UNSAT rev. 0
+s UNSATISFIABLE
+c 77.793 0 Mono job done.
+c 77.793 0 Terminating.
+c 78.134 0 Exiting happily

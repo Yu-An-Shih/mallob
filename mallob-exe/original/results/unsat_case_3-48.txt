@@ -1,0 +1,154 @@
+c 
+c Mallob -- a parallel and distributed platform for job scheduling, load balancing, and SAT solving
+c Designed by P. Sanders and D. Schreiber 2018-2022
+c Developed by D. Schreiber 2019-2022
+c 
+c 1.446 42 Communication: epoch 1 took 0.379271 seconds to complete.
+c 2.468 42 Communication: epoch 2 took 0.401267 seconds to complete.
+c 3.979 42 Communication: epoch 3 took 0.912241 seconds to complete.
+c 5.612 42 Communication: epoch 4 took 1.545227 seconds to complete.
+c 7.253 42 Communication: epoch 5 took 2.186207 seconds to complete.
+c 8.806 42 Communication: epoch 6 took 1.531001 seconds to complete.
+c 10.441 42 Communication: epoch 7 took 2.165981 seconds to complete.
+c 12.110 42 Communication: epoch 8 took 1.657994 seconds to complete.
+c 13.585 42 Communication: epoch 9 took 2.132990 seconds to complete.
+c 14.658 42 Communication: epoch 10 took 1.061997 seconds to complete.
+c 15.636 42 Communication: epoch 11 took 1.039987 seconds to complete.
+c 16.785 42 Communication: epoch 12 took 1.188975 seconds to complete.
+c 17.792 42 Communication: epoch 13 took 1.195961 seconds to complete.
+c 19.287 42 Communication: epoch 14 took 1.690956 seconds to complete.
+c 20.804 42 Communication: epoch 15 took 2.207935 seconds to complete.
+c 22.333 42 Communication: epoch 16 took 1.518009 seconds to complete.
+c 23.898 42 Communication: epoch 17 took 2.082989 seconds to complete.
+c 25.598 42 Communication: epoch 18 took 1.684984 seconds to complete.
+c 27.246 42 Communication: epoch 19 took 2.332975 seconds to complete.
+c 28.817 42 Communication: epoch 20 took 1.549015 seconds to complete.
+c 30.764 42 Communication: epoch 21 took 2.495993 seconds to complete.
+c 32.279 42 Communication: epoch 22 took 1.503988 seconds to complete.
+c 33.381 42 Communication: epoch 23 took 1.605982 seconds to complete.
+c 34.746 42 Communication: epoch 24 took 1.970993 seconds to complete.
+c 36.182 42 Communication: epoch 25 took 2.406979 seconds to complete.
+c 37.792 42 Communication: epoch 26 took 1.599003 seconds to complete.
+c 39.220 42 Communication: epoch 27 took 2.026981 seconds to complete.
+c 40.334 42 Communication: epoch 28 took 1.102997 seconds to complete.
+c 41.786 42 Communication: epoch 29 took 1.554985 seconds to complete.
+c 43.043 42 Communication: epoch 30 took 1.811962 seconds to complete.
+c 44.452 42 Communication: epoch 31 took 2.220959 seconds to complete.
+c 45.547 42 Communication: epoch 32 took 1.084011 seconds to complete.
+c 47.032 42 Communication: epoch 33 took 1.568981 seconds to complete.
+c 48.471 42 Communication: epoch 34 took 2.007973 seconds to complete.
+c 49.908 42 Communication: epoch 35 took 1.425991 seconds to complete.
+c 51.405 42 Communication: epoch 36 took 1.922966 seconds to complete.
+c 52.753 42 Communication: epoch 37 took 2.270962 seconds to complete.
+c 54.149 42 Communication: epoch 38 took 1.384998 seconds to complete.
+c 55.558 42 Communication: epoch 39 took 1.793972 seconds to complete.
+c 56.916 42 Communication: epoch 40 took 2.151955 seconds to complete.
+c 58.251 42 Communication: epoch 41 took 1.325027 seconds to complete.
+c 59.795 42 Communication: epoch 42 took 1.869003 seconds to complete.
+c 61.403 42 Communication: epoch 43 took 2.477989 seconds to complete.
+c 62.885 42 Communication: epoch 44 took 1.469978 seconds to complete.
+c 64.099 42 Communication: epoch 45 took 1.683990 seconds to complete.
+c 65.485 42 Communication: epoch 46 took 2.069954 seconds to complete.
+c 66.851 42 Communication: epoch 47 took 1.355011 seconds to complete.
+c 67.979 42 Communication: epoch 48 took 1.482994 seconds to complete.
+c 69.388 42 Communication: epoch 49 took 1.891960 seconds to complete.
+c 70.689 42 Communication: epoch 50 took 2.192947 seconds to complete.
+c 72.092 42 Communication: epoch 51 took 1.391998 seconds to complete.
+c 73.393 42 Communication: epoch 52 took 1.692978 seconds to complete.
+c 74.663 42 Communication: epoch 53 took 1.962997 seconds to complete.
+c 75.968 42 Communication: epoch 54 took 2.267967 seconds to complete.
+c 77.363 42 Communication: epoch 55 took 1.380997 seconds to complete.
+c 78.834 42 Communication: epoch 56 took 1.851974 seconds to complete.
+c 80.091 42 Communication: epoch 57 took 2.108971 seconds to complete.
+c 81.584 42 Communication: epoch 58 took 1.481987 seconds to complete.
+c 82.834 42 Communication: epoch 59 took 1.732010 seconds to complete.
+c 83.958 42 Communication: epoch 60 took 1.855995 seconds to complete.
+c 85.212 42 Communication: epoch 61 took 2.109993 seconds to complete.
+c 86.461 42 Communication: epoch 62 took 1.237999 seconds to complete.
+c 87.655 42 Communication: epoch 63 took 1.431992 seconds to complete.
+c 89.038 42 Communication: epoch 64 took 1.814980 seconds to complete.
+c 90.358 42 Communication: epoch 65 took 2.134949 seconds to complete.
+c 91.680 42 Communication: epoch 66 took 1.311012 seconds to complete.
+c 92.926 42 Communication: epoch 67 took 1.557014 seconds to complete.
+c 94.213 42 Communication: epoch 68 took 1.844009 seconds to complete.
+c 95.577 42 Communication: epoch 69 took 2.207993 seconds to complete.
+c 97.268 42 Communication: epoch 70 took 1.678947 seconds to complete.
+c 98.720 42 Communication: epoch 71 took 2.130928 seconds to complete.
+c 100.106 42 Communication: epoch 72 took 1.375000 seconds to complete.
+c 101.307 42 Communication: epoch 73 took 1.575996 seconds to complete.
+c 102.440 42 Communication: epoch 74 took 1.709007 seconds to complete.
+c 103.612 42 Communication: epoch 75 took 1.880989 seconds to complete.
+c 104.757 42 Communication: epoch 76 took 2.025986 seconds to complete.
+c 105.813 42 Communication: epoch 77 took 1.045006 seconds to complete.
+c 106.885 42 Communication: epoch 78 took 1.116997 seconds to complete.
+c 108.046 42 Communication: epoch 79 took 1.277962 seconds to complete.
+c 109.299 42 Communication: epoch 80 took 1.530945 seconds to complete.
+c 110.430 42 Communication: epoch 81 took 1.661972 seconds to complete.
+c 111.622 42 Communication: epoch 82 took 1.853966 seconds to complete.
+c 112.547 42 Communication: epoch 83 took 1.778954 seconds to complete.
+c 113.587 42 Communication: epoch 84 took 1.818932 seconds to complete.
+c 114.698 42 Communication: epoch 85 took 1.929924 seconds to complete.
+c 115.927 42 Communication: epoch 86 took 2.158920 seconds to complete.
+c 116.910 42 Communication: epoch 87 took 0.972023 seconds to complete.
+c 118.102 42 Communication: epoch 88 took 1.164040 seconds to complete.
+c 119.401 42 Communication: epoch 89 took 1.462990 seconds to complete.
+c 120.474 42 Communication: epoch 90 took 1.535988 seconds to complete.
+c 121.590 42 Communication: epoch 91 took 1.651978 seconds to complete.
+c 122.839 42 Communication: epoch 92 took 1.900932 seconds to complete.
+c 124.066 42 Communication: epoch 93 took 2.127930 seconds to complete.
+c 125.385 42 Communication: epoch 94 took 1.306007 seconds to complete.
+c 126.739 42 Communication: epoch 95 took 1.659973 seconds to complete.
+c 127.827 42 Communication: epoch 96 took 1.747978 seconds to complete.
+c 129.111 42 Communication: epoch 97 took 2.031952 seconds to complete.
+c 130.233 42 Communication: epoch 98 took 1.108002 seconds to complete.
+c 131.924 42 Communication: epoch 99 took 1.798981 seconds to complete.
+c 133.771 42 Communication: epoch 100 took 2.645966 seconds to complete.
+c 135.383 42 Communication: epoch 101 took 1.609055 seconds to complete.
+c 136.927 42 Communication: epoch 102 took 2.153030 seconds to complete.
+c 138.433 42 Communication: epoch 103 took 1.492981 seconds to complete.
+c 139.990 42 Communication: epoch 104 took 2.049988 seconds to complete.
+c 141.277 42 Communication: epoch 105 took 1.267990 seconds to complete.
+c 142.689 42 Communication: epoch 106 took 1.679993 seconds to complete.
+c 144.087 42 Communication: epoch 107 took 2.077957 seconds to complete.
+c 145.506 42 Communication: epoch 108 took 1.405991 seconds to complete.
+c 146.963 42 Communication: epoch 109 took 1.862976 seconds to complete.
+c 148.430 42 Communication: epoch 110 took 2.329971 seconds to complete.
+c 149.905 42 Communication: epoch 111 took 1.464005 seconds to complete.
+c 151.339 42 Communication: epoch 112 took 1.897995 seconds to complete.
+c 152.790 42 Communication: epoch 113 took 2.348984 seconds to complete.
+c 154.302 42 Communication: epoch 114 took 1.501007 seconds to complete.
+c 155.950 42 Communication: epoch 115 took 2.148987 seconds to complete.
+c 157.689 42 Communication: epoch 116 took 1.727005 seconds to complete.
+c 159.257 42 Communication: epoch 117 took 2.294998 seconds to complete.
+c 160.817 42 Communication: epoch 118 took 1.548004 seconds to complete.
+c 162.442 42 Communication: epoch 119 took 2.173004 seconds to complete.
+c 163.999 42 Communication: epoch 120 took 1.547012 seconds to complete.
+c 165.509 42 Communication: epoch 121 took 2.056992 seconds to complete.
+c 167.126 42 Communication: epoch 122 took 1.597000 seconds to complete.
+c 168.677 42 Communication: epoch 123 took 2.147995 seconds to complete.
+c 169.992 42 Communication: epoch 124 took 1.304016 seconds to complete.
+c 171.335 42 Communication: epoch 125 took 1.646988 seconds to complete.
+c 172.833 42 Communication: epoch 126 took 2.144989 seconds to complete.
+c 174.368 42 Communication: epoch 127 took 1.513000 seconds to complete.
+c 175.987 42 Communication: epoch 128 took 2.131989 seconds to complete.
+c 177.465 42 Communication: epoch 129 took 1.467010 seconds to complete.
+c 179.028 42 Communication: epoch 130 took 2.030014 seconds to complete.
+c 180.528 42 Communication: epoch 131 took 1.489014 seconds to complete.
+c 182.067 42 Communication: epoch 132 took 2.027985 seconds to complete.
+c 183.655 42 Communication: epoch 133 took 1.577011 seconds to complete.
+c 185.134 42 Communication: epoch 134 took 2.055984 seconds to complete.
+c 186.551 42 Communication: epoch 135 took 1.406006 seconds to complete.
+c 188.093 42 Communication: epoch 136 took 1.947983 seconds to complete.
+c 189.673 42 Communication: epoch 137 took 2.527969 seconds to complete.
+s UNSATISFIABLE
+c 190.056 0 Mono job done.
+[1670999860.528404] [della-i12n1:561625:0]           flush.c:57   UCX  ERROR req 0x148921b85640: error during flush: Connection reset by remote peer
+[1670999860.528503] [della-i12n1:561625:0]           flush.c:57   UCX  ERROR req 0x148921b85640: error during flush: Connection reset by remote peer
+[1670999860.528602] [della-i12n1:561625:0]           flush.c:57   UCX  ERROR req 0x148921b85640: error during flush: Connection reset by remote peer
+[1670999860.528604] [della-i12n1:561625:0]           flush.c:57   UCX  ERROR req 0x148921b85640: error during flush: Connection reset by remote peer
+[1670999860.530016] [della-i12n1:561627:0]           flush.c:57   UCX  ERROR req 0x14c91a184f40: error during flush: Connection reset by remote peer
+[1670999860.530074] [della-i12n1:561627:0]           flush.c:57   UCX  ERROR req 0x14c91a184f40: error during flush: Connection reset by remote peer
+[1670999860.530149] [della-i12n1:561627:0]           flush.c:57   UCX  ERROR req 0x14c91a184f40: error during flush: Connection reset by remote peer
+[1670999860.530152] [della-i12n1:561627:0]           flush.c:57   UCX  ERROR req 0x14c91a184f40: error during flush: Connection reset by remote peer
+[1670999860.530155] [della-i12n1:561627:0]           flush.c:57   UCX  ERROR req 0x14c91a184f40: error during flush: Connection reset by remote peer
+[1670999860.530157] [della-i12n1:561627:0]           flush.c:57   UCX  ERROR req 0x14c91a184f40: error during flush: Connection reset by remote peer

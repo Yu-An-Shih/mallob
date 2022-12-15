@@ -1,0 +1,31 @@
+c 
+c Mallob -- a parallel and distributed platform for job scheduling, load balancing, and SAT solving
+c Designed by P. Sanders and D. Schreiber 2018-2022
+c Developed by D. Schreiber 2019-2022
+c 
+c 2.716 42 Communication: epoch 1 took 0.309531 seconds to complete.
+c 3.751 42 Communication: epoch 2 took 0.344553 seconds to complete.
+c 4.725 42 Communication: epoch 3 took 0.318547 seconds to complete.
+c 5.980 42 Communication: epoch 4 took 0.573548 seconds to complete.
+c 7.253 42 Communication: epoch 5 took 0.846715 seconds to complete.
+c 8.378 42 Communication: epoch 6 took 0.971534 seconds to complete.
+c 9.430 42 Communication: epoch 7 took 1.023512 seconds to complete.
+c 10.530 42 Communication: epoch 8 took 1.123482 seconds to complete.
+c 11.641 42 Communication: epoch 9 took 1.234489 seconds to complete.
+c 12.590 42 Communication: epoch 10 took 1.183481 seconds to complete.
+c 13.221 42 Communication: epoch 11 took 0.814474 seconds to complete.
+c 14.195 42 Communication: epoch 12 took 0.788479 seconds to complete.
+c 15.718 42 Communication: epoch 13 took 1.311418 seconds to complete.
+c 16.657 42 Communication: epoch 14 took 1.250402 seconds to complete.
+c 17.790 42 Communication: epoch 15 took 1.383415 seconds to complete.
+c 18.936 42 Communication: epoch 16 took 1.529371 seconds to complete.
+c 20.175 42 Communication: epoch 17 took 1.768366 seconds to complete.
+c 21.629 42 Communication: epoch 18 took 2.222351 seconds to complete.
+c 23.098 42 Communication: epoch 19 took 1.458014 seconds to complete.
+c 24.778 42 Communication: epoch 20 took 2.138012 seconds to complete.
+c 26.541 42 Communication: epoch 21 took 1.752001 seconds to complete.
+c 28.448 42 Communication: epoch 22 took 2.658989 seconds to complete.
+c 29.981 42 Communication: epoch 23 took 1.522047 seconds to complete.
+c 31.332 42 Communication: epoch 24 took 1.873016 seconds to complete.
+s UNSATISFIABLE
+c 32.095 0 Mono job done.

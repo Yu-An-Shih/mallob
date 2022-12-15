@@ -138,6 +138,12 @@ public:
     void advance() {
         if (_finished) return;
 
+        if (_tree.isRoot() && _tree.isLeaf() && _local_elem.has_value()) {
+            _finished = true;
+            _base_msg.payload = _local_elem.value();
+            return;
+        }
+
         // Send local produced clauses/filter to parent node
         if (!_tree.isRoot() && !_sent_to_parent && _local_elem.has_value()) {
             _base_msg.payload = _local_elem.value();
@@ -146,7 +152,8 @@ public:
         }
 
         // Aggregate clauses/filter
-        if (!_tree.isLeaf() && _child_elems.size() == _num_expected_child_elems && _local_elem.has_value()) {
+        //if ((!_tree.isLeaf() || _tree.isRoot()) && _child_elems.size() == _num_expected_child_elems && _local_elem.has_value()) {
+            if (!_tree.isLeaf() && _child_elems.size() == _num_expected_child_elems && _local_elem.has_value()) {
             _child_elems.push_front(std::move(_local_elem.value()));
             _local_elem.reset();
 

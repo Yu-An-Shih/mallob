@@ -1,0 +1,53 @@
+c 
+c Mallob -- a parallel and distributed platform for job scheduling, load balancing, and SAT solving
+c Designed by P. Sanders and D. Schreiber 2018-2022
+c Developed by D. Schreiber 2019-2022
+c 
+c 2.467 0 Communication: epoch 1 took 0.139198 seconds to complete.
+c 3.507 0 Communication: epoch 2 took 0.179419 seconds to complete.
+c 4.471 0 Communication: epoch 3 took 0.143381 seconds to complete.
+c 5.483 0 Communication: epoch 4 took 0.155437 seconds to complete.
+c 6.477 0 Communication: epoch 5 took 0.149431 seconds to complete.
+c 7.587 0 Communication: epoch 6 took 0.259459 seconds to complete.
+c 8.491 0 Communication: epoch 7 took 0.163403 seconds to complete.
+c 9.639 0 Communication: epoch 8 took 0.311420 seconds to complete.
+c 10.548 0 Communication: epoch 9 took 0.220416 seconds to complete.
+c 11.623 0 Communication: epoch 10 took 0.295417 seconds to complete.
+c 12.544 0 Communication: epoch 11 took 0.216421 seconds to complete.
+c 13.504 0 Communication: epoch 12 took 0.176415 seconds to complete.
+c 14.576 0 Communication: epoch 13 took 0.248397 seconds to complete.
+c 15.553 0 Communication: epoch 14 took 0.225394 seconds to complete.
+c 16.558 0 Communication: epoch 15 took 0.230412 seconds to complete.
+c 17.639 0 Communication: epoch 16 took 0.311403 seconds to complete.
+c 18.640 0 Communication: epoch 17 took 0.312391 seconds to complete.
+c 19.709 0 Communication: epoch 18 took 0.381376 seconds to complete.
+c 20.729 0 Communication: epoch 19 took 0.401382 seconds to complete.
+c 21.682 0 Communication: epoch 20 took 0.354385 seconds to complete.
+c 22.796 0 Communication: epoch 21 took 0.468363 seconds to complete.
+c 23.815 0 Communication: epoch 22 took 0.487364 seconds to complete.
+c 24.803 0 Communication: epoch 23 took 0.475355 seconds to complete.
+c 25.848 0 Communication: epoch 24 took 0.520372 seconds to complete.
+c 26.787 0 Communication: epoch 25 took 0.459345 seconds to complete.
+c 27.545 0 Communication: epoch 26 took 0.217354 seconds to complete.
+c 28.603 0 Communication: epoch 27 took 0.275347 seconds to complete.
+c 29.609 0 Communication: epoch 28 took 0.281361 seconds to complete.
+c 30.608 0 Communication: epoch 29 took 0.280342 seconds to complete.
+c 31.596 0 Communication: epoch 30 took 0.268370 seconds to complete.
+c 32.777 0 Communication: epoch 31 took 0.449329 seconds to complete.
+c 33.683 0 Communication: epoch 32 took 0.355328 seconds to complete.
+c 34.675 0 Communication: epoch 33 took 0.347324 seconds to complete.
+c 35.691 0 Communication: epoch 34 took 0.363342 seconds to complete.
+c 36.648 0 Communication: epoch 35 took 0.320320 seconds to complete.
+c 37.699 0 Communication: epoch 36 took 0.371323 seconds to complete.
+c 38.622 0 Communication: epoch 37 took 0.294315 seconds to complete.
+c 39.617 0 Communication: epoch 38 took 0.289322 seconds to complete.
+c 40.669 0 Communication: epoch 39 took 0.341305 seconds to complete.
+c 41.614 0 Communication: epoch 40 took 0.286346 seconds to complete.
+c 42.555 0 Communication: epoch 41 took 0.227276 seconds to complete.
+c 43.601 0 Communication: epoch 42 took 0.273289 seconds to complete.
+c 44.592 0 Communication: epoch 43 took 0.264324 seconds to complete.
+s UNSATISFIABLE
+c 45.043 0 Mono job done.
+[1671030432.867113] [della-i12n2:585115:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1527d7bc1240 was not matched
+[1671030432.867125] [della-i12n2:585115:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x1527d7bc1300 was not matched
+c 45.474 0 Exiting happily
