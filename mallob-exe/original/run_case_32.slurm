@@ -5,7 +5,7 @@
 #SBATCH --ntasks=32                       # total number of tasks across all nodes
 #SBATCH --cpus-per-task=4                 # cpu-cores per task (>1 if multi-threaded tasks)
 #SBATCH --mem-per-cpu=4G                  # memory per cpu-core (4G is default)
-#SBATCH --time=00:10:00                   # total run time limit (HH:MM:SS)
+#SBATCH --time=01:00:00                   # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=all                   # send email when job starts, ends and faults
 #SBATCH --mail-user=yashih@princeton.edu
 
@@ -28,9 +28,9 @@ unsat_case_3="${case_dir}/w16-5.cnf.xz"
 # satisfiable
 RDMAV_FORK_SAFE=1 mpirun -np 32 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$sat_case_1 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_1-32.txt
 #RDMAV_FORK_SAFE=1 mpirun -np 32 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$sat_case_2 -satsolver=l -jwl=1000 2>&1 > sat_case_2-32.txt
-#RDMAV_FORK_SAFE=1 mpirun -np 32 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$sat_case_3 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_3-32.txt
+RDMAV_FORK_SAFE=1 mpirun -np 32 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$sat_case_3 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_3-32.txt
 
 # unsatisfiable
-#RDMAV_FORK_SAFE=1 mpirun -np 32 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$unsat_case_1 -satsolver=l -jwl=1000 -v=0 2>&1 > unsat_case_1-32.txt
+RDMAV_FORK_SAFE=1 mpirun -np 32 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$unsat_case_1 -satsolver=l -jwl=1000 -v=0 2>&1 > unsat_case_1-32.txt
 #RDMAV_FORK_SAFE=1 mpirun -np 32 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$unsat_case_2 -satsolver=l -jwl=1000 2>&1 > unsat_case_2-32.txt
-#RDMAV_FORK_SAFE=1 mpirun -np 32 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$unsat_case_3 -satsolver=l -jwl=1000 -v=0 2>&1 > unsat_case_3-32.txt
+RDMAV_FORK_SAFE=1 mpirun -np 32 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$unsat_case_3 -satsolver=l -jwl=1000 -v=0 2>&1 > unsat_case_3-32.txt

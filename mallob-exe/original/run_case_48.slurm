@@ -26,7 +26,7 @@ unsat_case_3="${case_dir}/w16-5.cnf.xz"
 #RDMAV_FORK_SAFE=1 mpirun -np 48 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono="instances/r3sat_300.cnf" -satsolver=l -jwl=1000 2>&1 > test.txt
 
 # satisfiable
-#RDMAV_FORK_SAFE=1 mpirun -np 48 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$sat_case_1 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_1-48.txt
+RDMAV_FORK_SAFE=1 mpirun -np 48 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$sat_case_1 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_1-48.txt
 #RDMAV_FORK_SAFE=1 mpirun -np 48 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$sat_case_2 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_2-48.txt
 RDMAV_FORK_SAFE=1 mpirun -np 48 --bind-to core --map-by ppr:16:node:pe=4 build/mallob -t=4 -mono=$sat_case_3 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_3-48.txt
 

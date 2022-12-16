@@ -31,6 +31,6 @@ RDMAV_FORK_SAFE=1 mpirun -np 1 --bind-to core --map-by ppr:1:node:pe=4 build/mal
 RDMAV_FORK_SAFE=1 mpirun -np 1 --bind-to core --map-by ppr:1:node:pe=4 build/mallob -t=4 -mono=$sat_case_3 -satsolver=l -v=0 2>&1 > sat_case_3-1.txt
 
 # unsatisfiable
-#RDMAV_FORK_SAFE=1 mpirun -np 1 --bind-to core --map-by ppr:1:node:pe=4 build/mallob -t=4 -mono=$unsat_case_1 -satsolver=l -v=0 2>&1 > unsat_case_1-1.txt
+RDMAV_FORK_SAFE=1 mpirun -np 1 --bind-to core --map-by ppr:1:node:pe=4 build/mallob -t=4 -mono=$unsat_case_1 -satsolver=l -v=0 2>&1 > unsat_case_1-1.txt
 #RDMAV_FORK_SAFE=1 mpirun -np 1 --bind-to core --map-by ppr:1:node:pe=4 build/mallob -t=4 -mono=$unsat_case_2 -satsolver=l -v=0 2>&1 > unsat_case_2-1.txt
 RDMAV_FORK_SAFE=1 mpirun -np 1 --bind-to core --map-by ppr:1:node:pe=4 build/mallob -t=4 -mono=$unsat_case_3 -satsolver=l -v=0 2>&1 > unsat_case_3-1.txt
