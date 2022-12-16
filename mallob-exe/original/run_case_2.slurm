@@ -5,7 +5,7 @@
 #SBATCH --ntasks=2                        # total number of tasks across all nodes
 #SBATCH --cpus-per-task=4                 # cpu-cores per task (>1 if multi-threaded tasks)
 #SBATCH --mem-per-cpu=4G                  # memory per cpu-core (4G is default)
-#SBATCH --time=01:00:00                   # total run time limit (HH:MM:SS)
+#SBATCH --time=02:00:00                   # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=all                   # send email when job starts, ends and faults
 #SBATCH --mail-user=yashih@princeton.edu
 
@@ -26,11 +26,11 @@ unsat_case_3="${case_dir}/w16-5.cnf.xz"
 #RDMAV_FORK_SAFE=1 mpirun -np 2 --bind-to core --map-by ppr:2:node:pe=4 build/mallob -t=4 -mono="instances/r3sat_300.cnf" -satsolver=l -jwl=1000 2>&1 > test.txt
 
 # satisfiable
-#RDMAV_FORK_SAFE=1 mpirun -np 2 --bind-to core --map-by ppr:2:node:pe=4 build/mallob -t=4 -mono=$sat_case_1 -satsolver=l -v=0 2>&1 > sat_case_1-2.txt
+RDMAV_FORK_SAFE=1 mpirun -np 2 --bind-to core --map-by ppr:2:node:pe=4 build/mallob -t=4 -mono=$sat_case_1 -satsolver=l -v=0 2>&1 > sat_case_1-2.txt
 #DMAV_FORK_SAFE=1 mpirun -np 2 --bind-to core --map-by ppr:2:node:pe=4 build/mallob -t=4 -mono=$sat_case_2 -satsolver=l -v=0 2>&1 > sat_case_2-2.txt
 RDMAV_FORK_SAFE=1 mpirun -np 2 --bind-to core --map-by ppr:2:node:pe=4 build/mallob -t=4 -mono=$sat_case_3 -satsolver=l -v=0 2>&1 > sat_case_3-2.txt
 
 # unsatisfiable
-#RDMAV_FORK_SAFE=1 mpirun -np 2 --bind-to core --map-by ppr:2:node:pe=4 build/mallob -t=4 -mono=$unsat_case_1 -satsolver=l -v=0 2>&1 > unsat_case_1-2.txt
+RDMAV_FORK_SAFE=1 mpirun -np 2 --bind-to core --map-by ppr:2:node:pe=4 build/mallob -t=4 -mono=$unsat_case_1 -satsolver=l -v=0 2>&1 > unsat_case_1-2.txt
 #RDMAV_FORK_SAFE=1 mpirun -np 2 --bind-to core --map-by ppr:2:node:pe=4 build/mallob -t=4 -mono=$unsat_case_2 -satsolver=l -v=0 2>&1 > unsat_case_2-2.txt
-#RDMAV_FORK_SAFE=1 mpirun -np 2 --bind-to core --map-by ppr:2:node:pe=4 build/mallob -t=4 -mono=$unsat_case_3 -satsolver=l -v=0 2>&1 > unsat_case_3-2.txt
+RDMAV_FORK_SAFE=1 mpirun -np 2 --bind-to core --map-by ppr:2:node:pe=4 build/mallob -t=4 -mono=$unsat_case_3 -satsolver=l -v=0 2>&1 > unsat_case_3-2.txt

@@ -1,0 +1,142 @@
+c 
+c Mallob -- a parallel and distributed platform for job scheduling, load balancing, and SAT solving
+c Designed by P. Sanders and D. Schreiber 2018-2022
+c Developed by D. Schreiber 2019-2022
+c 
+c 1.845 9 Communication: epoch 1 took 0.073670 seconds to complete.
+c 2.271 9 Communication: epoch 2 took 0.099667 seconds to complete.
+c 2.666 9 Communication: epoch 3 took 0.094657 seconds to complete.
+c 3.077 9 Communication: epoch 4 took 0.105656 seconds to complete.
+c 3.465 9 Communication: epoch 5 took 0.093656 seconds to complete.
+c 3.853 9 Communication: epoch 6 took 0.081681 seconds to complete.
+c 4.259 9 Communication: epoch 7 took 0.087696 seconds to complete.
+c 4.653 9 Communication: epoch 8 took 0.081670 seconds to complete.
+c 5.068 9 Communication: epoch 9 took 0.096694 seconds to complete.
+c 5.465 9 Communication: epoch 10 took 0.093669 seconds to complete.
+c 5.895 9 Communication: epoch 11 took 0.123697 seconds to complete.
+c 6.271 9 Communication: epoch 12 took 0.099638 seconds to complete.
+c 6.671 9 Communication: epoch 13 took 0.099691 seconds to complete.
+c 7.087 9 Communication: epoch 14 took 0.115693 seconds to complete.
+c 7.462 9 Communication: epoch 15 took 0.090657 seconds to complete.
+c 7.934 9 Communication: epoch 16 took 0.162635 seconds to complete.
+c 8.307 9 Communication: epoch 17 took 0.135649 seconds to complete.
+c 8.700 9 Communication: epoch 18 took 0.128646 seconds to complete.
+c 9.094 9 Communication: epoch 19 took 0.122600 seconds to complete.
+c 9.453 9 Communication: epoch 20 took 0.081605 seconds to complete.
+c 9.862 9 Communication: epoch 21 took 0.090599 seconds to complete.
+c 10.286 9 Communication: epoch 22 took 0.114655 seconds to complete.
+c 10.651 9 Communication: epoch 23 took 0.079630 seconds to complete.
+c 11.144 9 Communication: epoch 24 took 0.172606 seconds to complete.
+c 11.529 9 Communication: epoch 25 took 0.157623 seconds to complete.
+c 12.003 9 Communication: epoch 26 took 0.231621 seconds to complete.
+c 12.260 9 Communication: epoch 27 took 0.088625 seconds to complete.
+c 12.779 9 Communication: epoch 28 took 0.207623 seconds to complete.
+c 13.248 9 Communication: epoch 29 took 0.276613 seconds to complete.
+c 13.490 9 Communication: epoch 30 took 0.118593 seconds to complete.
+c 13.866 9 Communication: epoch 31 took 0.094608 seconds to complete.
+c 14.370 9 Communication: epoch 32 took 0.198601 seconds to complete.
+c 14.823 9 Communication: epoch 33 took 0.251625 seconds to complete.
+c 15.183 9 Communication: epoch 34 took 0.211586 seconds to complete.
+c 15.593 9 Communication: epoch 35 took 0.221588 seconds to complete.
+c 15.970 9 Communication: epoch 36 took 0.198646 seconds to complete.
+c 16.427 9 Communication: epoch 37 took 0.255581 seconds to complete.
+c 16.771 9 Communication: epoch 38 took 0.199575 seconds to complete.
+c 17.123 9 Communication: epoch 39 took 0.151600 seconds to complete.
+c 17.598 9 Communication: epoch 40 took 0.226583 seconds to complete.
+c 18.059 9 Communication: epoch 41 took 0.287586 seconds to complete.
+c 18.445 9 Communication: epoch 42 took 0.273590 seconds to complete.
+c 18.853 9 Communication: epoch 43 took 0.281563 seconds to complete.
+c 19.066 9 Communication: epoch 44 took 0.094570 seconds to complete.
+c 19.604 9 Communication: epoch 45 took 0.232534 seconds to complete.
+c 19.979 9 Communication: epoch 46 took 0.207550 seconds to complete.
+c 20.428 9 Communication: epoch 47 took 0.256519 seconds to complete.
+c 20.749 9 Communication: epoch 48 took 0.177521 seconds to complete.
+c 21.250 9 Communication: epoch 49 took 0.278538 seconds to complete.
+c 21.616 9 Communication: epoch 50 took 0.244509 seconds to complete.
+c 21.950 9 Communication: epoch 51 took 0.178522 seconds to complete.
+c 22.423 9 Communication: epoch 52 took 0.251514 seconds to complete.
+c 22.763 9 Communication: epoch 53 took 0.191519 seconds to complete.
+c 23.170 9 Communication: epoch 54 took 0.198519 seconds to complete.
+c 23.548 9 Communication: epoch 55 took 0.176510 seconds to complete.
+c 24.046 9 Communication: epoch 56 took 0.274509 seconds to complete.
+c 24.359 9 Communication: epoch 57 took 0.187550 seconds to complete.
+c 24.791 9 Communication: epoch 58 took 0.219456 seconds to complete.
+c 25.311 9 Communication: epoch 59 took 0.339481 seconds to complete.
+c 25.684 9 Communication: epoch 60 took 0.312460 seconds to complete.
+c 26.072 9 Communication: epoch 61 took 0.300480 seconds to complete.
+c 26.415 9 Communication: epoch 62 took 0.243467 seconds to complete.
+c 26.845 9 Communication: epoch 63 took 0.273458 seconds to complete.
+c 27.224 9 Communication: epoch 64 took 0.252462 seconds to complete.
+c 27.601 9 Communication: epoch 65 took 0.229525 seconds to complete.
+c 28.003 9 Communication: epoch 66 took 0.231455 seconds to complete.
+c 28.379 9 Communication: epoch 67 took 0.207451 seconds to complete.
+c 28.767 9 Communication: epoch 68 took 0.195450 seconds to complete.
+c 29.410 9 Communication: epoch 69 took 0.438444 seconds to complete.
+c 29.683 9 Communication: epoch 70 took 0.311460 seconds to complete.
+c 30.099 9 Communication: epoch 71 took 0.327461 seconds to complete.
+c 30.441 9 Communication: epoch 72 took 0.269449 seconds to complete.
+c 30.882 9 Communication: epoch 73 took 0.310408 seconds to complete.
+c 31.177 9 Communication: epoch 74 took 0.205416 seconds to complete.
+c 31.648 9 Communication: epoch 75 took 0.276438 seconds to complete.
+c 32.058 9 Communication: epoch 76 took 0.286409 seconds to complete.
+c 32.390 9 Communication: epoch 77 took 0.218422 seconds to complete.
+c 32.844 9 Communication: epoch 78 took 0.272404 seconds to complete.
+c 33.279 9 Communication: epoch 79 took 0.307392 seconds to complete.
+c 33.599 9 Communication: epoch 80 took 0.227417 seconds to complete.
+c 34.020 9 Communication: epoch 81 took 0.248390 seconds to complete.
+c 34.323 9 Communication: epoch 82 took 0.151371 seconds to complete.
+c 34.796 9 Communication: epoch 83 took 0.224377 seconds to complete.
+c 35.121 9 Communication: epoch 84 took 0.149368 seconds to complete.
+c 35.648 9 Communication: epoch 85 took 0.276394 seconds to complete.
+c 36.047 9 Communication: epoch 86 took 0.275394 seconds to complete.
+c 36.357 9 Communication: epoch 87 took 0.185360 seconds to complete.
+c 36.773 9 Communication: epoch 88 took 0.201332 seconds to complete.
+c 37.171 9 Communication: epoch 89 took 0.199337 seconds to complete.
+c 37.606 9 Communication: epoch 90 took 0.234333 seconds to complete.
+c 37.962 9 Communication: epoch 91 took 0.190311 seconds to complete.
+c 38.291 9 Communication: epoch 92 took 0.119320 seconds to complete.
+c 38.748 9 Communication: epoch 93 took 0.176319 seconds to complete.
+c 39.167 9 Communication: epoch 94 took 0.195297 seconds to complete.
+c 39.524 9 Communication: epoch 95 took 0.152294 seconds to complete.
+c 40.036 9 Communication: epoch 96 took 0.264297 seconds to complete.
+c 40.388 9 Communication: epoch 97 took 0.216290 seconds to complete.
+c 40.742 9 Communication: epoch 98 took 0.170284 seconds to complete.
+c 41.255 9 Communication: epoch 99 took 0.283283 seconds to complete.
+c 41.605 9 Communication: epoch 100 took 0.233265 seconds to complete.
+c 41.870 9 Communication: epoch 101 took 0.098255 seconds to complete.
+c 42.261 9 Communication: epoch 102 took 0.089256 seconds to complete.
+c 42.732 9 Communication: epoch 103 took 0.160248 seconds to complete.
+c 43.133 9 Communication: epoch 104 took 0.161251 seconds to complete.
+c 43.531 9 Communication: epoch 105 took 0.159245 seconds to complete.
+c 43.927 9 Communication: epoch 106 took 0.155228 seconds to complete.
+c 44.323 9 Communication: epoch 107 took 0.151237 seconds to complete.
+c 44.728 9 Communication: epoch 108 took 0.156250 seconds to complete.
+c 45.093 9 Communication: epoch 109 took 0.121208 seconds to complete.
+c 45.493 9 Communication: epoch 110 took 0.121216 seconds to complete.
+s UNSATISFIABLE
+c 45.624 0 Mono job done.
+[1671128017.865953] [della-i12n1:694544:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x145cb2452100 was not matched
+[1671128017.865814] [della-i12n1:694547:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14667fe86fc0 was not matched
+[1671128017.870309] [della-i12n1:694549:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14ce9687c140 was not matched
+[1671128017.870901] [della-i12n1:694551:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14b0b1d25f00 was not matched
+[1671128017.872229] [della-i12n1:694543:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14c60243cdc0 was not matched
+[1671128017.872235] [della-i12n1:694543:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14c60243d480 was not matched
+c 46.314 0 Exiting happily
+[1671128017.872310] [della-i12n2:688660:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14da71ada5c0 was not matched
+[1671128017.872321] [della-i12n2:688660:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x14da71ad9fc0 was not matched
+[1671128017.872518] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4e80 was not matched
+[1671128017.872528] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4ac0 was not matched
+[1671128017.872530] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4700 was not matched
+[1671128017.872531] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4880 was not matched
+[1671128017.872532] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a44c0 was not matched
+[1671128017.872533] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4dc0 was not matched
+[1671128017.872533] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4340 was not matched
+[1671128017.872534] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4d00 was not matched
+[1671128017.872535] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4b80 was not matched
+[1671128017.872536] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4940 was not matched
+[1671128017.872537] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a47c0 was not matched
+[1671128017.872538] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4640 was not matched
+[1671128017.872539] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4580 was not matched
+[1671128017.872540] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4400 was not matched
+[1671128017.872541] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4a00 was not matched
+[1671128017.872541] [della-i12n2:688654:0]       tag_match.c:62   UCX  WARN  unexpected tag-receive descriptor 0x149adc6a4c40 was not matched

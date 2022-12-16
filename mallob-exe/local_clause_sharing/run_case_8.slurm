@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=run_original_8         # create a short name for your job
+#SBATCH --job-name=run_case_8             # create a short name for your job
 #SBATCH --partition=malik
 #SBATCH --nodes=1                         # node count
 #SBATCH --ntasks=8                        # total number of tasks across all nodes
@@ -26,11 +26,11 @@ unsat_case_3="${case_dir}/w16-5.cnf.xz"
 #RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -mono="instances/r3sat_300.cnf" -satsolver=l -jwl=1000 2>&1 > test.txt
 
 # satisfiable
-RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -mono=$sat_case_1 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_1-8.txt
-#RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -mono=$sat_case_2 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_2-8.txt
-RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -mono=$sat_case_3 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_3-8.txt
+RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -s=0.4 -cbbs=800 -mono=$sat_case_1 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_1-8.txt
+#RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -s=0.4 -cbbs=800 -mono=$sat_case_2 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_2-8.txt
+RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -s=0.4 -cbbs=800 -mono=$sat_case_3 -satsolver=l -jwl=1000 -v=0 2>&1 > sat_case_3-8.txt
 
 # unsatisfiable
-RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -mono=$unsat_case_1 -satsolver=l -jwl=1000 -v=0 2>&1 > unsat_case_1-8.txt
-#RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -mono=$unsat_case_2 -satsolver=l -jwl=1000 -v=0 2>&1 > unsat_case_2-8.txt
-RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -mono=$unsat_case_3 -satsolver=l -jwl=1000 -v=0 2>&1 > unsat_case_3-8.txt
+RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -s=0.4 -cbbs=800 -mono=$unsat_case_1 -satsolver=l -jwl=1000 -v=0 2>&1 > unsat_case_1-8.txt
+#RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -s=0.4 -cbbs=800 -mono=$unsat_case_2 -satsolver=l -jwl=1000 -v=0 2>&1 > unsat_case_2-8.txt
+RDMAV_FORK_SAFE=1 mpirun -np 8 --bind-to core --map-by ppr:8:node:pe=4 build/mallob -t=4 -s=0.4 -cbbs=800 -mono=$unsat_case_3 -satsolver=l -jwl=1000 -v=0 2>&1 > unsat_case_3-8.txt
